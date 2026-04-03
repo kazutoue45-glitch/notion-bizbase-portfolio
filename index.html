@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion BizBase — Notion × AI の業務基盤設計</title>
+  <meta name="description" content="Notion × AIの業務基盤設計。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営OSを設計・構築・運用。">
+  <meta property="og:title" content="Notion BizBase — Notion × AI の業務基盤設計">
+  <meta property="og:description" content="Notion × AIの業務基盤設計。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営OSを設計・構築・運用。">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1B2A4A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       CSS Variables
+       ======================================== */
+    :root {
+      --c-navy: #1B2A4A;
+      --c-navy-deep: #0F1D35;
+      --c-navy-light: #2A3F6B;
+      --c-gold: #C8A960;
+      --c-gold-light: #E8D18C;
+      --c-gold-dark: #B8994D;
+      --c-bg: #FFFFFF;
+      --c-bg-alt: #F5F5F5;
+      --c-text: #333333;
+      --c-text-mid: #777777;
+      --c-text-on-dark: #E8ECF4;
+      --c-text-on-dark-mid: #A8B4CC;
+      --c-border: #E0E0E0;
+      --c-white: #FFFFFF;
+      --container: min(1200px, 92vw);
+      --section-py: clamp(5rem, 10vw, 8rem);
+      --shadow-sm: 0 2px 8px rgba(27,42,74,0.06);
+      --shadow-md: 0 8px 32px rgba(27,42,74,0.10);
+      --shadow-card: 0 4px 20px rgba(27,42,74,0.08);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 400;
+      color: var(--c-text);
+      background: var(--c-bg);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ========================================
+       Layout Utilities
+       ======================================== */
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .sec {
+      padding: var(--section-py) 0;
+    }
+
+    .sec--alt {
+      background: var(--c-bg-alt);
+    }
+
+    .sec--dark {
+      background: var(--c-navy);
+      color: var(--c-text-on-dark);
+    }
+
+    .sec--deep {
+      background: var(--c-navy-deep);
+      color: var(--c-text-on-dark);
+    }
+
+    /* ========================================
+       Section Heading
+       ======================================== */
+    .sec-heading {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .sec-heading h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--c-navy);
+      display: inline-block;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .sec-heading h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 48px;
+      height: 3px;
+      background: var(--c-gold);
+      border-radius: 2px;
+    }
+
+    .sec--dark .sec-heading h2 {
+      color: var(--c-white);
+    }
+
+    .sec--dark .sec-heading h2::after {
+      background: var(--c-gold);
+    }
+
+    .sec-heading .sub-heading {
+      display: block;
+      color: var(--c-text-mid);
+      font-size: 0.95rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ========================================
+       Grids
+       ======================================== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* ========================================
+       Card
+       ======================================== */
+    .card {
+      background: var(--c-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-icon {
+      margin-bottom: 1.25rem;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      line-height: 1.75;
+    }
+
+    /* ========================================
+       Placeholder Image
+       ======================================== */
+    .placeholder {
+      background: #F0F0F0;
+      border-radius: 8px;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.9rem;
+      border: 2px dashed #DDD;
+    }
+
+    .placeholder::after {
+      content: attr(data-label);
+    }
+
+    .placeholder-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      margin-top: 0.5rem;
+    }
+
+    /* ========================================
+       Scroll Reveal
+       ======================================== */
+    .rv {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .rv.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .rv-d1 { transition-delay: 0.08s; }
+    .rv-d2 { transition-delay: 0.16s; }
+    .rv-d3 { transition-delay: 0.24s; }
+    .rv-d4 { transition-delay: 0.32s; }
+    .rv-d5 { transition-delay: 0.40s; }
+
+    /* ========================================
+       FV (First View)
+       ======================================== */
+    .fv {
+      padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+    }
+
+    .fv-inner {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .fv-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fv-text h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--c-navy);
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .fv-sub {
+      color: var(--c-text-mid);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .fv-badges {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .fv-badge {
+      text-align: center;
+    }
+
+    .fv-badge .num {
+      display: block;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--c-gold);
+      line-height: 1.2;
+    }
+
+    .fv-badge .label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--c-navy);
+      font-weight: 500;
+    }
+
+    .fv-visual {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .fv-visual .placeholder {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ========================================
+       Section 1: Notion BizBase
+       ======================================== */
+    .bizbase-lead {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 3rem;
+      color: var(--c-text-mid);
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 1.25rem 0.5rem;
+      background: var(--c-bg-alt);
+      border-radius: var(--radius-sm);
+    }
+
+    .stat-item .num {
+      display: block;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--c-gold);
+      line-height: 1.2;
+    }
+
+    .stat-item .label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--c-navy);
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .screenshot-grid {
+      margin-top: 3.5rem;
+    }
+
+    /* ========================================
+       Section 2: Design Philosophy
+       ======================================== */
+    .philosophy-card {
+      position: relative;
+    }
+
+    .philosophy-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 1rem;
+    }
+
+    .philosophy-card p {
+      font-size: 0.9rem;
+      color: var(--c-text);
+      line-height: 1.85;
+    }
+
+    .gold-underline {
+      border-bottom: 2px solid var(--c-gold);
+      padding-bottom: 1px;
+    }
+
+    .diagram-wrapper {
+      margin-top: 3.5rem;
+      background: var(--c-white);
+      border-radius: var(--radius-md);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      justify-content: center;
+    }
+
+    .diagram-wrapper svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 640px) {
+      .diagram-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.5rem;
+      }
+
+      .diagram-wrapper svg {
+        min-width: 520px;
+      }
+    }
+
+    /* ========================================
+       Section 3: Before / After
+       ======================================== */
+    .ba-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .ba-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--c-bg-alt);
+      border-radius: var(--radius-sm);
+    }
+
+    .ba-before {
+      flex: 1;
+      color: #999;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .ba-arrow {
+      flex-shrink: 0;
+      color: var(--c-gold);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .ba-after {
+      flex: 1;
+      color: var(--c-navy);
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       Section 4: Comparison Table
+       ======================================== */
+    .table-wrapper {
+      background: var(--c-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .compare-table {
+      width: 100%;
+      min-width: 600px;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      padding: 1rem 1.25rem;
+      text-align: center;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .compare-table thead th {
+      background: var(--c-navy);
+      color: var(--c-white);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .compare-table thead th:first-child {
+      border-radius: var(--radius-md) 0 0 0;
+    }
+
+    .compare-table thead th:last-child {
+      border-radius: 0 var(--radius-md) 0 0;
+    }
+
+    .compare-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-table td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: var(--c-navy);
+    }
+
+    .compare-table .highlight-head {
+      background: var(--c-gold);
+      color: var(--c-navy-deep);
+    }
+
+    .compare-table .highlight {
+      background: rgba(200, 169, 96, 0.08);
+      font-weight: 700;
+      color: var(--c-navy);
+    }
+
+    /* ========================================
+       Section 5: Services
+       ======================================== */
+    .service-card .card-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(27, 42, 74, 0.05);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ========================================
+       Section 6: Flow
+       ======================================== */
+    .flow-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--c-gold);
+      color: var(--c-white);
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-body h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .step-body p {
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      line-height: 1.75;
+    }
+
+    /* ========================================
+       Section 7: About
+       ======================================== */
+    .about-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+
+    .about-photo {
+      flex-shrink: 0;
+    }
+
+    .about-photo .placeholder-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--c-white);
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-text-on-dark-mid);
+      font-size: 0.8rem;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--c-white);
+      margin-bottom: 0.35rem;
+    }
+
+    .about-text .title {
+      color: var(--c-gold);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-text .bio {
+      color: var(--c-text-on-dark);
+      font-size: 0.9rem;
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-card {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+    }
+
+    .skill-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--c-white);
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-card p {
+      font-size: 0.8rem;
+      color: var(--c-text-on-dark-mid);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      background: var(--c-navy-deep);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+
+    .footer-logo {
+      color: var(--c-gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-copy {
+      color: var(--c-text-on-dark-mid);
+      font-size: 0.75rem;
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+    @media (max-width: 768px) {
+      .fv-inner {
+        flex-direction: column;
+      }
+
+      .fv-badges {
+        justify-content: center;
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-5,
+      .stats-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .ba-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+      }
+
+      .ba-before,
+      .ba-after {
+        flex: none;
+      }
+
+      .about-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sec {
+        padding: clamp(3rem, 8vw, 5rem) 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid-5,
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .fv-badges {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       FV (First View)
+       ======================================== -->
+  <section class="fv">
+    <div class="container">
+      <div class="fv-inner">
+        <div class="fv-text rv">
+          <h1>Notion × AI で、<br>ビジネスの「経営OS」を設計する。</h1>
+          <p class="fv-sub">Notion構築 ・ AIエージェント設計 ・ 業務基盤の設計から実装・運用まで</p>
+          <div class="fv-badges">
+            <div class="fv-badge">
+              <span class="num">6</span>
+              <span class="label">モジュール</span>
+            </div>
+            <div class="fv-badge">
+              <span class="num">18</span>
+              <span class="label">DB</span>
+            </div>
+            <div class="fv-badge">
+              <span class="num">5</span>
+              <span class="label">AIチーム</span>
+            </div>
+          </div>
+        </div>
+        <div class="fv-visual rv rv-d2">
+          <div class="placeholder" data-label="BizBase ダッシュボード"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 1: Notion BizBase
+       ======================================== -->
+  <section class="sec" style="border-top: 1px solid var(--c-border);">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>自社プロダクト「Notion BizBase」</h2>
+        <span class="sub-heading">AIエージェント搭載の経営基盤</span>
+      </div>
+
+      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営OSを、自ら設計・構築・運用している。</p>
+
+      <!-- 構築規模 -->
+      <div class="stats-row rv">
+        <div class="stat-item">
+          <span class="num">18</span>
+          <span class="label">データベース</span>
+        </div>
+        <div class="stat-item">
+          <span class="num">50+</span>
+          <span class="label">ビュー</span>
+        </div>
+        <div class="stat-item">
+          <span class="num">5</span>
+          <span class="label">AIエージェント</span>
+        </div>
+        <div class="stat-item">
+          <span class="num">20+</span>
+          <span class="label">AIスキル</span>
+        </div>
+        <div class="stat-item">
+          <span class="num">2025〜</span>
+          <span class="label">運用期間</span>
+        </div>
+      </div>
+
+      <!-- 主要機能4カード -->
+      <div class="grid-2">
+        <div class="card rv rv-d1">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="18" r="7"/>
+              <path d="M6 38c0-6.627 5.373-12 12-12"/>
+              <circle cx="34" cy="18" r="5"/>
+              <path d="M42 38c0-5.523-4.477-10-10-10"/>
+            </svg>
+          </div>
+          <h3>CRM（顧客管理） &mdash; 5DB構成</h3>
+          <p>企業DB × 名刺DB × 商談DB × 活動ログをリレーションで統合。顧客ページを開くだけで「誰に・いつ・何を提案したか」が一目瞭然。AIがフォロータイミングを提案。</p>
+        </div>
+
+        <div class="card rv rv-d2">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="8" width="32" height="32" rx="4"/>
+              <path d="M16 18l3 3 5-6"/>
+              <path d="M28 19h6"/>
+              <path d="M16 28l3 3 5-6"/>
+              <path d="M28 29h6"/>
+            </svg>
+          </div>
+          <h3>ゴール直結型タスク管理 &mdash; 3DB構成</h3>
+          <p>ゴールDB → プロジェクトDB → タスクDBの3層構造。すべてのタスクがゴールに紐づく。「忙しいのに成果が出ない」を根本から解消。</p>
+        </div>
+
+        <div class="card rv rv-d3">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 6h20l8 8v28a2 2 0 01-2 2H10a2 2 0 01-2-2V8a2 2 0 012-2z"/>
+              <path d="M30 6v8h8"/>
+              <path d="M16 22h16"/>
+              <path d="M16 28h16"/>
+              <path d="M16 34h10"/>
+            </svg>
+          </div>
+          <h3>ナレッジベース &mdash; 3DB構成</h3>
+          <p>社内の知見・ノウハウ・資料をタグで横断検索。AIがナレッジを参照して提案・回答を生成。使うほど価値が増す情報資産。</p>
+        </div>
+
+        <div class="card rv rv-d4">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="12" y="8" width="24" height="28" rx="4"/>
+              <circle cx="20" cy="20" r="2"/>
+              <circle cx="28" cy="20" r="2"/>
+              <path d="M18 28c1 2 3 3 6 3s5-1 6-3"/>
+              <path d="M16 4h16"/>
+              <path d="M18 40h12"/>
+              <path d="M24 36v4"/>
+            </svg>
+          </div>
+          <h3>AIエージェントチーム &mdash; 2DB + 5体</h3>
+          <p>マスターAI（全体統括）+ 特化型エージェント（提案書作成・タスク整理・コンテンツ作成・CRM自動入力等）。メンション一発でAIスキルが起動。</p>
+        </div>
+      </div>
+
+      <!-- スクリーンショット 2x2 -->
+      <div class="grid-2 screenshot-grid">
+        <div class="rv rv-d1">
+          <div class="placeholder" data-label="CRM画面"></div>
+          <p class="placeholder-caption">CRM画面 &mdash; 顧客情報・対応履歴・次のアクションを1画面で一覧</p>
+        </div>
+        <div class="rv rv-d2">
+          <div class="placeholder" data-label="タスク管理ダッシュボード"></div>
+          <p class="placeholder-caption">タスク管理ダッシュボード &mdash; ゴールから逆算された「今日やること」が並ぶ</p>
+        </div>
+        <div class="rv rv-d3">
+          <div class="placeholder" data-label="ナレッジベース一覧"></div>
+          <p class="placeholder-caption">ナレッジベース一覧 &mdash; タグ横断検索で3秒で必要な情報にたどり着く</p>
+        </div>
+        <div class="rv rv-d4">
+          <div class="placeholder" data-label="AIエージェント操作画面"></div>
+          <p class="placeholder-caption">AIエージェント操作画面 &mdash; メンションで起動し、業務データを参照して回答</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 2: Design Philosophy
+       ======================================== -->
+  <section class="sec sec--alt">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>なぜこう設計したのか</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card philosophy-card rv rv-d1">
+          <h3>ゴールからの逆算</h3>
+          <p>すべてのDBは「ゴール → プロジェクト → タスク」の一本線で接続されている。タスクがゴールに紐づいていない状態＝設計が破綻している状態。BizBaseは<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造になっている。</p>
+        </div>
+        <div class="card philosophy-card rv rv-d2">
+          <h3>入力は1回、反映は全体に</h3>
+          <p>情報を入力する場所は1つだけ。リレーションで全体に伝播する。顧客名を1回入力すれば、CRM・商談・活動ログ・タスクすべてに自動反映。<span class="gold-underline">二重入力が発生する設計は、使われなくなる</span>。</p>
+        </div>
+        <div class="card philosophy-card rv rv-d3">
+          <h3>AIが参照できる状態にする</h3>
+          <p>AIに仕事を任せるには、AIがデータにアクセスできる構造が必要。BizBaseは全DBをAIエージェントが横断参照できる設計になっている。だから<span class="gold-underline">「蓄積するほどAIが賢くなる」が実現する</span>。</p>
+        </div>
+      </div>
+
+      <!-- 概念図 -->
+      <div class="diagram-wrapper rv">
+        <svg viewBox="0 0 800 320" width="800" height="320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 3層ボックス -->
+          <rect x="60" y="120" width="160" height="70" rx="8" stroke="#1B2A4A" stroke-width="2" fill="#FFFFFF"/>
+          <text x="140" y="162" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#1B2A4A">ゴール</text>
+
+          <rect x="300" y="120" width="160" height="70" rx="8" stroke="#1B2A4A" stroke-width="2" fill="#FFFFFF"/>
+          <text x="380" y="162" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#1B2A4A">プロジェクト</text>
+
+          <rect x="540" y="120" width="160" height="70" rx="8" stroke="#1B2A4A" stroke-width="2" fill="#FFFFFF"/>
+          <text x="620" y="162" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#1B2A4A">タスク</text>
+
+          <!-- 矢印: ゴール → PJ -->
+          <line x1="220" y1="155" x2="290" y2="155" stroke="#1B2A4A" stroke-width="2"/>
+          <polygon points="290,150 300,155 290,160" fill="#1B2A4A"/>
+
+          <!-- 矢印: PJ → タスク -->
+          <line x1="460" y1="155" x2="530" y2="155" stroke="#1B2A4A" stroke-width="2"/>
+          <polygon points="530,150 540,155 530,160" fill="#1B2A4A"/>
+
+          <!-- AIエージェント -->
+          <rect x="240" y="250" width="280" height="56" rx="28" stroke="#C8A960" stroke-width="2.5" fill="rgba(200,169,96,0.08)"/>
+          <text x="380" y="284" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#C8A960">AIエージェント（横断参照）</text>
+
+          <!-- 破線: AIが各層を参照 -->
+          <line x1="140" y1="190" x2="300" y2="250" stroke="#C8A960" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="380" y1="190" x2="380" y2="250" stroke="#C8A960" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <line x1="620" y1="190" x2="460" y2="250" stroke="#C8A960" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+          <!-- ラベル -->
+          <text x="140" y="105" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#777">長期目標</text>
+          <text x="380" y="105" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#777">施策・案件</text>
+          <text x="620" y="105" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#777">日々のアクション</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 3: Before / After
+       ======================================== -->
+  <section class="sec">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>設計前後の変化</h2>
+      </div>
+
+      <div class="ba-list">
+        <div class="ba-row rv rv-d1">
+          <div class="ba-before">LINE・スプシ・メモ帳に顧客情報がバラバラ</div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-after">1画面で顧客情報・対応履歴・次のアクションまで一覧</div>
+        </div>
+        <div class="ba-row rv rv-d2">
+          <div class="ba-before">毎朝「今日何やる？」から始まる</div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-after">Notionを開けば、ゴールから逆算で「今日やること」が並んでいる</div>
+        </div>
+        <div class="ba-row rv rv-d3">
+          <div class="ba-before">情報は溜めてるけど検索も振り返りもできない</div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-after">タグ検索で3秒。AIがナレッジを参照して提案生成</div>
+        </div>
+        <div class="ba-row rv rv-d4">
+          <div class="ba-before">提案書・マニュアルを毎回ゼロから作成</div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-after">AIが過去のナレッジを参照して即生成</div>
+        </div>
+        <div class="ba-row rv rv-d5">
+          <div class="ba-before">管理ツール5つを行き来、月10万円以上</div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-after">Notion 1つに統合。月額1,500〜3,000円</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 4: Comparison Table
+       ======================================== -->
+  <section class="sec sec--alt">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>Salesforce級の管理を、Notionの価格で</h2>
+      </div>
+
+      <div class="table-wrapper rv">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>機能</th>
+              <th>Salesforce</th>
+              <th>kintone</th>
+              <th class="highlight-head">Notion BizBase</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>月額（目安）</td>
+              <td>3万〜15万/人</td>
+              <td>1,500〜3,000/人</td>
+              <td class="highlight">1,500〜3,000/人</td>
+            </tr>
+            <tr>
+              <td>CRM</td>
+              <td>◎</td>
+              <td>△（要カスタム）</td>
+              <td class="highlight">◎</td>
+            </tr>
+            <tr>
+              <td>タスク・PJ管理</td>
+              <td>△</td>
+              <td>○</td>
+              <td class="highlight">◎</td>
+            </tr>
+            <tr>
+              <td>ナレッジベース</td>
+              <td>△</td>
+              <td>△</td>
+              <td class="highlight">◎</td>
+            </tr>
+            <tr>
+              <td>経理管理</td>
+              <td>✕</td>
+              <td>△</td>
+              <td class="highlight">◎</td>
+            </tr>
+            <tr>
+              <td>AI連携</td>
+              <td>○（追加費用）</td>
+              <td>△</td>
+              <td class="highlight">◎（標準搭載）</td>
+            </tr>
+            <tr>
+              <td>カスタマイズ性</td>
+              <td>○（開発者必要）</td>
+              <td>○</td>
+              <td class="highlight">◎（自由設計）</td>
+            </tr>
+            <tr>
+              <td>自走しやすさ</td>
+              <td>✕</td>
+              <td>○</td>
+              <td class="highlight">◎</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 5: Services
+       ======================================== -->
+  <section class="sec">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>対応可能な領域</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card service-card rv rv-d1">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="24" cy="14" rx="12" ry="6"/>
+              <path d="M12 14v8c0 3.314 5.373 6 12 6s12-2.686 12-6v-8"/>
+              <path d="M12 22v8c0 3.314 5.373 6 12 6s12-2.686 12-6v-8"/>
+            </svg>
+          </div>
+          <h3>Notion業務基盤の設計・構築</h3>
+          <p>業務フローのヒアリングから、DB設計・リレーション・ビュー・ダッシュボード構築まで一貫して対応。テンプレートの横流しではなく、業務に合わせたオーダーメイド設計。</p>
+        </div>
+
+        <div class="card service-card rv rv-d2">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="20" r="10"/>
+              <path d="M18 16l3 4 3-2 3 2 3-4"/>
+              <path d="M16 32c2-4 5-6 8-6s6 2 8 6"/>
+              <path d="M32 20h6l2 4-2 4"/>
+              <path d="M10 20H4l-2 4 2 4"/>
+              <circle cx="24" cy="20" r="3" fill="none"/>
+              <path d="M20 38h8"/>
+              <path d="M22 38v4"/>
+              <path d="M26 38v4"/>
+            </svg>
+          </div>
+          <h3>AIエージェントの設計・構築</h3>
+          <p>NotionのカスタムAIエージェント・プロンプト設計・スキル体系設計。AIが業務データを参照して提案・レポート生成・自動化を行う仕組みを構築。</p>
+        </div>
+
+        <div class="card service-card rv rv-d3">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 28c-2-1-4-1-6 0s-2 4 0 5l10 7"/>
+              <path d="M34 28c2-1 4-1 6 0s2 4 0 5l-10 7"/>
+              <path d="M18 40l6-5 6 5"/>
+              <circle cx="16" cy="18" r="6"/>
+              <circle cx="32" cy="18" r="6"/>
+              <path d="M22 18h4"/>
+            </svg>
+          </div>
+          <h3>運用支援・伴走サポート</h3>
+          <p>構築して終わりではなく、実際の運用に合わせた調整・改善を継続支援。「自走できる状態」をゴールに、定着するまで伴走。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 6: Flow
+       ======================================== -->
+  <section class="sec sec--alt">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>制作の流れ</h2>
+      </div>
+
+      <div class="flow-list">
+        <div class="step rv rv-d1">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h3>ヒアリング</h3>
+            <p>現状の業務フロー・課題・ゴールを整理。「何をどう整理すればいいかわからない」状態でもOK。</p>
+          </div>
+        </div>
+        <div class="step rv rv-d2">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h3>要件定義・設計</h3>
+            <p>ヒアリング内容をもとに、DB設計・全体構成・AIエージェント設計を提案。設計書を見せながら方向性を確認。</p>
+          </div>
+        </div>
+        <div class="step rv rv-d3">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h3>構築・実装</h3>
+            <p>Notion上にDB・ビュー・ダッシュボード・AIエージェントを構築。途中経過を共有しながら進行。</p>
+          </div>
+        </div>
+        <div class="step rv rv-d4">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h3>テスト・調整・納品</h3>
+            <p>実際にデータを入れて動作確認。運用に合わせた微調整後、操作レクチャーとともに納品。</p>
+          </div>
+        </div>
+        <div class="step rv rv-d5">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h3>運用サポート</h3>
+            <p>定着するまで伴走。DB追加・エージェント構築・構造変更にも対応。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Section 7: About
+       ======================================== -->
+  <section class="sec sec--dark">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>About</h2>
+      </div>
+
+      <div class="about-inner">
+        <div class="about-photo rv">
+          <div class="placeholder-circle">PHOTO</div>
+        </div>
+        <div class="about-text rv rv-d2">
+          <h3>上原千翔（うえはら かずと）</h3>
+          <p class="title">元教育者（数学指導）→ Notion × AI 業務基盤設計</p>
+          <div class="bio">
+            <p>「想像力 × AI = 圧倒的な創造力」をコンセプトに、クライアントのゴールから逆算した業務基盤（経営OS）をNotionで設計。CRM・タスク管理・ナレッジベース・AIエージェントを一つの仕組みとして統合し、「Notionを開くだけで、今日何をすべきかわかる」状態を構築する。</p>
+            <br>
+            <p>テンプレートを買ったけど使いこなせなかった、という声を何度も聞いてきた。だから、テンプレートの横流しはしない。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行う。</p>
+            <br>
+            <p>元数学教師として、「わかった」「できた」の瞬間をゴールに設定するのがやり方。納品して終わりではなく、自走できる状態をいっしょに作る。</p>
+          </div>
+
+          <div class="skill-grid">
+            <div class="skill-card">
+              <h4>Notion設計・構築</h4>
+              <p>DB設計 / リレーション / ビュー / ダッシュボード / テンプレート</p>
+            </div>
+            <div class="skill-card">
+              <h4>AIエージェント構築</h4>
+              <p>Notion AIカスタムエージェント / プロンプト設計 / スキル体系設計</p>
+            </div>
+            <div class="skill-card">
+              <h4>業務フロー設計</h4>
+              <p>CRM / タスク管理 / ナレッジ管理 / ゴール管理</p>
+            </div>
+            <div class="skill-card">
+              <h4>実装環境</h4>
+              <p>Notion API / Claude Code / Cursor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">Notion BizBase</div>
+      <p class="footer-copy">&copy; 2025 上原千翔. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       JavaScript: Scroll Reveal
+       ======================================== -->
+  <script>
+    (function() {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      document.querySelectorAll('.rv').forEach(function(el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+</body>
+</html>
