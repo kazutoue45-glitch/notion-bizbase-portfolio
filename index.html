@@ -410,6 +410,25 @@
       max-width: 900px;
     }
 
+    /* Video */
+    .video-wrap {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .demo-video {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(27,42,74,0.15);
+    }
+
+    .video-caption {
+      font-size: 0.85rem;
+      color: var(--c-text-mid);
+      margin-top: 0.75rem;
+    }
+
     /* ========================================
        Section 1: Notion BizBase
        ======================================== */
@@ -907,6 +926,14 @@
       <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェント・経理を統合した経営OSを、自ら設計・構築・運用している。</p>
 
       <img src="images/hero-visual.png" alt="バラバラだった業務が、一つの仕組みとしてつながる" class="section-visual rv">
+
+      <!-- プロダクト紹介動画 -->
+      <div class="video-wrap rv">
+        <video class="demo-video" controls playsinline preload="metadata" poster="images/cover.jpg">
+          <source src="images/bizbase-demo.mp4" type="video/mp4">
+        </video>
+        <p class="video-caption">Notion BizBase — これ1つで経営が回る理由</p>
+      </div>
 
       <!-- 構築規模 -->
       <div class="stats-row rv">
