@@ -323,6 +323,22 @@
     .rv-d5 { transition-delay: 0.40s; }
 
     /* ========================================
+       FV Cover
+       ======================================== */
+    .fv-cover {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .fv-cover-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ========================================
        FV (First View)
        ======================================== */
     .fv {
@@ -910,6 +926,13 @@
       </nav>
     </div>
   </header>
+
+  <!-- ========================================
+       FV Cover
+       ======================================== -->
+  <div class="fv-cover">
+    <img src="images/cover.jpg" alt="Notion BizBase" class="fv-cover-img">
+  </div>
 
   <!-- ========================================
        FV (First View)
