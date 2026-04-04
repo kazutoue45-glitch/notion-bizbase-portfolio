@@ -205,6 +205,68 @@
     }
 
     /* ========================================
+       Section Subtitle
+       ======================================== */
+    .sec-subtitle {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--c-text-mid);
+      margin-top: -2.75rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ========================================
+       Case Study Cards
+       ======================================== */
+    .case-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+    }
+    .case-card .company-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.25rem;
+    }
+    .case-card .company-desc {
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      margin-bottom: 1rem;
+    }
+    .case-card .case-num {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--c-gold);
+      margin-bottom: 0.5rem;
+    }
+    .case-card .case-detail {
+      font-size: 0.85rem;
+      color: var(--c-text);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .case-card .case-quote {
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--c-text);
+      line-height: 1.6;
+      border-left: 3px solid var(--c-gold);
+      padding-left: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .case-card .case-source {
+      font-size: 0.75rem;
+      color: var(--c-text-mid);
+    }
+    .case-card .case-source a {
+      color: var(--c-text-mid);
+      text-decoration: underline;
+    }
+
+    /* ========================================
        Grids
        ======================================== */
     .grid-2 {
@@ -685,6 +747,80 @@
       font-size: 0.8rem;
       color: var(--c-text-mid);
       line-height: 1.6;
+    }
+
+    /* ========================================
+       BizBase Vision
+       ======================================== */
+    .bizbase-vision {
+      max-width: 720px;
+      margin: 0 auto 3rem;
+    }
+    .vision-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 2rem;
+    }
+    .vision-item {
+      margin-bottom: 1.5rem;
+    }
+    .vision-heading {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.4rem;
+    }
+    .vision-text {
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      line-height: 1.8;
+    }
+    .vision-loop-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--c-navy);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .loop-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .loop-step {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .loop-num {
+      width: 22px;
+      height: 22px;
+      background: var(--c-gold);
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .loop-text {
+      font-size: 0.8rem;
+      color: var(--c-navy);
+      font-weight: 500;
+    }
+    .loop-arrow {
+      color: var(--c-gold);
+      font-weight: 700;
     }
 
     /* ========================================
@@ -1198,6 +1334,9 @@
         padding: 1.5rem;
       }
 
+      .loop-arrow { display: none; }
+      .loop-steps { flex-direction: column; gap: 0.5rem; }
+
       .diagram-wrapper svg {
         min-width: 520px;
       }
@@ -1236,6 +1375,7 @@
         <span class="header-brand-text">Notion BizBase</span>
       </a>
       <nav class="header-nav">
+        <a href="#case-studies">導入事例</a>
         <a href="#bizbase">BizBase</a>
         <a href="#philosophy">設計思想</a>
         <a href="#before-after">導入効果</a>
@@ -1264,7 +1404,7 @@
               <span class="label">モジュール</span>
             </div>
             <div class="fv-badge">
-              <span class="num">18</span>
+              <span class="num">18+</span>
               <span class="label">DB</span>
             </div>
             <div class="fv-badge">
@@ -1272,7 +1412,7 @@
               <span class="label">AIエージェント</span>
             </div>
             <div class="fv-badge">
-              <span class="num">20+</span>
+              <span class="num">17</span>
               <span class="label">AIスキル</span>
             </div>
           </div>
@@ -1301,13 +1441,13 @@
           <div class="data-source">出典: Notion公式, 2024年</div>
         </div>
         <div class="data-card">
-          <span class="num">83.3pt</span>
-          <div class="data-label">法人向け生成AI 利用者満足度1位: Notion AI</div>
+          <span class="num">No.1</span>
+          <div class="data-label">法人向け生成AI 満足度</div>
           <div class="data-source">出典: ICT総研, 2025年7月</div>
         </div>
         <div class="data-card">
-          <span class="num">7.7%</span>
-          <div class="data-label">Notion AI の法人利用率（まだほとんどが未活用）</div>
+          <span class="num">93%</span>
+          <div class="data-label">の企業がまだNotion AIを活用できていない</div>
           <div class="data-source">出典: ICT総研, 2025年7月</div>
         </div>
         <div class="data-card">
@@ -1316,7 +1456,7 @@
           <div class="data-source">出典: Zylo</div>
         </div>
       </div>
-      <p class="market-footnote">満足度No.1なのに、まだ7.7%しか使われていない。今導入すれば先行者利益がある。トヨタ自動車・大阪ガスなど大手企業も導入。</p>
+      <p class="market-footnote">使った企業の評価は全AIサービスの中で最も高い。それでも、93%以上の企業がまだ活用できていない。</p>
 
       <!-- Notion公式認定バッジ -->
       <div class="badge-section-wrap">
@@ -1348,6 +1488,44 @@
   </section>
 
   <!-- ========================================
+       Case Studies
+       ======================================== -->
+  <section id="case-studies" class="sec">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>Notionを選んだ企業たち</h2>
+      </div>
+      <p class="sec-subtitle rv">Notion公式導入事例より</p>
+
+      <div class="grid-3">
+        <div class="case-card rv rv-d1">
+          <div class="company-name">OpenAI</div>
+          <div class="company-desc">AI業界のリーディングカンパニー</div>
+          <div class="case-num">数時間 → 数分</div>
+          <div class="case-detail">デバッグ時間を大幅短縮（Notion AI活用）</div>
+          <div class="case-quote">「Notionの効果は雪玉式に大きくなっていく」— John Allard</div>
+          <div class="case-source"><a href="https://notion.com/ja/customers/openai" target="_blank" rel="noopener">notion.com/ja/customers/openai</a></div>
+        </div>
+        <div class="case-card rv rv-d2">
+          <div class="company-name">大阪ガス</div>
+          <div class="company-desc">日本を代表するインフラ企業</div>
+          <div class="case-num">毎月2,000時間</div>
+          <div class="case-detail">情報共有の効率化で削減</div>
+          <div class="case-quote">「全ての機能を包括する"オールインワン"なツールは、今のところ"オンリーワン"」— 國政秀太郎</div>
+          <div class="case-source"><a href="https://notion.com/ja/customers/osaka-gas-jp" target="_blank" rel="noopener">notion.com/ja/customers/osaka-gas-jp</a></div>
+        </div>
+        <div class="case-card rv rv-d3">
+          <div class="company-name">トヨタ自動車</div>
+          <div class="company-desc">世界最大級の自動車メーカー</div>
+          <div class="case-num">Fortune 100</div>
+          <div class="case-detail">Fortune 100企業の62%がNotionを導入 — トヨタもその一社</div>
+          <div class="case-source">出典: Notion公式 / PreBell</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
        Section 1: Notion BizBase
        ======================================== -->
   <section id="bizbase" class="sec sec--border-top">
@@ -1357,29 +1535,54 @@
         <span class="sub-heading">AIエージェント搭載の経営基盤</span>
       </div>
 
-      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェントを統合し、自ら設計・構築・運用している。</p>
+      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェントを統合し、自ら設計・構築・運用しております。</p>
+
+      <!-- BizBase思想 -->
+      <div class="bizbase-vision rv">
+        <h3 class="vision-title">なぜこの基盤を作ったのか</h3>
+        <div class="vision-item">
+          <p class="vision-heading">影響の輪は、あなた個人から広がる。</p>
+          <p class="vision-text">組織とは一人ひとりの集合体。大きな成果の始まりは、常に一人の人間の明確なゴールから。Notion BizBaseは、個人のゴールを起点に、AIとの掛け算で影響力を拡大していく経営基盤です。</p>
+        </div>
+        <div class="vision-item">
+          <p class="vision-heading">想像力 × AI = 創造力</p>
+          <p class="vision-text">想像力は頭の中に描く力。創造力はそれを形にする力。AIはイメージを具体に変換するエンジン。BizBaseは「イメージ → 構造化 → 実行」のパイプラインを回す基盤です。</p>
+        </div>
+        <div class="vision-loop">
+          <p class="vision-loop-label">影響の輪ループ</p>
+          <div class="loop-steps">
+            <div class="loop-step"><span class="loop-num">1</span><span class="loop-text">ゴールが明確になる</span></div>
+            <div class="loop-arrow">&rarr;</div>
+            <div class="loop-step"><span class="loop-num">2</span><span class="loop-text">チームに伝播する</span></div>
+            <div class="loop-arrow">&rarr;</div>
+            <div class="loop-step"><span class="loop-num">3</span><span class="loop-text">顧客に届く</span></div>
+            <div class="loop-arrow">&rarr;</div>
+            <div class="loop-step"><span class="loop-num">4</span><span class="loop-text">成果がゴールを強化</span></div>
+          </div>
+        </div>
+      </div>
 
       <!-- 構築規模 -->
       <div class="stats-row rv">
         <div class="stat-item">
-          <span class="num">18</span>
-          <span class="label">データベース</span>
+          <span class="num">18+</span>
+          <span class="label">DB（拡張中）</span>
         </div>
         <div class="stat-item">
           <span class="num">50+</span>
-          <span class="label">ビュー</span>
+          <span class="label">ビュー（拡張中）</span>
         </div>
         <div class="stat-item">
           <span class="num">4</span>
-          <span class="label">AIエージェント</span>
+          <span class="label">AIエージェント（拡張中）</span>
         </div>
         <div class="stat-item">
-          <span class="num">20+</span>
-          <span class="label">AIスキル</span>
+          <span class="num">17</span>
+          <span class="label">AIスキル（継続追加中）</span>
         </div>
         <div class="stat-item">
           <span class="num">2025~</span>
-          <span class="label">運用期間</span>
+          <span class="label">継続運用・拡張中</span>
         </div>
       </div>
 
@@ -1450,14 +1653,14 @@
               <path d="M24 36v4"/>
             </svg>
           </div>
-          <h3>AIエージェント &mdash; マスターAI + 自動実行3体 + 20+スキル</h3>
-          <p>マスターAIが全体統括。メンション一発で起動し、20以上のカスタムスキルから最適なものを自動選択・実行。CRMプロパティ自動入力・日報自動生成・Googleカレンダー連携の3つの自動実行エージェントも搭載。</p>
+          <h3>AIエージェント &mdash; マスターAI + 自動実行3体 + 17スキル</h3>
+          <p>マスターAIが全体を統括します。メンション一発で起動し、17のカスタムスキルから最適なものを自動選択・実行します。CRMプロパティ自動入力・日報自動生成・Googleカレンダー連携の3つの自動実行エージェントも搭載しております。</p>
         </div>
       </div>
 
       <!-- AIスキル紹介 -->
       <div class="ai-skill-section">
-        <h3 class="ai-skill-section-title rv">20以上のスキルから厳選</h3>
+        <h3 class="ai-skill-section-title rv">17のスキルから厳選（継続追加中）</h3>
         <p class="ai-skill-section-desc rv">マスターAIが呼び出すカスタムスキルの一部を紹介。スキルは業務に合わせて追加・カスタマイズ可能。</p>
 
         <div class="ai-skill-grid rv">
@@ -1496,9 +1699,14 @@
             <div class="skill-name">提案書作成</div>
             <div class="skill-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成</div>
           </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--system">システム</span>
+            <div class="skill-name">AI作業ログ記録</div>
+            <div class="skill-desc">会話中の意思決定・方針変更・実行内容をAI作業ログDBへ自動記録。業務プロセスを資産として蓄積</div>
+          </div>
         </div>
 
-        <p class="ai-skill-section-note rv">スキルは追加・カスタマイズ可能。業務に合わせて増やせます。</p>
+        <p class="ai-skill-section-note rv">スキルは追加・カスタマイズ可能。業務に合わせて増やせます。現在17スキル、継続追加中。</p>
       </div>
 
       <!-- スクリーンショット 3x2（6枚） -->
@@ -1555,7 +1763,7 @@
       <!-- リード文 -->
       <div class="philosophy-lead rv">
         <p class="philosophy-lead-title">既製品では業務が変わらない理由</p>
-        <p class="philosophy-lead-desc">テンプレートもSaaSも汎用設計。御社の業務にぴったり合うことはない。「使いにくい」「結果につながらない」の正体は、ここにある。</p>
+        <p class="philosophy-lead-desc">テンプレートもSaaSも汎用設計です。御社の業務にぴったり合うことはありません。「使いにくい」「結果につながらない」の正体は、ここにあります。</p>
       </div>
 
       <!-- 4原則カード -->
@@ -1563,22 +1771,22 @@
         <div class="card philosophy-card rv rv-d1">
           <span class="principle-num">01</span>
           <h3>ゴールからの逆算設計</h3>
-          <p>既製品のタスク管理は「タスクを並べる箱」でしかない。BizBaseは「ゴール → プロジェクト → タスク」の一本線で接続。すべてのタスクがゴールに紐づく。<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造。</p>
+          <p>既製品のタスク管理は「タスクを並べる箱」でしかありません。BizBaseは「ゴール → プロジェクト → タスク」の一本線で接続します。すべてのタスクがゴールに紐づく。<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造です。</p>
         </div>
         <div class="card philosophy-card rv rv-d2">
           <span class="principle-num">02</span>
           <h3>入力の手間を最小限に</h3>
-          <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされる。手動で紐づける必要がない。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>。</p>
+          <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされます。手動で紐づける必要はありません。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>です。</p>
         </div>
         <div class="card philosophy-card rv rv-d3">
           <span class="principle-num">03</span>
           <h3>AIが参照できる構造にする</h3>
-          <p>既製品のデータ構造は、AIが参照できる状態になっていない。だからAIを導入しても成果が出ない。BizBaseは全DBをAIエージェントが横断参照できる設計。<span class="gold-underline">蓄積するほどAIが賢くなる</span>。</p>
+          <p>既製品のデータ構造は、AIが参照できる状態になっていません。だからAIを導入しても成果が出ません。BizBaseは全DBをAIエージェントが横断参照できる設計です。<span class="gold-underline">蓄積するほどAIが賢くなります</span>。</p>
         </div>
         <div class="card philosophy-card rv rv-d4">
           <span class="principle-num">04</span>
           <h3>設計思想が見える状態で納品する</h3>
-          <p>テンプレートには「なぜこの構造なのか」が書かれていない。だから100%使いこなすことはできない。BizBaseは設計意図を言語化し、<span class="gold-underline">「なぜこのDB構成なのか」が分かる状態で構築する</span>。だから自走できる。</p>
+          <p>テンプレートには「なぜこの構造なのか」が書かれていません。だから100%使いこなすことはできません。BizBaseは設計意図を言語化し、<span class="gold-underline">「なぜこのDB構成なのか」が分かる状態で構築します</span>。だから自走できます。</p>
         </div>
       </div>
 
@@ -1643,7 +1851,7 @@
           <line x1="380" y1="110" x2="400" y2="280" stroke="#C8A960" stroke-width="1.5" stroke-dasharray="6 4"/>
 
           <!-- ラベル: マスターAI + 特化型4体 -->
-          <text x="400" y="360" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#777">マスターAI + 自動実行3体 / カスタムスキル 20+</text>
+          <text x="400" y="360" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#777">マスターAI + 自動実行3体 / カスタムスキル 17</text>
         </svg>
       </div>
     </div>
