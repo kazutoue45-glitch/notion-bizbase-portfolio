@@ -1230,6 +1230,56 @@
       }
     }
 
+    /* ========================================
+       Loop Steps (BizBase Philosophy)
+       ======================================== */
+    .loop-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0;
+    }
+    .loop-step {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem 1rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .loop-num {
+      width: 24px;
+      height: 24px;
+      background: var(--c-gold);
+      color: white;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .loop-text {
+      font-size: 0.85rem;
+      color: var(--c-navy);
+      font-weight: 500;
+    }
+    .loop-arrow {
+      color: var(--c-gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .loop-arrow { display: none; }
+      .loop-steps { flex-direction: column; gap: 0.75rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -1270,7 +1320,7 @@
     <div class="container">
       <div class="fv-inner">
         <div class="fv-text rv">
-          <h1>「既製品」から、「オーダーメイド」へ。</h1>
+          <h1>既製品からオーダーメイドへ</h1>
           <p class="fv-sub">御社の業務に最適化された Notion × AI 基盤を設計する。</p>
           <div class="fv-badges">
             <div class="fv-badge fv-badge--gold">
@@ -1308,7 +1358,7 @@
   <section id="market-data" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>なぜ今、Notion × AI なのか</h2>
+        <h2>世界1億人が使うビジネス基盤</h2>
       </div>
 
       <!-- データカード 4つ -->
@@ -1319,14 +1369,14 @@
           <div class="data-source">出典: Notion公式, 2024年</div>
         </div>
         <div class="data-card">
-          <span class="num">62%</span>
-          <div class="data-label">Fortune 100 企業の導入率</div>
-          <div class="data-source">出典: Notion公式</div>
+          <span class="num">83.3pt</span>
+          <div class="data-label">法人向け生成AI 利用者満足度1位: Notion AI</div>
+          <div class="data-source">出典: ICT総研, 2025年7月</div>
         </div>
         <div class="data-card">
-          <span class="num">14%</span>
-          <div class="data-label">生産性ソフトウェア市場の年平均成長率</div>
-          <div class="data-source">出典: Grand View Research</div>
+          <span class="num">7.7%</span>
+          <div class="data-label">Notion AI の法人利用率（まだほとんどが未活用）</div>
+          <div class="data-source">出典: ICT総研, 2025年7月</div>
         </div>
         <div class="data-card">
           <span class="num">275</span>
@@ -1334,6 +1384,7 @@
           <div class="data-source">出典: Zylo</div>
         </div>
       </div>
+      <p style="text-align: center; font-size: 0.85rem; color: #777; margin-top: 1.25rem;">満足度No.1なのに、まだ7.7%しか使われていない。今導入すれば先行者利益がある。</p>
 
       <!-- Notion公式認定バッジ -->
       <div style="margin-top: 3.5rem;">
@@ -1415,6 +1466,44 @@
       </div>
 
       <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営基盤を、自ら設計・構築・運用している。</p>
+
+      <!-- BizBaseの思想セクション -->
+      <div class="rv" style="max-width: 720px; margin: 0 auto 3rem;">
+        <h3 style="text-align: center; font-size: 1.3rem; font-weight: 700; color: var(--c-navy); margin-bottom: 2rem;">なぜこの基盤を作ったのか</h3>
+
+        <div style="margin-bottom: 1.75rem;">
+          <p style="font-size: 1.05rem; font-weight: 700; color: var(--c-navy); margin-bottom: 0.5rem;">影響の輪は、あなた個人から広がる。</p>
+          <p style="font-size: 0.9rem; color: #777; line-height: 1.8;">個人のゴールを起点に、AIとの掛け算で影響力を拡大していく経営基盤。</p>
+        </div>
+
+        <div style="margin-bottom: 1.75rem;">
+          <p style="font-size: 1.05rem; font-weight: 700; color: var(--c-navy); margin-bottom: 0.5rem;">想像力 × AI = 創造力</p>
+          <p style="font-size: 0.9rem; color: #777; line-height: 1.8;">想像力は頭の中に描く力。創造力はそれを形にする力。AIはイメージを具体に変換するエンジン。BizBaseはこのパイプラインを回す基盤。</p>
+        </div>
+
+        <p style="font-size: 0.95rem; font-weight: 600; color: var(--c-navy); margin-bottom: 0.75rem; text-align: center;">影響の輪ループ</p>
+        <div class="loop-steps">
+          <div class="loop-step">
+            <span class="loop-num">1</span>
+            <span class="loop-text">個人のゴールが明確になる</span>
+          </div>
+          <div class="loop-arrow">&rarr;</div>
+          <div class="loop-step">
+            <span class="loop-num">2</span>
+            <span class="loop-text">チームに影響が伝播する</span>
+          </div>
+          <div class="loop-arrow">&rarr;</div>
+          <div class="loop-step">
+            <span class="loop-num">3</span>
+            <span class="loop-text">顧客に影響が届く</span>
+          </div>
+          <div class="loop-arrow">&rarr;</div>
+          <div class="loop-step">
+            <span class="loop-num">4</span>
+            <span class="loop-text">成果がゴールを強化する</span>
+          </div>
+        </div>
+      </div>
 
       <img src="images/hero-visual.png" alt="バラバラだった業務が、一つの仕組みとしてつながる" class="section-visual rv">
 
