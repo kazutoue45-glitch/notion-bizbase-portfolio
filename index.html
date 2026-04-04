@@ -505,6 +505,38 @@
     }
 
     /* ========================================
+       Problem Cards
+       ======================================== */
+    .problem-card {
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+
+    .problem-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--c-bg-alt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .problem-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .problem-card p {
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      line-height: 1.8;
+    }
+
+    /* ========================================
        Data Cards (Market Data Section)
        ======================================== */
     .data-card {
@@ -1422,11 +1454,12 @@
         <span class="header-brand-text">Notion BizBase</span>
       </a>
       <nav class="header-nav">
+        <a href="#problems">課題</a>
         <a href="#case-studies">導入事例</a>
         <a href="#bizbase">BizBase</a>
         <a href="#philosophy">設計思想</a>
-        <a href="#before-after">導入効果</a>
-        <a href="#flow">制作の流れ</a>
+        <a href="#before-after">Before/After</a>
+        <a href="#flow">ご依頼の流れ</a>
         <a href="#about">About</a>
       </nav>
     </div>
@@ -1451,12 +1484,64 @@
   </section>
 
   <!-- ========================================
+       Problems
+       ======================================== -->
+  <section id="problems" class="sec">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>こんな課題ありませんか？</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="problem-card rv rv-d1">
+          <div class="problem-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="8" width="16" height="12" rx="2"/>
+              <rect x="28" y="8" width="16" height="12" rx="2"/>
+              <rect x="16" y="28" width="16" height="12" rx="2"/>
+              <path d="M12 20v8M36 20v8M24 28v-8"/>
+            </svg>
+          </div>
+          <h3>情報がバラバラ</h3>
+          <p>顧客情報はLINE、スプレッドシート、メモ帳に分散。誰に何を提案したか、すぐに出てこない。</p>
+        </div>
+
+        <div class="problem-card rv rv-d2">
+          <div class="problem-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="24" cy="24" r="18"/>
+              <path d="M24 14v10l7 7"/>
+              <path d="M10 6l-4-4M38 6l4-4"/>
+            </svg>
+          </div>
+          <h3>毎朝「今日何やる？」から始まる</h3>
+          <p>タスクはあるのに優先順位がわからない。ゴールとタスクがつながっていないから、忙しいのに成果が出ない。</p>
+        </div>
+
+        <div class="problem-card rv rv-d3">
+          <div class="problem-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="6" width="32" height="36" rx="3"/>
+              <path d="M16 16h16M16 24h12M16 32h8"/>
+              <circle cx="36" cy="36" r="8" fill="#F5F5F5" stroke="#1B2A4A"/>
+              <path d="M36 32v4l3 2"/>
+            </svg>
+          </div>
+          <h3>知識が資産にならない</h3>
+          <p>ノウハウや資料は溜めているけど、検索も振り返りもできない。毎回ゼロから作業している。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
        Market Data & Notion Certification
        ======================================== -->
   <section id="market-data" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>世界1億人が使うビジネス基盤</h2>
+        <h2>Notionが選ばれる理由</h2>
+        <span class="sub-heading">世界1億人が利用するプラットフォーム</span>
       </div>
 
       <!-- データカード 2つ -->
@@ -1509,7 +1594,7 @@
   <section id="case-studies" class="sec">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>Notionを選んだ企業たち</h2>
+        <h2>導入事例</h2>
       </div>
       <p class="sec-subtitle rv">Notion公式導入事例より</p>
 
@@ -1547,7 +1632,7 @@
   <section id="bizbase" class="sec sec--border-top">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>自社プロダクト「Notion BizBase」</h2>
+        <h2>Notion BizBase</h2>
         <span class="sub-heading">AIエージェント搭載の経営基盤</span>
       </div>
 
@@ -1781,7 +1866,7 @@
   <section id="philosophy" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>なぜこう設計したのか</h2>
+        <h2>設計思想</h2>
       </div>
 
       <!-- リード文 -->
@@ -1895,7 +1980,8 @@
   <section id="before-after" class="sec">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>設計前後の変化</h2>
+        <h2>Before / After</h2>
+        <span class="sub-heading">Notion BizBase 導入でどう変わるか</span>
       </div>
 
       <div class="ba-list">
@@ -1933,7 +2019,7 @@
   <section class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>Salesforce級の管理を、Notionの価格で</h2>
+        <h2>ツール比較</h2>
       </div>
 
       <div class="table-wrapper rv">
@@ -2007,7 +2093,7 @@
   <section id="services" class="sec">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>対応可能な領域</h2>
+        <h2>サービス内容</h2>
       </div>
 
       <div class="grid-3">
@@ -2062,7 +2148,7 @@
   <section id="flow" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>制作の流れ</h2>
+        <h2>ご依頼の流れ</h2>
       </div>
 
       <div class="flow-list">
