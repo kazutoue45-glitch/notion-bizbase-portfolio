@@ -746,31 +746,44 @@
       margin-top: 1.25rem;
     }
 
-    .ai-skill-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .ai-skill-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 8px;
-      object-fit: cover;
-      margin-bottom: 0.75rem;
-    }
-
-    .ai-skill-card {
+    .skill-scroll-card {
+      flex-shrink: 0;
+      width: 280px;
       background: var(--c-white);
       border: 1px solid var(--c-border);
       border-radius: var(--radius-sm);
       padding: 1.25rem;
-      transition: transform 0.2s;
     }
 
-    .ai-skill-card:hover {
-      transform: translateY(-2px);
+    .skill-scroll-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-scroll-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .skill-scroll-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--c-navy);
+    }
+
+    .skill-scroll-card .skill-category {
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-scroll-desc {
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      line-height: 1.6;
     }
 
     .skill-category {
@@ -787,25 +800,12 @@
     .skill-category--writing { background: rgba(0,0,0,0.06); color: #555; }
     .skill-category--content { background: rgba(76,175,80,0.12); color: #2E7D32; }
 
-    .skill-name-row {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.35rem;
-      flex-wrap: wrap;
-    }
-
-    .skill-name {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.35rem;
-    }
-
-    .skill-desc {
+    .ss-caption {
+      text-align: center;
       font-size: 0.8rem;
       color: var(--c-text-mid);
-      line-height: 1.6;
+      margin-top: 0.5rem;
+      font-weight: 500;
     }
 
     /* ========================================
@@ -1370,10 +1370,6 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      .ai-skill-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .ba-header { grid-template-columns: 1fr; }
       .ba-header-after { border-radius: 0; }
       .ba-header-before { border-radius: var(--radius-md) var(--radius-md) 0 0; }
@@ -1413,10 +1409,6 @@
 
       .grid-5 {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .ai-skill-grid {
-        grid-template-columns: 1fr;
       }
 
       .fv-badges {
@@ -1750,81 +1742,154 @@
         </div>
       </div>
 
+      <!-- 各モジュールのスクリーンショット -->
+      <h3 class="gallery-title rv">各モジュールの画面</h3>
+      <div class="grid-3 screenshot-grid rv">
+        <figure>
+          <img src="images/crm.png" alt="企業情報・名刺情報一覧" class="screenshot">
+          <figcaption class="ss-caption">CRM — 顧客情報・対応履歴・次のアクションを1画面で一覧</figcaption>
+        </figure>
+        <figure>
+          <img src="images/task.png" alt="ゴール直結型タスク管理" class="screenshot">
+          <figcaption class="ss-caption">タスク管理 — ゴールから逆算された「今日やること」が並ぶ</figcaption>
+        </figure>
+        <figure>
+          <img src="images/knowledge.png" alt="ナレッジベース一覧" class="screenshot">
+          <figcaption class="ss-caption">ナレッジベース — タグ横断検索で必要な情報にたどり着く</figcaption>
+        </figure>
+        <figure>
+          <img src="images/ai-agent.png" alt="AIエージェント管理画面" class="screenshot">
+          <figcaption class="ss-caption">AIエージェント — メンションで起動し業務データを参照</figcaption>
+        </figure>
+        <figure>
+          <img src="images/accounting.png" alt="経理ダッシュボード" class="screenshot">
+          <figcaption class="ss-caption">経理 — 売上・支出・収支を一画面で把握</figcaption>
+        </figure>
+        <figure>
+          <img src="images/dashboard.png" alt="デイリーダッシュボード" class="screenshot">
+          <figcaption class="ss-caption">デイリーダッシュボード — 今日やるべきことが一目でわかる</figcaption>
+        </figure>
+      </div>
+
       <!-- AIスキル紹介 -->
       <div class="ai-skill-section">
         <h3 class="ai-skill-section-title rv">スキル紹介（増設中）</h3>
         <p class="ai-skill-section-desc rv">マスターAIが呼び出すカスタムスキルの一覧です。業務に合わせて追加・カスタマイズが可能です。</p>
 
-        <div class="ai-skill-grid rv">
-          <div class="ai-skill-card">
-            <img src="images/skill-1.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">ドキュメントデザイン</span><span class="skill-category skill-category--system">システム</span></div>
-            <div class="skill-desc">Notionページの見出し構造・色設計を統一フォーマットで自動整形いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-2.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">スキル作成</span><span class="skill-category skill-category--system">システム</span></div>
-            <div class="skill-desc">新しいAIスキルを構造化・作成いたします。スキルがスキルを生む自己拡張構造です。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-3.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">自社商品まとめ</span><span class="skill-category skill-category--system">システム</span></div>
-            <div class="skill-desc">自社の商品・サービス情報を構造化し、提案や発信に即活用できる形で整理いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-8.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">AI作業ログ記録</span><span class="skill-category skill-category--system">システム</span></div>
-            <div class="skill-desc">会話中の意思決定・実行内容をAI作業ログDBへ自動記録し、業務プロセスを資産化いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-3.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">チャット引き継ぎ</span><span class="skill-category skill-category--system">システム</span></div>
-            <div class="skill-desc">前回の会話コンテキストを引き継ぎ、途切れのないAI対話を実現いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-3.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">名刺取り込み</span><span class="skill-category skill-category--system">システム</span></div>
-            <div class="skill-desc">名刺画像から人物・企業情報をAIが抽出し、CRMへ自動登録いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-7.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">提案書作成</span><span class="skill-category skill-category--writing">ライティング</span></div>
-            <div class="skill-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-6.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">メール作成</span><span class="skill-category skill-category--writing">ライティング</span></div>
-            <div class="skill-desc">お礼・依頼・報告など、ユーザーの文体に合わせてビジネスメールを即生成いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-1.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">Xポストクリエイター</span><span class="skill-category skill-category--content">コンテンツ作成</span></div>
-            <div class="skill-desc">ナレッジやトピックからX（旧Twitter）向けの投稿を自動生成いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-4.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">ゴール設定→PJ化</span><span class="skill-category skill-category--planning">プランニング</span></div>
-            <div class="skill-desc">曖昧な目標をKPI・完了定義・プロジェクト分解まで一気通貫で設計いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-5.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">タスク提案</span><span class="skill-category skill-category--planning">プランニング</span></div>
-            <div class="skill-desc">ゴールから逆算した「今日やるべきタスク」を選定・最小アクションに分解いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-5.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">MTG事前準備</span><span class="skill-category skill-category--planning">プランニング</span></div>
-            <div class="skill-desc">CRM・商談情報から会議のアジェンダ・論点・事前資料を自動生成いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-5.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">タスク整理</span><span class="skill-category skill-category--planning">プランニング</span></div>
-            <div class="skill-desc">散在するタスクを優先度・ゴール紐づけで再構成し、実行可能な状態に整理いたします。</div>
-          </div>
-          <div class="ai-skill-card">
-            <img src="images/skill-4.png" alt="" class="ai-skill-icon">
-            <div class="skill-name-row"><span class="skill-name">タグ整理</span><span class="skill-category skill-category--planning">プランニング</span></div>
-            <div class="skill-desc">ナレッジベースのタグ体系を最適化し、検索性と分類精度を向上させます。</div>
+        <div class="gallery-scroll rv">
+          <div class="gallery-track">
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-1.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">ドキュメントデザイン</span>
+              </div>
+              <span class="skill-category skill-category--system">システム</span>
+              <p class="skill-scroll-desc">Notionページの見出し構造・色設計を統一フォーマットで自動整形いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-2.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">スキル作成</span>
+              </div>
+              <span class="skill-category skill-category--system">システム</span>
+              <p class="skill-scroll-desc">新しいAIスキルを構造化・作成いたします。スキルがスキルを生む自己拡張構造です。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-3.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">自社商品まとめ</span>
+              </div>
+              <span class="skill-category skill-category--system">システム</span>
+              <p class="skill-scroll-desc">自社の商品・サービス情報を構造化し、提案や発信に即活用できる形で整理いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-8.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">AI作業ログ記録</span>
+              </div>
+              <span class="skill-category skill-category--system">システム</span>
+              <p class="skill-scroll-desc">会話中の意思決定・実行内容をAI作業ログDBへ自動記録し、業務プロセスを資産化いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-3.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">チャット引き継ぎ</span>
+              </div>
+              <span class="skill-category skill-category--system">システム</span>
+              <p class="skill-scroll-desc">前回の会話コンテキストを引き継ぎ、途切れのないAI対話を実現いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-3.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">名刺取り込み</span>
+              </div>
+              <span class="skill-category skill-category--system">システム</span>
+              <p class="skill-scroll-desc">名刺画像から人物・企業情報をAIが抽出し、CRMへ自動登録いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-7.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">提案書作成</span>
+              </div>
+              <span class="skill-category skill-category--writing">ライティング</span>
+              <p class="skill-scroll-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-6.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">メール作成</span>
+              </div>
+              <span class="skill-category skill-category--writing">ライティング</span>
+              <p class="skill-scroll-desc">お礼・依頼・報告など、ユーザーの文体に合わせてビジネスメールを即生成いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-1.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">Xポストクリエイター</span>
+              </div>
+              <span class="skill-category skill-category--content">コンテンツ作成</span>
+              <p class="skill-scroll-desc">ナレッジやトピックからX（旧Twitter）向けの投稿を自動生成いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-4.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">ゴール設定→PJ化</span>
+              </div>
+              <span class="skill-category skill-category--planning">プランニング</span>
+              <p class="skill-scroll-desc">曖昧な目標をKPI・完了定義・プロジェクト分解まで一気通貫で設計いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-5.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">タスク提案</span>
+              </div>
+              <span class="skill-category skill-category--planning">プランニング</span>
+              <p class="skill-scroll-desc">ゴールから逆算した「今日やるべきタスク」を選定・最小アクションに分解いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-5.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">MTG事前準備</span>
+              </div>
+              <span class="skill-category skill-category--planning">プランニング</span>
+              <p class="skill-scroll-desc">CRM・商談情報から会議のアジェンダ・論点・事前資料を自動生成いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-5.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">タスク整理</span>
+              </div>
+              <span class="skill-category skill-category--planning">プランニング</span>
+              <p class="skill-scroll-desc">散在するタスクを優先度・ゴール紐づけで再構成し、実行可能な状態に整理いたします。</p>
+            </div>
+            <div class="skill-scroll-card">
+              <div class="skill-scroll-header">
+                <img src="images/skill-4.png" alt="" class="skill-scroll-icon">
+                <span class="skill-scroll-name">タグ整理</span>
+              </div>
+              <span class="skill-category skill-category--planning">プランニング</span>
+              <p class="skill-scroll-desc">ナレッジベースのタグ体系を最適化し、検索性と分類精度を向上させます。</p>
+            </div>
           </div>
         </div>
 
