@@ -76,7 +76,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--c-white);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--c-border);
       height: 60px;
       display: flex;
@@ -86,13 +88,45 @@
     .header-inner {
       width: var(--container);
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .header-logo {
-      font-size: 1.15rem;
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .header-brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header-brand-text {
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--c-navy);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .header-nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--c-navy);
       text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .header-nav a:hover {
+      color: var(--c-gold);
     }
 
     /* ========================================
@@ -351,6 +385,29 @@
 
     .fv-visual .placeholder {
       box-shadow: var(--shadow-md);
+    }
+
+    .fv-visual .fv-screenshot {
+      max-width: 550px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ========================================
+       Section Image (hero-visual, service-visual)
+       ======================================== */
+    .section-visual {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      display: block;
+      border-radius: 8px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .section-visual--wide {
+      max-width: 900px;
     }
 
     /* ========================================
@@ -718,6 +775,10 @@
        Responsive
        ======================================== */
     @media (max-width: 768px) {
+      .header-nav {
+        display: none;
+      }
+
       .fv-inner {
         flex-direction: column;
       }
@@ -787,7 +848,18 @@
        ======================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <span class="header-logo">Notion BizBase</span>
+      <a href="#" class="header-brand">
+        <img src="images/logo.png" alt="Notion BizBase" class="header-logo">
+        <span class="header-brand-text">Notion BizBase</span>
+      </a>
+      <nav class="header-nav">
+        <a href="#bizbase">BizBaseとは</a>
+        <a href="#philosophy">設計思想</a>
+        <a href="#before-after">導入効果</a>
+        <a href="#services">対応領域</a>
+        <a href="#flow">制作の流れ</a>
+        <a href="#about">About</a>
+      </nav>
     </div>
   </header>
 
@@ -816,7 +888,7 @@
           </div>
         </div>
         <div class="fv-visual rv rv-d2">
-          <img src="images/dashboard.png" alt="Notion BizBase デイリーダッシュボード" class="screenshot">
+          <img src="images/home.png" alt="Notion BizBase ホーム画面" class="fv-screenshot">
         </div>
       </div>
     </div>
@@ -825,7 +897,7 @@
   <!-- ========================================
        Section 1: Notion BizBase
        ======================================== -->
-  <section class="sec" style="border-top: 1px solid var(--c-border);">
+  <section id="bizbase" class="sec" style="border-top: 1px solid var(--c-border);">
     <div class="container">
       <div class="sec-heading rv">
         <h2>自社プロダクト「Notion BizBase」</h2>
@@ -833,6 +905,8 @@
       </div>
 
       <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェント・経理を統合した経営OSを、自ら設計・構築・運用している。</p>
+
+      <img src="images/hero-visual.png" alt="バラバラだった業務が、一つの仕組みとしてつながる" class="section-visual rv">
 
       <!-- 構築規模 -->
       <div class="stats-row rv">
@@ -979,7 +1053,7 @@
   <!-- ========================================
        Section 2: Design Philosophy
        ======================================== -->
-  <section class="sec sec--alt">
+  <section id="philosophy" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
         <h2>なぜこう設計したのか</h2>
@@ -1070,7 +1144,7 @@
   <!-- ========================================
        Section 3: Before / After
        ======================================== -->
-  <section class="sec">
+  <section id="before-after" class="sec">
     <div class="container">
       <div class="sec-heading rv">
         <h2>設計前後の変化</h2>
@@ -1178,11 +1252,13 @@
   <!-- ========================================
        Section 5: Services
        ======================================== -->
-  <section class="sec">
+  <section id="services" class="sec">
     <div class="container">
       <div class="sec-heading rv">
         <h2>対応可能な領域</h2>
       </div>
+
+      <img src="images/service-visual.png" alt="必要な情報を10秒以内に取り出せる業務基盤を構築します" class="section-visual section-visual--wide rv">
 
       <div class="grid-3">
         <div class="card service-card rv rv-d1">
@@ -1236,7 +1312,7 @@
   <!-- ========================================
        Section 6: Flow
        ======================================== -->
-  <section class="sec sec--alt">
+  <section id="flow" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
         <h2>制作の流れ</h2>
@@ -1285,7 +1361,7 @@
   <!-- ========================================
        Section 7: About
        ======================================== -->
-  <section class="sec sec--dark">
+  <section id="about" class="sec sec--dark">
     <div class="container">
       <div class="sec-heading rv">
         <h2>About</h2>
