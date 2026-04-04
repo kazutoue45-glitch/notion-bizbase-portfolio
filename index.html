@@ -591,29 +591,55 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      overflow: hidden;
     }
 
     .ba-header-before,
     .ba-header-after {
       text-align: center;
-      padding: 1rem;
-      font-size: 0.85rem;
+      padding: 3rem 1.5rem 1.5rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .ba-header-before::before,
+    .ba-header-after::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .ba-header-before span,
+    .ba-header-after span {
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
     .ba-header-before {
-      background: #4A4A5A;
-      color: #AAA;
-      border-radius: var(--radius-md) 0 0 0;
+      background-image: url('images/ba-before.png');
+      color: #EEE;
+    }
+
+    .ba-header-before::before {
+      background: rgba(40, 40, 50, 0.7);
     }
 
     .ba-header-after {
-      background: var(--c-navy);
-      color: var(--c-gold);
-      border-radius: 0 var(--radius-md) 0 0;
+      background-image: url('images/ba-after.png');
+      color: var(--c-gold-light);
+    }
+
+    .ba-header-after::before {
+      background: rgba(27, 42, 74, 0.65);
     }
 
     .ba-row {
@@ -679,10 +705,6 @@
       color: var(--c-gold);
       font-size: 0.75rem;
       font-weight: 700;
-    }
-
-    .ba-row:first-child .ba-before {
-      border-radius: 0;
     }
 
     .ba-row:last-child .ba-before {
@@ -1324,8 +1346,8 @@
 
       <div class="ba-list">
         <div class="ba-header">
-          <div class="ba-header-before">Before</div>
-          <div class="ba-header-after">After</div>
+          <div class="ba-header-before"><span>Before</span></div>
+          <div class="ba-header-after"><span>After</span></div>
         </div>
         <div class="ba-row rv rv-d1">
           <div class="ba-before">LINE・スプシ・メモ帳に顧客情報がバラバラ</div>
