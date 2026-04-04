@@ -648,10 +648,6 @@
       line-height: 1.85;
     }
 
-    .screenshot-grid {
-      margin-top: 3.5rem;
-    }
-
     /* Gallery (horizontal scroll) */
     .gallery-title {
       font-size: 1.1rem;
@@ -709,7 +705,7 @@
 
     .gallery-item figcaption {
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--c-text-mid);
       margin-top: 0.6rem;
       font-weight: 500;
@@ -799,14 +795,6 @@
     .skill-category--planning { background: rgba(200,169,96,0.15); color: var(--c-gold-dark); }
     .skill-category--writing { background: rgba(0,0,0,0.06); color: #555; }
     .skill-category--content { background: rgba(76,175,80,0.12); color: #2E7D32; }
-
-    .ss-caption {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--c-text-mid);
-      margin-top: 0.5rem;
-      font-weight: 500;
-    }
 
     /* ========================================
        Section 2: Design Philosophy
@@ -1682,8 +1670,8 @@
 
       <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤です。CRM・タスク管理・ナレッジベース・AIエージェントを統合し、自ら設計・構築・運用しております。</p>
 
-      <!-- 主要機能4カード（2列×2行） -->
-      <div class="grid-2">
+      <!-- 主要機能4カード（4列×1行） -->
+      <div class="grid-4">
         <div class="card rv rv-d1">
           <div class="card-icon">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1693,7 +1681,7 @@
               <path d="M42 38c0-5.523-4.477-10-10-10"/>
             </svg>
           </div>
-          <h3>CRM（顧客管理） &mdash; 5DB構成</h3>
+          <h3>CRM（顧客管理）</h3>
           <p>企業DB × 名刺DB × 商談DB × 活動ログ × 企業サービスDBをリレーションで統合しております。顧客ページを開くだけで「誰に・いつ・何を提案したか」が一目瞭然です。</p>
         </div>
 
@@ -1707,7 +1695,7 @@
               <path d="M28 29h6"/>
             </svg>
           </div>
-          <h3>ゴール直結型タスク管理 &mdash; 3DB構成</h3>
+          <h3>ゴール直結型タスク管理</h3>
           <p>ゴールDB → プロジェクトDB → タスクDBの3層構造です。すべてのタスクがゴールに紐づきます。「忙しいのに成果が出ない」を根本から解消します。</p>
         </div>
 
@@ -1721,7 +1709,7 @@
               <path d="M16 34h10"/>
             </svg>
           </div>
-          <h3>ナレッジベース &mdash; 3DB構成</h3>
+          <h3>ナレッジベース</h3>
           <p>ナレッジDB × タグ検索DB × 日報DBで知見・ノウハウ・資料をタグで横断検索できます。使うほど価値が増す情報資産です。</p>
         </div>
 
@@ -1737,38 +1725,44 @@
               <path d="M24 36v4"/>
             </svg>
           </div>
-          <h3>AIエージェント &mdash; マスターAI + 自動実行3体 + 17スキル</h3>
+          <h3>AIエージェント</h3>
           <p>マスターAIが全体を統括します。メンション一発で起動し、17のカスタムスキルから最適なものを自動選択・実行します。CRMプロパティ自動入力・日報自動生成・Googleカレンダー連携の3つの自動実行エージェントも搭載しております。</p>
         </div>
       </div>
 
       <!-- 各モジュールのスクリーンショット -->
       <h3 class="gallery-title rv">各モジュールの画面</h3>
-      <div class="grid-3 screenshot-grid rv">
-        <figure>
-          <img src="images/crm.png" alt="企業情報・名刺情報一覧" class="screenshot">
-          <figcaption class="ss-caption">CRM — 顧客情報・対応履歴・次のアクションを1画面で一覧</figcaption>
-        </figure>
-        <figure>
-          <img src="images/task.png" alt="ゴール直結型タスク管理" class="screenshot">
-          <figcaption class="ss-caption">タスク管理 — ゴールから逆算された「今日やること」が並ぶ</figcaption>
-        </figure>
-        <figure>
-          <img src="images/knowledge.png" alt="ナレッジベース一覧" class="screenshot">
-          <figcaption class="ss-caption">ナレッジベース — タグ横断検索で必要な情報にたどり着く</figcaption>
-        </figure>
-        <figure>
-          <img src="images/ai-agent.png" alt="AIエージェント管理画面" class="screenshot">
-          <figcaption class="ss-caption">AIエージェント — メンションで起動し業務データを参照</figcaption>
-        </figure>
-        <figure>
-          <img src="images/accounting.png" alt="経理ダッシュボード" class="screenshot">
-          <figcaption class="ss-caption">経理 — 売上・支出・収支を一画面で把握</figcaption>
-        </figure>
-        <figure>
-          <img src="images/dashboard.png" alt="デイリーダッシュボード" class="screenshot">
-          <figcaption class="ss-caption">デイリーダッシュボード — 今日やるべきことが一目でわかる</figcaption>
-        </figure>
+      <div class="gallery-scroll rv">
+        <div class="gallery-track">
+          <figure class="gallery-item">
+            <img src="images/dashboard.png" alt="デイリーダッシュボード" class="gallery-img">
+            <figcaption>デイリーダッシュボード</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/crm.png" alt="企業情報・名刺情報一覧" class="gallery-img">
+            <figcaption>企業情報・名刺情報一覧</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/pj-deal.png" alt="PJ・商談情報・活動ログ・MTG一覧" class="gallery-img">
+            <figcaption>PJ・商談・活動ログ・MTG</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/task.png" alt="ゴール直結型タスク管理" class="gallery-img">
+            <figcaption>ゴール直結型タスク管理</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/knowledge.png" alt="ナレッジベース一覧" class="gallery-img">
+            <figcaption>ナレッジベース一覧</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/ai-agent.png" alt="マニュアル・AIエージェント管理" class="gallery-img">
+            <figcaption>マニュアル・AIエージェント管理</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="images/accounting.png" alt="経理ダッシュボード" class="gallery-img">
+            <figcaption>経理ダッシュボード</figcaption>
+          </figure>
+        </div>
       </div>
 
       <!-- AIスキル紹介 -->
