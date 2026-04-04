@@ -156,6 +156,10 @@
       color: var(--c-text-on-dark);
     }
 
+    .sec--border-top {
+      border-top: 1px solid var(--c-border);
+    }
+
     /* ========================================
        Section Heading
        ======================================== */
@@ -215,25 +219,16 @@
       gap: 1.5rem;
     }
 
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
     .grid-5 {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 1.5rem;
-    }
-
-    /* 5カード: 上段3列 + 下段2列中央寄せ */
-    .grid-module {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .grid-module-bottom {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      max-width: 66.666%;
-      margin: 1.5rem auto 0;
     }
 
     /* ========================================
@@ -323,29 +318,6 @@
     .rv-d5 { transition-delay: 0.40s; }
 
     /* ========================================
-       FV Cover
-       ======================================== */
-    .fv-cover {
-      width: 100%;
-      overflow: hidden;
-      line-height: 0;
-      max-height: 200px;
-    }
-
-    .fv-cover-img {
-      width: 100%;
-      height: 200px;
-      display: block;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    @media (max-width: 768px) {
-      .fv-cover { max-height: 120px; }
-      .fv-cover-img { height: 120px; }
-    }
-
-    /* ========================================
        FV (First View)
        ======================================== */
     .fv {
@@ -419,22 +391,23 @@
     }
 
     /* ========================================
-       Section Image (hero-visual, service-visual)
+       FV Gold Badge
        ======================================== */
-    .section-visual {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      display: block;
-      border-radius: 8px;
-      box-shadow: var(--shadow-card);
+    .fv-badge--gold .num {
+      background: linear-gradient(135deg, var(--c-gold) 0%, var(--c-gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .section-visual--wide {
-      max-width: 900px;
+    .fv-badge--gold .label {
+      color: var(--c-gold-dark);
+      font-weight: 700;
     }
 
-    /* Video */
+    /* ========================================
+       Video
+       ======================================== */
     .video-section {
       max-width: 800px;
       margin: 0 auto 3rem;
@@ -452,12 +425,6 @@
       margin-bottom: 0.5rem;
     }
 
-    .video-desc {
-      font-size: 0.9rem;
-      color: var(--c-text-mid);
-      line-height: 1.7;
-    }
-
     .video-wrap {
       text-align: center;
     }
@@ -466,6 +433,124 @@
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 8px 32px rgba(27,42,74,0.15);
+    }
+
+    /* ========================================
+       Data Cards (Market Data Section)
+       ======================================== */
+    .data-card {
+      background: var(--c-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
+
+    .data-card .num {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--c-gold);
+      display: block;
+      line-height: 1.2;
+    }
+
+    .data-card .data-label {
+      font-size: 0.95rem;
+      color: var(--c-navy);
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .data-card .data-source {
+      font-size: 0.75rem;
+      color: var(--c-text-mid);
+      margin-top: 0.3rem;
+    }
+
+    /* ========================================
+       Market Data Footnote
+       ======================================== */
+    .market-footnote {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--c-text-mid);
+      margin-top: 1.25rem;
+    }
+
+    /* ========================================
+       Badge Cards (Certification Section)
+       ======================================== */
+    .badge-section-wrap {
+      margin-top: 3.5rem;
+    }
+
+    .badge-card {
+      background: var(--c-white);
+      border: 2px solid var(--c-navy);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .badge-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin: 0 auto 0.75rem;
+      display: block;
+    }
+
+    .badge-card .badge-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .badge-card .badge-status {
+      font-size: 0.85rem;
+      color: var(--c-gold);
+      font-weight: 600;
+    }
+
+    .badge-card .badge-level {
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-section-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--c-gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .badge-section-desc {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--c-text-mid);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       Badge Cards (Dark variant for About)
+       ======================================== */
+    .badge-card--dark {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .badge-card--dark .badge-name {
+      color: var(--c-white);
+    }
+
+    .badge-card--dark .badge-level {
+      color: var(--c-text-on-dark-mid);
     }
 
     /* ========================================
@@ -482,7 +567,7 @@
 
     .stats-row {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1rem;
       margin-bottom: 3.5rem;
     }
@@ -527,8 +612,103 @@
     }
 
     /* ========================================
+       AI Skill Cards (Section 1)
+       ======================================== */
+    .ai-skill-section {
+      margin-top: 3.5rem;
+    }
+
+    .ai-skill-section-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .ai-skill-section-desc {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    .ai-skill-section-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      margin-top: 1.25rem;
+    }
+
+    .ai-skill-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .ai-skill-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      transition: transform 0.2s;
+    }
+
+    .ai-skill-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .skill-category {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-category--system { background: rgba(27,42,74,0.1); color: var(--c-navy); }
+    .skill-category--planning { background: rgba(200,169,96,0.15); color: var(--c-gold-dark); }
+    .skill-category--writing { background: rgba(0,0,0,0.06); color: #555; }
+
+    .skill-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-desc {
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      line-height: 1.6;
+    }
+
+    /* ========================================
        Section 2: Design Philosophy
        ======================================== */
+    .philosophy-lead {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .philosophy-lead-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .philosophy-lead-desc {
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      line-height: 1.8;
+    }
+
     .philosophy-card {
       position: relative;
     }
@@ -544,6 +724,17 @@
       font-size: 0.9rem;
       color: var(--c-text);
       line-height: 1.85;
+    }
+
+    .principle-num {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--c-gold-dark);
+      background: rgba(200,169,96,0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
     }
 
     .gold-underline {
@@ -564,18 +755,6 @@
     .diagram-wrapper svg {
       max-width: 100%;
       height: auto;
-    }
-
-    @media (max-width: 640px) {
-      .diagram-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 1.5rem;
-      }
-
-      .diagram-wrapper svg {
-        min-width: 520px;
-      }
     }
 
     /* ========================================
@@ -854,6 +1033,10 @@
     /* ========================================
        Section 7: About
        ======================================== */
+    .about-badges {
+      margin-bottom: 3rem;
+    }
+
     .about-inner {
       display: flex;
       align-items: flex-start;
@@ -922,6 +1105,17 @@
       line-height: 1.6;
     }
 
+    .skill-card--full {
+      grid-column: 1 / -1;
+    }
+
+    /* ========================================
+       Gold Text Utility
+       ======================================== */
+    .gold-text {
+      color: var(--c-gold);
+    }
+
     /* ========================================
        Footer
        ======================================== */
@@ -960,19 +1154,21 @@
       }
 
       .grid-2,
-      .grid-3,
-      .grid-module {
+      .grid-3 {
         grid-template-columns: 1fr;
       }
 
-      .grid-module-bottom {
-        max-width: 100%;
-        grid-template-columns: 1fr;
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .grid-5,
       .stats-row {
         grid-template-columns: repeat(3, 1fr);
+      }
+
+      .ai-skill-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .ba-header { grid-template-columns: 1fr; }
@@ -995,289 +1191,35 @@
       .sec {
         padding: clamp(3rem, 8vw, 5rem) 0;
       }
+
+      .diagram-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.5rem;
+      }
+
+      .diagram-wrapper svg {
+        min-width: 520px;
+      }
     }
 
     @media (max-width: 480px) {
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
       .grid-5,
       .stats-row {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .fv-badges {
-        flex-wrap: wrap;
-      }
-    }
-    /* ========================================
-       FV Gold Badge
-       ======================================== */
-    .fv-badge--gold .num {
-      background: linear-gradient(135deg, var(--c-gold) 0%, var(--c-gold-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .fv-badge--gold .label {
-      color: var(--c-gold-dark);
-      font-weight: 700;
-    }
-
-    /* ========================================
-       Data Cards (Market Data Section)
-       ======================================== */
-    .data-card {
-      background: var(--c-white);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      box-shadow: var(--shadow-card);
-      text-align: center;
-    }
-    .data-card .num {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      color: var(--c-gold);
-      display: block;
-      line-height: 1.2;
-    }
-    .data-card .data-label {
-      font-size: 0.95rem;
-      color: var(--c-navy);
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-    .data-card .data-source {
-      font-size: 0.75rem;
-      color: var(--c-text-mid);
-      margin-top: 0.3rem;
-    }
-
-    /* ========================================
-       Badge Cards (Certification Section)
-       ======================================== */
-    .badge-card {
-      background: var(--c-white);
-      border: 2px solid var(--c-navy);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      text-align: center;
-    }
-    .badge-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
-      object-fit: cover;
-      margin: 0 auto 0.75rem;
-      display: block;
-    }
-    .badge-card .badge-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.5rem;
-    }
-    .badge-card .badge-status {
-      font-size: 0.85rem;
-      color: var(--c-gold);
-      font-weight: 600;
-    }
-
-    /* ========================================
-       Case Study Cards
-       ======================================== */
-    .case-card {
-      background: var(--c-white);
-      border: 1px solid var(--c-border);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      box-shadow: var(--shadow-card);
-    }
-    .case-card .company-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.25rem;
-    }
-    .case-card .company-desc {
-      font-size: 0.8rem;
-      color: var(--c-text-mid);
-      margin-bottom: 1rem;
-    }
-    .case-card .case-num {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 700;
-      color: var(--c-gold);
-      margin-bottom: 0.5rem;
-    }
-    .case-card .case-detail {
-      font-size: 0.85rem;
-      color: var(--c-text);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-    .case-card .case-quote {
-      font-style: italic;
-      font-size: 0.85rem;
-      color: var(--c-text);
-      line-height: 1.6;
-      border-left: 3px solid var(--c-gold);
-      padding-left: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .case-card .case-source {
-      font-size: 0.75rem;
-      color: var(--c-text-mid);
-    }
-    .case-card .case-source a {
-      color: var(--c-text-mid);
-      text-decoration: underline;
-    }
-
-    /* ========================================
-       Section Subtitle
-       ======================================== */
-    .sec-subtitle {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--c-text-mid);
-      margin-top: -2.75rem;
-      margin-bottom: 3rem;
-    }
-
-    /* ========================================
-       Gold Text Utility
-       ======================================== */
-    .gold-text {
-      color: var(--c-gold);
-    }
-
-    /* ========================================
-       Badge Section Title
-       ======================================== */
-    .badge-section-title {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--c-gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .badge-section-desc {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--c-text-mid);
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-
-    /* ========================================
-       AI Skill Cards (Section 1)
-       ======================================== */
-    .ai-skill-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .ai-skill-card {
-      background: var(--c-white);
-      border: 1px solid var(--c-border);
-      border-radius: var(--radius-sm);
-      padding: 1.25rem;
-      transition: transform 0.2s;
-    }
-
-    .ai-skill-card:hover {
-      transform: translateY(-2px);
-    }
-
-    .skill-category {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-    }
-
-    .skill-category--system { background: rgba(27,42,74,0.1); color: var(--c-navy); }
-    .skill-category--planning { background: rgba(200,169,96,0.15); color: var(--c-gold-dark); }
-    .skill-category--writing { background: rgba(0,0,0,0.06); color: #555; }
-
-    .skill-name {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.35rem;
-    }
-
-    .skill-desc {
-      font-size: 0.8rem;
-      color: var(--c-text-mid);
-      line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-      .ai-skill-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
       .ai-skill-grid {
         grid-template-columns: 1fr;
       }
-    }
 
-    /* ========================================
-       Loop Steps (BizBase Philosophy)
-       ======================================== */
-    .loop-steps {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0;
-    }
-    .loop-step {
-      background: var(--c-white);
-      border: 1px solid var(--c-border);
-      border-radius: var(--radius-sm);
-      padding: 0.75rem 1rem;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .loop-num {
-      width: 24px;
-      height: 24px;
-      background: var(--c-gold);
-      color: white;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .loop-text {
-      font-size: 0.85rem;
-      color: var(--c-navy);
-      font-weight: 500;
-    }
-    .loop-arrow {
-      color: var(--c-gold);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    @media (max-width: 768px) {
-      .loop-arrow { display: none; }
-      .loop-steps { flex-direction: column; gap: 0.75rem; }
+      .fv-badges {
+        flex-wrap: wrap;
+      }
     }
 
   </style>
@@ -1294,24 +1236,14 @@
         <span class="header-brand-text">Notion BizBase</span>
       </a>
       <nav class="header-nav">
-        <a href="#market-data">市場データ</a>
-        <a href="#case-studies">導入事例</a>
-        <a href="#bizbase">BizBaseとは</a>
+        <a href="#bizbase">BizBase</a>
         <a href="#philosophy">設計思想</a>
         <a href="#before-after">導入効果</a>
-        <a href="#services">対応領域</a>
         <a href="#flow">制作の流れ</a>
         <a href="#about">About</a>
       </nav>
     </div>
   </header>
-
-  <!-- ========================================
-       FV Cover
-       ======================================== -->
-  <div class="fv-cover">
-    <img src="images/cover.jpg" alt="Notion BizBase" class="fv-cover-img">
-  </div>
 
   <!-- ========================================
        FV (First View)
@@ -1361,8 +1293,8 @@
         <h2>世界1億人が使うビジネス基盤</h2>
       </div>
 
-      <!-- データカード 4つ -->
-      <div class="grid-2 rv">
+      <!-- データカード 4つ（4列×1行） -->
+      <div class="grid-4 rv">
         <div class="data-card">
           <span class="num">1億人+</span>
           <div class="data-label">Notion 全世界ユーザー数</div>
@@ -1384,10 +1316,10 @@
           <div class="data-source">出典: Zylo</div>
         </div>
       </div>
-      <p style="text-align: center; font-size: 0.85rem; color: #777; margin-top: 1.25rem;">満足度No.1なのに、まだ7.7%しか使われていない。今導入すれば先行者利益がある。</p>
+      <p class="market-footnote">満足度No.1なのに、まだ7.7%しか使われていない。今導入すれば先行者利益がある。トヨタ自動車・大阪ガスなど大手企業も導入。</p>
 
       <!-- Notion公式認定バッジ -->
-      <div style="margin-top: 3.5rem;">
+      <div class="badge-section-wrap">
         <p class="badge-section-title rv">Notion公式認定 全3種取得</p>
         <p class="badge-section-desc rv">DB設計・リレーション・権限管理・高度なワークフロー構築まで、Notion全機能領域の体系的な習得を公式が証明。</p>
 
@@ -1395,61 +1327,21 @@
           <div class="badge-card">
             <img src="images/badge-essentials.png" alt="Notion Essentials Badge" class="badge-icon">
             <div class="badge-name">Notion Essentials Badge</div>
-            <div style="font-size: 0.8rem; color: var(--c-text-mid); margin-bottom: 0.75rem;">基礎認定</div>
+            <div class="badge-level">基礎認定</div>
             <div class="badge-status">取得済み &#10003;</div>
           </div>
           <div class="badge-card">
             <img src="images/badge-settings.png" alt="Notion Settings & Sharing Badge" class="badge-icon">
-            <div class="badge-name">Notion Settings & Sharing Badge</div>
-            <div style="font-size: 0.8rem; color: var(--c-text-mid); margin-bottom: 0.75rem;">設定・共有認定</div>
+            <div class="badge-name">Notion Settings &amp; Sharing Badge</div>
+            <div class="badge-level">設定・共有認定</div>
             <div class="badge-status">取得済み &#10003;</div>
           </div>
           <div class="badge-card">
             <img src="images/badge-advanced.png" alt="Notion Advanced Badge" class="badge-icon">
             <div class="badge-name">Notion Advanced Badge</div>
-            <div style="font-size: 0.8rem; color: var(--c-text-mid); margin-bottom: 0.75rem;">上級認定</div>
+            <div class="badge-level">上級認定</div>
             <div class="badge-status">取得済み &#10003;</div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       Case Studies (Notion Official)
-       ======================================== -->
-  <section id="case-studies" class="sec">
-    <div class="container">
-      <div class="sec-heading rv">
-        <h2>Notionを選んだ企業たち</h2>
-      </div>
-      <p class="sec-subtitle rv">Notion公式導入事例より</p>
-
-      <div class="grid-3">
-        <div class="case-card rv rv-d1">
-          <div class="company-name">OpenAI</div>
-          <div class="company-desc">AI業界のリーディングカンパニー</div>
-          <div class="case-num">数時間 → 数分</div>
-          <div class="case-detail">デバッグ時間を大幅短縮（Notion AI活用）</div>
-          <div class="case-quote">「Notionの効果は雪玉式に大きくなっていく」— John Allard</div>
-          <div class="case-source"><a href="https://notion.com/ja/customers/openai" target="_blank" rel="noopener">notion.com/ja/customers/openai</a></div>
-        </div>
-
-        <div class="case-card rv rv-d2">
-          <div class="company-name">大阪ガス</div>
-          <div class="company-desc">日本を代表するインフラ企業</div>
-          <div class="case-num">毎月2,000時間</div>
-          <div class="case-detail">情報共有の効率化で削減</div>
-          <div class="case-quote">「全ての機能を包括する"オールインワン"なツールは、今のところ"オンリーワン"」— 國政秀太郎</div>
-          <div class="case-source"><a href="https://notion.com/ja/customers/osaka-gas-jp" target="_blank" rel="noopener">notion.com/ja/customers/osaka-gas-jp</a></div>
-        </div>
-
-        <div class="case-card rv rv-d3">
-          <div class="company-name">トヨタ自動車</div>
-          <div class="company-desc">世界最大級の自動車メーカー</div>
-          <div class="case-num">Fortune 100</div>
-          <div class="case-detail">Fortune 100企業の62%がNotionを導入 — トヨタもその一社</div>
-          <div class="case-source">出典: Notion公式 / PreBell</div>
         </div>
       </div>
     </div>
@@ -1458,70 +1350,17 @@
   <!-- ========================================
        Section 1: Notion BizBase
        ======================================== -->
-  <section id="bizbase" class="sec" style="border-top: 1px solid var(--c-border);">
+  <section id="bizbase" class="sec sec--border-top">
     <div class="container">
       <div class="sec-heading rv">
         <h2>自社プロダクト「Notion BizBase」</h2>
         <span class="sub-heading">AIエージェント搭載の経営基盤</span>
       </div>
 
-      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営基盤を、自ら設計・構築・運用している。</p>
-
-      <!-- BizBaseの思想セクション -->
-      <div class="rv" style="max-width: 720px; margin: 0 auto 3rem;">
-        <h3 style="text-align: center; font-size: 1.3rem; font-weight: 700; color: var(--c-navy); margin-bottom: 2rem;">なぜこの基盤を作ったのか</h3>
-
-        <div style="margin-bottom: 1.75rem;">
-          <p style="font-size: 1.05rem; font-weight: 700; color: var(--c-navy); margin-bottom: 0.5rem;">影響の輪は、あなた個人から広がる。</p>
-          <p style="font-size: 0.9rem; color: #777; line-height: 1.8;">個人のゴールを起点に、AIとの掛け算で影響力を拡大していく経営基盤。</p>
-        </div>
-
-        <div style="margin-bottom: 1.75rem;">
-          <p style="font-size: 1.05rem; font-weight: 700; color: var(--c-navy); margin-bottom: 0.5rem;">想像力 × AI = 創造力</p>
-          <p style="font-size: 0.9rem; color: #777; line-height: 1.8;">想像力は頭の中に描く力。創造力はそれを形にする力。AIはイメージを具体に変換するエンジン。BizBaseはこのパイプラインを回す基盤。</p>
-        </div>
-
-        <p style="font-size: 0.95rem; font-weight: 600; color: var(--c-navy); margin-bottom: 0.75rem; text-align: center;">影響の輪ループ</p>
-        <div class="loop-steps">
-          <div class="loop-step">
-            <span class="loop-num">1</span>
-            <span class="loop-text">個人のゴールが明確になる</span>
-          </div>
-          <div class="loop-arrow">&rarr;</div>
-          <div class="loop-step">
-            <span class="loop-num">2</span>
-            <span class="loop-text">チームに影響が伝播する</span>
-          </div>
-          <div class="loop-arrow">&rarr;</div>
-          <div class="loop-step">
-            <span class="loop-num">3</span>
-            <span class="loop-text">顧客に影響が届く</span>
-          </div>
-          <div class="loop-arrow">&rarr;</div>
-          <div class="loop-step">
-            <span class="loop-num">4</span>
-            <span class="loop-text">成果がゴールを強化する</span>
-          </div>
-        </div>
-      </div>
-
-      <img src="images/hero-visual.png" alt="バラバラだった業務が、一つの仕組みとしてつながる" class="section-visual rv">
-
-      <!-- プロダクト紹介動画 -->
-      <div class="video-section rv">
-        <div class="video-lead">
-          <h3 class="video-title">2分でわかる Notion BizBase</h3>
-          <p class="video-desc">4つのモジュール・18のデータベース・4体のAIエージェント。<br>これらがどう連携して経営基盤として機能するのか、実際の画面で紹介します。</p>
-        </div>
-        <div class="video-wrap">
-          <video class="demo-video" controls playsinline preload="metadata" poster="images/cover.jpg">
-            <source src="images/bizbase-demo.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェントを統合し、自ら設計・構築・運用している。</p>
 
       <!-- 構築規模 -->
-      <div class="stats-row rv" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="stats-row rv">
         <div class="stat-item">
           <span class="num">18</span>
           <span class="label">データベース</span>
@@ -1544,8 +1383,20 @@
         </div>
       </div>
 
-      <!-- 主要機能5カード: 上段3列 -->
-      <div class="grid-module">
+      <!-- プロダクト紹介動画 -->
+      <div class="video-section rv">
+        <div class="video-lead">
+          <h3 class="video-title">2分でわかる Notion BizBase</h3>
+        </div>
+        <div class="video-wrap">
+          <video class="demo-video" controls playsinline preload="metadata" poster="images/cover.jpg">
+            <source src="images/bizbase-demo.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- 主要機能4カード（2列×2行） -->
+      <div class="grid-2">
         <div class="card rv rv-d1">
           <div class="card-icon">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1586,10 +1437,7 @@
           <h3>ナレッジベース &mdash; 3DB構成</h3>
           <p>ナレッジDB × タグ検索DB × 日報DBで知見・ノウハウ・資料をタグで横断検索。使うほど価値が増す情報資産。</p>
         </div>
-      </div>
 
-      <!-- 主要機能4カード: 下段1列（中央寄せ） -->
-      <div class="grid-module-bottom" style="max-width: 33.333%; grid-template-columns: 1fr;">
         <div class="card rv rv-d4">
           <div class="card-icon">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1605,6 +1453,52 @@
           <h3>AIエージェント &mdash; マスターAI + 自動実行3体 + 20+スキル</h3>
           <p>マスターAIが全体統括。メンション一発で起動し、20以上のカスタムスキルから最適なものを自動選択・実行。CRMプロパティ自動入力・日報自動生成・Googleカレンダー連携の3つの自動実行エージェントも搭載。</p>
         </div>
+      </div>
+
+      <!-- AIスキル紹介 -->
+      <div class="ai-skill-section">
+        <h3 class="ai-skill-section-title rv">20以上のスキルから厳選</h3>
+        <p class="ai-skill-section-desc rv">マスターAIが呼び出すカスタムスキルの一部を紹介。スキルは業務に合わせて追加・カスタマイズ可能。</p>
+
+        <div class="ai-skill-grid rv">
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--system">システム</span>
+            <div class="skill-name">ドキュメントデザイン</div>
+            <div class="skill-desc">Notionページの見出し構造・色設計を統一フォーマットで自動整形</div>
+          </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--system">システム</span>
+            <div class="skill-name">スキル作成</div>
+            <div class="skill-desc">新しいAIスキルを構造化・作成。スキルがスキルを生む自己拡張構造</div>
+          </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--system">システム</span>
+            <div class="skill-name">名刺取り込み</div>
+            <div class="skill-desc">名刺画像からAIが情報抽出、企業DB・名刺DBへ自動登録</div>
+          </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--planning">プランニング</span>
+            <div class="skill-name">ゴール設定 → PJ化</div>
+            <div class="skill-desc">曖昧な目標をKPI・完了定義・PJ分解まで一気通貫で設計</div>
+          </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--planning">プランニング</span>
+            <div class="skill-name">タスク提案</div>
+            <div class="skill-desc">ゴールから逆算した「今日やるべきタスク」を選定・最小アクションに分解</div>
+          </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--writing">ライティング</span>
+            <div class="skill-name">メール作成</div>
+            <div class="skill-desc">お礼・依頼・報告など、ユーザーの文体に合わせてビジネスメールを即生成</div>
+          </div>
+          <div class="ai-skill-card">
+            <span class="skill-category skill-category--writing">ライティング</span>
+            <div class="skill-name">提案書作成</div>
+            <div class="skill-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成</div>
+          </div>
+        </div>
+
+        <p class="ai-skill-section-note rv">スキルは追加・カスタマイズ可能。業務に合わせて増やせます。</p>
       </div>
 
       <!-- スクリーンショット 3x2（6枚） -->
@@ -1646,52 +1540,6 @@
           </figure>
         </div>
       </div>
-
-      <!-- AIスキル紹介 -->
-      <div style="margin-top: 3.5rem;">
-        <h3 class="rv" style="text-align: center; font-size: 1.3rem; font-weight: 700; color: var(--c-navy); margin-bottom: 0.75rem;">20以上のスキルから厳選</h3>
-        <p class="rv" style="text-align: center; font-size: 0.9rem; color: var(--c-text-mid); max-width: 640px; margin: 0 auto 2rem; line-height: 1.7;">マスターAIが呼び出すカスタムスキルの一部を紹介。スキルは業務に合わせて追加・カスタマイズ可能。</p>
-
-        <div class="ai-skill-grid rv">
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--system">システム</span>
-            <div class="skill-name">ドキュメントデザイン</div>
-            <div class="skill-desc">Notionページの見出し構造・色設計を統一フォーマットで自動整形</div>
-          </div>
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--system">システム</span>
-            <div class="skill-name">スキル作成</div>
-            <div class="skill-desc">新しいAIスキルを構造化・作成。スキルがスキルを生む自己拡張構造</div>
-          </div>
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--system">システム</span>
-            <div class="skill-name">名刺取り込み</div>
-            <div class="skill-desc">名刺画像からAIが情報抽出、企業DB・名刺DBへ自動登録</div>
-          </div>
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--planning">プランニング</span>
-            <div class="skill-name">ゴール設定 → PJ化</div>
-            <div class="skill-desc">曖昧な目標をKPI・完了定義・PJ分解まで一気通貫で設計</div>
-          </div>
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--planning">プランニング</span>
-            <div class="skill-name">タスク提案</div>
-            <div class="skill-desc">ゴールから逆算した「今日やるべきタスク」を選定・最小アクションに分解</div>
-          </div>
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--writing">ライティング</span>
-            <div class="skill-name">メール作成</div>
-            <div class="skill-desc">お礼・依頼・報告など、ユーザーの文体に合わせてビジネスメールを即生成</div>
-          </div>
-          <div class="ai-skill-card">
-            <span class="skill-category skill-category--writing">ライティング</span>
-            <div class="skill-name">提案書作成</div>
-            <div class="skill-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成</div>
-          </div>
-        </div>
-
-        <p class="rv" style="text-align: center; font-size: 0.8rem; color: #777; margin-top: 1.25rem;">スキルは追加・カスタマイズ可能。業務に合わせて増やせます。</p>
-      </div>
     </div>
   </section>
 
@@ -1705,30 +1553,30 @@
       </div>
 
       <!-- リード文 -->
-      <div class="rv" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
-        <p style="font-size: 1.1rem; font-weight: 700; color: var(--c-navy); margin-bottom: 0.75rem;">なぜ「既製品」では業務が変わらないのか</p>
-        <p style="font-size: 0.9rem; color: #777; line-height: 1.8;">テンプレートもSaaSも、基本的には「既製品」——どの業種・どの業務にも対応できるように作られた汎用設計。だから、御社の業務にぴったり合うことはない。「使いにくい」「結果につながらない」の正体は、ここにある。</p>
+      <div class="philosophy-lead rv">
+        <p class="philosophy-lead-title">既製品では業務が変わらない理由</p>
+        <p class="philosophy-lead-desc">テンプレートもSaaSも汎用設計。御社の業務にぴったり合うことはない。「使いにくい」「結果につながらない」の正体は、ここにある。</p>
       </div>
 
       <!-- 4原則カード -->
       <div class="grid-2">
         <div class="card philosophy-card rv rv-d1">
-          <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--c-gold-dark); background: rgba(200,169,96,0.15); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem;">01</span>
+          <span class="principle-num">01</span>
           <h3>ゴールからの逆算設計</h3>
           <p>既製品のタスク管理は「タスクを並べる箱」でしかない。BizBaseは「ゴール → プロジェクト → タスク」の一本線で接続。すべてのタスクがゴールに紐づく。<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造。</p>
         </div>
         <div class="card philosophy-card rv rv-d2">
-          <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--c-gold-dark); background: rgba(200,169,96,0.15); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem;">02</span>
+          <span class="principle-num">02</span>
           <h3>入力の手間を最小限に</h3>
           <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされる。手動で紐づける必要がない。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>。</p>
         </div>
         <div class="card philosophy-card rv rv-d3">
-          <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--c-gold-dark); background: rgba(200,169,96,0.15); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem;">03</span>
+          <span class="principle-num">03</span>
           <h3>AIが参照できる構造にする</h3>
           <p>既製品のデータ構造は、AIが参照できる状態になっていない。だからAIを導入しても成果が出ない。BizBaseは全DBをAIエージェントが横断参照できる設計。<span class="gold-underline">蓄積するほどAIが賢くなる</span>。</p>
         </div>
         <div class="card philosophy-card rv rv-d4">
-          <span style="display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--c-gold-dark); background: rgba(200,169,96,0.15); padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.75rem;">04</span>
+          <span class="principle-num">04</span>
           <h3>設計思想が見える状態で納品する</h3>
           <p>テンプレートには「なぜこの構造なのか」が書かれていない。だから100%使いこなすことはできない。BizBaseは設計意図を言語化し、<span class="gold-underline">「なぜこのDB構成なのか」が分かる状態で構築する</span>。だから自走できる。</p>
         </div>
@@ -1914,15 +1762,13 @@
   </section>
 
   <!-- ========================================
-       Section 5: Services
+       Section 5: Services + Section 6: Flow（隣接配置）
        ======================================== -->
   <section id="services" class="sec">
     <div class="container">
       <div class="sec-heading rv">
         <h2>対応可能な領域</h2>
       </div>
-
-      <img src="images/service-visual.png" alt="必要な情報を10秒以内に取り出せる業務基盤を構築します" class="section-visual section-visual--wide rv">
 
       <div class="grid-3">
         <div class="card service-card rv rv-d1">
@@ -1973,9 +1819,6 @@
     </div>
   </section>
 
-  <!-- ========================================
-       Section 6: Flow
-       ======================================== -->
   <section id="flow" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
@@ -2032,23 +1875,23 @@
       </div>
 
       <!-- Notion公式認定バッジ（ダーク背景用） -->
-      <div class="grid-3 rv" style="margin-bottom: 3rem;">
-        <div class="badge-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15);">
+      <div class="grid-3 rv about-badges">
+        <div class="badge-card badge-card--dark">
           <img src="images/badge-essentials.png" alt="Notion Essentials Badge" class="badge-icon">
-          <div class="badge-name" style="color: var(--c-white);">Notion Essentials Badge</div>
-          <div style="font-size: 0.8rem; color: var(--c-text-on-dark-mid); margin-bottom: 0.75rem;">基礎認定</div>
+          <div class="badge-name">Notion Essentials Badge</div>
+          <div class="badge-level">基礎認定</div>
           <div class="badge-status">取得済み &#10003;</div>
         </div>
-        <div class="badge-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15);">
+        <div class="badge-card badge-card--dark">
           <img src="images/badge-settings.png" alt="Notion Settings & Sharing Badge" class="badge-icon">
-          <div class="badge-name" style="color: var(--c-white);">Notion Settings &amp; Sharing Badge</div>
-          <div style="font-size: 0.8rem; color: var(--c-text-on-dark-mid); margin-bottom: 0.75rem;">設定・共有認定</div>
+          <div class="badge-name">Notion Settings &amp; Sharing Badge</div>
+          <div class="badge-level">設定・共有認定</div>
           <div class="badge-status">取得済み &#10003;</div>
         </div>
-        <div class="badge-card" style="background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.15);">
+        <div class="badge-card badge-card--dark">
           <img src="images/badge-advanced.png" alt="Notion Advanced Badge" class="badge-icon">
-          <div class="badge-name" style="color: var(--c-white);">Notion Advanced Badge</div>
-          <div style="font-size: 0.8rem; color: var(--c-text-on-dark-mid); margin-bottom: 0.75rem;">上級認定</div>
+          <div class="badge-name">Notion Advanced Badge</div>
+          <div class="badge-level">上級認定</div>
           <div class="badge-status">取得済み &#10003;</div>
         </div>
       </div>
@@ -2089,7 +1932,7 @@
               <h4>実装環境</h4>
               <p>Notion API / Claude Code / Cursor</p>
             </div>
-            <div class="skill-card" style="grid-column: 1 / -1;">
+            <div class="skill-card skill-card--full">
               <h4>公式認定</h4>
               <p>Notion Essentials / Settings &amp; Sharing / Advanced（全3種）</p>
             </div>
@@ -2105,7 +1948,7 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-logo">Notion BizBase</div>
-      <p class="footer-copy">&copy; 2025 上原千翔. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 上原千翔. All rights reserved.</p>
     </div>
   </footer>
 
