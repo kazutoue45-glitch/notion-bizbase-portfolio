@@ -408,8 +408,15 @@
     .fv-sub {
       color: var(--c-text-mid);
       font-size: 1.05rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.25rem;
       line-height: 1.7;
+    }
+
+    .fv-credential {
+      font-size: 0.85rem;
+      color: var(--c-text-mid);
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
     .fv-badges {
@@ -711,6 +718,14 @@
       margin-bottom: 1.5rem;
     }
 
+    .ai-skill-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 0.75rem;
+    }
+
     .ai-skill-card {
       background: var(--c-white);
       border: 1px solid var(--c-border);
@@ -847,19 +862,51 @@
 
     .philosophy-card {
       position: relative;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .philosophy-card:nth-child(1) { background-image: url('images/principle-1.png'); }
+    .philosophy-card:nth-child(2) { background-image: url('images/principle-2.png'); }
+    .philosophy-card:nth-child(3) { background-image: url('images/principle-3.png'); }
+    .philosophy-card:nth-child(4) { background-image: url('images/principle-4.png'); }
+
+    .philosophy-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(27, 42, 74, 0.85);
+      z-index: 0;
+    }
+
+    .philosophy-card-inner {
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
     }
 
     .philosophy-card h3 {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--c-navy);
+      color: var(--c-gold-light);
       margin-bottom: 1rem;
     }
 
     .philosophy-card p {
       font-size: 0.9rem;
-      color: var(--c-text);
+      color: var(--c-text-on-dark);
       line-height: 1.85;
+    }
+
+    .philosophy-card .principle-num {
+      color: var(--c-gold);
+    }
+
+    .philosophy-card .gold-underline {
+      border-bottom-color: var(--c-gold);
     }
 
     .principle-num {
@@ -1394,28 +1441,7 @@
         <div class="fv-text rv">
           <h1>既製品からオーダーメイドへ</h1>
           <p class="fv-sub">御社の業務に最適化された Notion × AI 基盤を設計する。</p>
-          <div class="fv-badges">
-            <div class="fv-badge fv-badge--gold">
-              <span class="num">3</span>
-              <span class="label">公式認定</span>
-            </div>
-            <div class="fv-badge">
-              <span class="num">6</span>
-              <span class="label">モジュール</span>
-            </div>
-            <div class="fv-badge">
-              <span class="num">18+</span>
-              <span class="label">DB</span>
-            </div>
-            <div class="fv-badge">
-              <span class="num">4</span>
-              <span class="label">AIエージェント</span>
-            </div>
-            <div class="fv-badge">
-              <span class="num">17</span>
-              <span class="label">AIスキル</span>
-            </div>
-          </div>
+          <p class="fv-credential">Notion公式認定 全3種取得｜18+ DB｜4 AIエージェント｜17 AIスキル</p>
         </div>
         <div class="fv-visual rv rv-d2">
           <img src="images/home.png" alt="Notion BizBase ホーム画面" class="fv-screenshot">
@@ -1433,30 +1459,20 @@
         <h2>世界1億人が使うビジネス基盤</h2>
       </div>
 
-      <!-- データカード 4つ（4列×1行） -->
-      <div class="grid-4 rv">
+      <!-- データカード 2つ -->
+      <div class="grid-2 rv">
         <div class="data-card">
           <span class="num">1億人+</span>
           <div class="data-label">Notion 全世界ユーザー数</div>
-          <div class="data-source">出典: Notion公式, 2024年</div>
+          <div class="data-source">出典: Notion公式プレスリリース, 2024年</div>
         </div>
         <div class="data-card">
           <span class="num">No.1</span>
-          <div class="data-label">法人向け生成AI 満足度</div>
-          <div class="data-source">出典: ICT総研, 2025年7月</div>
-        </div>
-        <div class="data-card">
-          <span class="num">93%</span>
-          <div class="data-label">の企業がまだNotion AIを活用できていない</div>
-          <div class="data-source">出典: ICT総研, 2025年7月</div>
-        </div>
-        <div class="data-card">
-          <span class="num">275</span>
-          <div class="data-label">企業が使用する平均SaaS数</div>
-          <div class="data-source">出典: Zylo</div>
+          <div class="data-label">法人向け生成AI 利用者満足度</div>
+          <div class="data-source">ChatGPTを抑えトップ — ICT総研調べ, 2025年7月</div>
         </div>
       </div>
-      <p class="market-footnote">使った企業の評価は全AIサービスの中で最も高い。それでも、93%以上の企業がまだ活用できていない。</p>
+      <p class="market-footnote">トヨタ自動車・大阪ガス・三菱重工など大手企業も導入。それでも93%以上の企業がまだ活用できていない今、導入する価値がある。</p>
 
       <!-- Notion公式認定バッジ -->
       <div class="badge-section-wrap">
@@ -1665,41 +1681,49 @@
 
         <div class="ai-skill-grid rv">
           <div class="ai-skill-card">
+            <img src="images/skill-1.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--system">システム</span>
             <div class="skill-name">ドキュメントデザイン</div>
             <div class="skill-desc">Notionページの見出し構造・色設計を統一フォーマットで自動整形</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-2.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--system">システム</span>
             <div class="skill-name">スキル作成</div>
             <div class="skill-desc">新しいAIスキルを構造化・作成。スキルがスキルを生む自己拡張構造</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-3.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--system">システム</span>
             <div class="skill-name">名刺取り込み</div>
             <div class="skill-desc">名刺画像からAIが情報抽出、企業DB・名刺DBへ自動登録</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-4.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--planning">プランニング</span>
             <div class="skill-name">ゴール設定 → PJ化</div>
             <div class="skill-desc">曖昧な目標をKPI・完了定義・PJ分解まで一気通貫で設計</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-5.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--planning">プランニング</span>
             <div class="skill-name">タスク提案</div>
             <div class="skill-desc">ゴールから逆算した「今日やるべきタスク」を選定・最小アクションに分解</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-6.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--writing">ライティング</span>
             <div class="skill-name">メール作成</div>
             <div class="skill-desc">お礼・依頼・報告など、ユーザーの文体に合わせてビジネスメールを即生成</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-7.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--writing">ライティング</span>
             <div class="skill-name">提案書作成</div>
             <div class="skill-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成</div>
           </div>
           <div class="ai-skill-card">
+            <img src="images/skill-8.png" alt="" class="ai-skill-icon">
             <span class="skill-category skill-category--system">システム</span>
             <div class="skill-name">AI作業ログ記録</div>
             <div class="skill-desc">会話中の意思決定・方針変更・実行内容をAI作業ログDBへ自動記録。業務プロセスを資産として蓄積</div>
@@ -1769,24 +1793,32 @@
       <!-- 4原則カード -->
       <div class="grid-2">
         <div class="card philosophy-card rv rv-d1">
-          <span class="principle-num">01</span>
-          <h3>ゴールからの逆算設計</h3>
-          <p>既製品のタスク管理は「タスクを並べる箱」でしかありません。BizBaseは「ゴール → プロジェクト → タスク」の一本線で接続します。すべてのタスクがゴールに紐づく。<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造です。</p>
+          <div class="philosophy-card-inner">
+            <span class="principle-num">01</span>
+            <h3>ゴールからの逆算設計</h3>
+            <p>既製品のタスク管理は「タスクを並べる箱」でしかありません。BizBaseは「ゴール → プロジェクト → タスク」の一本線で接続します。すべてのタスクがゴールに紐づく。<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造です。</p>
+          </div>
         </div>
         <div class="card philosophy-card rv rv-d2">
-          <span class="principle-num">02</span>
-          <h3>入力の手間を最小限に</h3>
-          <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされます。手動で紐づける必要はありません。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>です。</p>
+          <div class="philosophy-card-inner">
+            <span class="principle-num">02</span>
+            <h3>入力の手間を最小限に</h3>
+            <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされます。手動で紐づける必要はありません。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>です。</p>
+          </div>
         </div>
         <div class="card philosophy-card rv rv-d3">
-          <span class="principle-num">03</span>
-          <h3>AIが参照できる構造にする</h3>
-          <p>既製品のデータ構造は、AIが参照できる状態になっていません。だからAIを導入しても成果が出ません。BizBaseは全DBをAIエージェントが横断参照できる設計です。<span class="gold-underline">蓄積するほどAIが賢くなります</span>。</p>
+          <div class="philosophy-card-inner">
+            <span class="principle-num">03</span>
+            <h3>AIが参照できる構造にする</h3>
+            <p>既製品のデータ構造は、AIが参照できる状態になっていません。だからAIを導入しても成果が出ません。BizBaseは全DBをAIエージェントが横断参照できる設計です。<span class="gold-underline">蓄積するほどAIが賢くなります</span>。</p>
+          </div>
         </div>
         <div class="card philosophy-card rv rv-d4">
-          <span class="principle-num">04</span>
-          <h3>設計思想が見える状態で納品する</h3>
-          <p>テンプレートには「なぜこの構造なのか」が書かれていません。だから100%使いこなすことはできません。BizBaseは設計意図を言語化し、<span class="gold-underline">「なぜこのDB構成なのか」が分かる状態で構築します</span>。だから自走できます。</p>
+          <div class="philosophy-card-inner">
+            <span class="principle-num">04</span>
+            <h3>設計思想が見える状態で納品する</h3>
+            <p>テンプレートには「なぜこの構造なのか」が書かれていません。だから100%使いこなすことはできません。BizBaseは設計意図を言語化し、<span class="gold-underline">「なぜこのDB構成なのか」が分かる状態で構築します</span>。だから自走できます。</p>
+          </div>
         </div>
       </div>
 
