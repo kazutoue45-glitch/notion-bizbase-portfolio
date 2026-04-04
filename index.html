@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Notion BizBase — Notion × AI の業務基盤設計</title>
-  <meta name="description" content="Notion × AIの業務基盤設計。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営OSを設計・構築・運用。">
+  <meta name="description" content="Notion × AIの業務基盤設計。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営基盤を設計・構築・運用。">
   <meta property="og:title" content="Notion BizBase — Notion × AI の業務基盤設計">
-  <meta property="og:description" content="Notion × AIの業務基盤設計。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営OSを設計・構築・運用。">
+  <meta property="og:description" content="Notion × AIの業務基盤設計。CRM・タスク管理・ナレッジベース・AIエージェントを統合した経営基盤を設計・構築・運用。">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#1B2A4A">
+  <link rel="icon" type="image/png" href="images/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -545,38 +546,51 @@
     .ba-list {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
 
     .ba-row {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--c-bg-alt);
-      border-radius: var(--radius-sm);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
     }
 
     .ba-before {
-      flex: 1;
-      color: #999;
-      font-size: 0.9rem;
-      line-height: 1.6;
+      background: #F8F8F8;
+      padding: 1.5rem 2rem;
+      color: #888;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
     }
 
     .ba-arrow {
-      flex-shrink: 0;
-      color: var(--c-gold);
-      font-size: 1.2rem;
+      background: var(--c-gold);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      font-size: 1.3rem;
       font-weight: 700;
+      flex-shrink: 0;
     }
 
     .ba-after {
-      flex: 1;
+      background: var(--c-white);
+      padding: 1.5rem 2rem;
       color: var(--c-navy);
       font-weight: 700;
-      font-size: 0.9rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      display: flex;
+      align-items: center;
+      border-left: none;
     }
 
     /* ========================================
@@ -638,6 +652,23 @@
       background: rgba(200, 169, 96, 0.08);
       font-weight: 700;
       color: var(--c-navy);
+    }
+
+    .mark-excellent {
+      color: var(--c-gold);
+      font-weight: 700;
+    }
+
+    .mark-good {
+      color: var(--c-navy);
+    }
+
+    .mark-fair {
+      color: #999;
+    }
+
+    .mark-poor {
+      color: #CCC;
     }
 
     /* ========================================
@@ -823,14 +854,12 @@
       }
 
       .ba-row {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
+        grid-template-columns: 1fr;
       }
 
-      .ba-before,
-      .ba-after {
-        flex: none;
+      .ba-arrow {
+        padding: 0.5rem;
+        justify-content: center;
       }
 
       .about-inner {
@@ -889,7 +918,7 @@
     <div class="container">
       <div class="fv-inner">
         <div class="fv-text rv">
-          <h1>Notion × AI で、<br>ビジネスの「経営OS」を設計する。</h1>
+          <h1>Notion × AI で、<br>ビジネスの経営基盤を設計する。</h1>
           <p class="fv-sub">Notion構築 ・ AIエージェント設計 ・ 業務基盤の設計から実装・運用まで</p>
           <div class="fv-badges">
             <div class="fv-badge">
@@ -923,7 +952,7 @@
         <span class="sub-heading">AIエージェント搭載の経営基盤</span>
       </div>
 
-      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェント・経理を統合した経営OSを、自ら設計・構築・運用している。</p>
+      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤。CRM・タスク管理・ナレッジベース・AIエージェント・経理を統合した経営基盤を、自ら設計・構築・運用している。</p>
 
       <img src="images/hero-visual.png" alt="バラバラだった業務が、一つの仕組みとしてつながる" class="section-visual rv">
 
@@ -1041,8 +1070,8 @@
         </div>
       </div>
 
-      <!-- スクリーンショット 2x3（5枚） -->
-      <div class="grid-2 screenshot-grid">
+      <!-- スクリーンショット 3x2（6枚） -->
+      <div class="grid-3 screenshot-grid">
         <div class="rv rv-d1">
           <figure>
             <img src="images/crm.png" alt="企業情報・名刺情報一覧" class="screenshot">
@@ -1073,6 +1102,12 @@
             <figcaption class="placeholder-caption">経理ダッシュボード &mdash; 売上・支出・収支を一画面で把握</figcaption>
           </figure>
         </div>
+        <div class="rv rv-d1">
+          <figure>
+            <img src="images/dashboard.png" alt="デイリーダッシュボード" class="screenshot">
+            <figcaption class="placeholder-caption">デイリーダッシュボード &mdash; 今日やるべきことが一目でわかる</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -1093,7 +1128,7 @@
         </div>
         <div class="card philosophy-card rv rv-d2">
           <h3>入力は1回、反映は全体に</h3>
-          <p>情報を入力する場所は1つだけ。リレーションで全体に伝播する。顧客名を1回入力すれば、CRM・商談・活動ログ・タスクすべてに自動反映。<span class="gold-underline">二重入力が発生する設計は、使われなくなる</span>。</p>
+          <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされる。手動で紐づける必要がない。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>。</p>
         </div>
         <div class="card philosophy-card rv rv-d3">
           <h3>AIが参照できる状態にする</h3>
@@ -1220,55 +1255,69 @@
         <table class="compare-table">
           <thead>
             <tr>
-              <th>比較軸</th>
+              <th>機能</th>
               <th>Excel/スプシ</th>
-              <th>SaaS CRM（Salesforce等）</th>
+              <th>SaaS CRM</th>
               <th>kintone</th>
               <th class="highlight-head">Notion BizBase</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>本質</td>
-              <td>汎用の表計算ソフト</td>
-              <td>顧客管理の専門SaaS</td>
-              <td>業務アプリ構築</td>
-              <td class="highlight">AI搭載の業務基盤（経営OS）</td>
+              <td>CRM（顧客管理）</td>
+              <td class="mark-fair">△</td>
+              <td class="mark-excellent">◎</td>
+              <td class="mark-fair">△</td>
+              <td class="highlight mark-excellent">◎</td>
             </tr>
             <tr>
-              <td>業務カバー範囲</td>
-              <td>何でもできるが全部手動</td>
-              <td>CRMだけ。他は別ツール</td>
-              <td>アプリ単位。横断統合が弱い</td>
-              <td class="highlight">CRM×タスク×ナレッジ×経理が直結</td>
+              <td>タスク・PJ管理</td>
+              <td class="mark-fair">△</td>
+              <td class="mark-fair">△</td>
+              <td class="mark-good">○</td>
+              <td class="highlight mark-excellent">◎</td>
             </tr>
             <tr>
-              <td>AI活用</td>
-              <td>なし</td>
-              <td>高額オプション</td>
-              <td>非搭載</td>
-              <td class="highlight">5体のAIチームが標準搭載</td>
+              <td>ナレッジベース</td>
+              <td class="mark-poor">✕</td>
+              <td class="mark-fair">△</td>
+              <td class="mark-fair">△</td>
+              <td class="highlight mark-excellent">◎</td>
             </tr>
             <tr>
-              <td>データ構造化</td>
-              <td>カオスになりがち</td>
-              <td>CRM領域のみ</td>
-              <td>アプリ単位</td>
-              <td class="highlight">リレーションDBで全領域が相互参照</td>
+              <td>経理管理</td>
+              <td class="mark-fair">△</td>
+              <td class="mark-poor">✕</td>
+              <td class="mark-fair">△</td>
+              <td class="highlight mark-excellent">◎</td>
+            </tr>
+            <tr>
+              <td>AI連携</td>
+              <td class="mark-poor">✕</td>
+              <td class="mark-fair">△（高額）</td>
+              <td class="mark-poor">✕</td>
+              <td class="highlight mark-excellent">◎（5体搭載）</td>
+            </tr>
+            <tr>
+              <td>カスタマイズ性</td>
+              <td class="mark-good">○</td>
+              <td class="mark-fair">△（開発者必要）</td>
+              <td class="mark-good">○</td>
+              <td class="highlight mark-excellent">◎</td>
             </tr>
             <tr>
               <td>導入コスト</td>
-              <td>安いが運用コスト膨大</td>
-              <td>月額数万〜数十万/人</td>
-              <td>月額1,500円/人〜</td>
-              <td class="highlight">Notionの月額のみ</td>
+              <td class="mark-good">○（安い）</td>
+              <td class="mark-poor">✕（高額）</td>
+              <td class="mark-good">○</td>
+              <td class="highlight mark-excellent">◎</td>
             </tr>
             <tr>
-              <td>属人化リスク</td>
-              <td>作った人しか読めない</td>
-              <td>設定が複雑で管理者依存</td>
-              <td>設計者に依存しがち</td>
-              <td class="highlight">構築済み＋AIが案内</td>
+              <td>自走しやすさ</td>
+              <td class="mark-fair">△</td>
+              <td class="mark-poor">✕</td>
+              <td class="mark-good">○</td>
+              <td class="highlight mark-excellent">◎</td>
             </tr>
           </tbody>
         </table>
