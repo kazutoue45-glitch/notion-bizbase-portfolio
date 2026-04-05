@@ -395,7 +395,22 @@
        FV (First View)
        ======================================== */
     .fv {
-      padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+      padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+      background: url('images/fv-hero.png') center center / cover no-repeat;
+      position: relative;
+    }
+
+    .fv::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,29,53,0.92) 0%, rgba(27,42,74,0.85) 50%, rgba(15,29,53,0.95) 100%);
+      z-index: 0;
+    }
+
+    .fv .container {
+      position: relative;
+      z-index: 1;
     }
 
     .fv-inner {
@@ -410,15 +425,16 @@
     }
 
     .fv-text h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--c-white);
+      font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
       font-weight: 700;
-      color: var(--c-navy);
       line-height: 1.4;
       margin-bottom: 1rem;
     }
 
     .fv-sub {
-      color: var(--c-text-mid);
+      color: var(--c-text-on-dark-mid);
       font-size: 1.05rem;
       margin-bottom: 1.25rem;
       line-height: 1.7;
@@ -426,7 +442,7 @@
 
     .fv-credential {
       font-size: 0.85rem;
-      color: var(--c-text-mid);
+      color: var(--c-gold-light);
       font-weight: 500;
       letter-spacing: 0.02em;
     }
@@ -468,7 +484,8 @@
       max-width: 550px;
       width: 100%;
       border-radius: 12px;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 8px 40px rgba(200,169,96,0.25), 0 0 60px rgba(200,169,96,0.1);
+      border: 1px solid rgba(200,169,96,0.2);
     }
 
     /* ========================================
@@ -1345,6 +1362,27 @@
       }
     }
 
+    /* ========================================
+       Scroll Hint
+       ======================================== */
+    .scroll-hint {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid var(--c-gold);
+      border-bottom: 2px solid var(--c-gold);
+      transform: rotate(45deg);
+      margin: 0 auto;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 0.6; }
+      50% { transform: rotate(45deg) translateY(8px); opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
@@ -1378,13 +1416,16 @@
     <div class="container">
       <div class="fv-inner">
         <div class="fv-text rv">
-          <h1>既製品からオーダーメイドへ</h1>
-          <p class="fv-sub">御社の業務に最適化された Notion × AI 基盤を設計する。</p>
-          <p class="fv-credential">Notion公式認定 全3種取得｜18+ DB｜4 AIエージェント｜17 AIスキル</p>
+          <h1>バラバラの業務を、Notionひとつに。</h1>
+          <p class="fv-sub">顧客管理・タスク・ナレッジ・経理 — すべてが連携する業務基盤を、御社専用に設計いたします。</p>
+          <p class="fv-credential">Notion公式認定 全3種取得｜構築実績: 18 DB連携 / 4 AIエージェント / 14 カスタムスキル</p>
         </div>
         <div class="fv-visual rv rv-d2">
           <img src="images/home.png" alt="Notion BizBase ホーム画面" class="fv-screenshot">
         </div>
+      </div>
+      <div class="scroll-hint rv rv-d3">
+        <div class="scroll-arrow"></div>
       </div>
     </div>
   </section>
@@ -1463,36 +1504,7 @@
           <div class="data-source">ChatGPTを抑えトップ — ICT総研調べ, 2025年7月</div>
         </div>
       </div>
-      <p class="market-footnote">トヨタ自動車・大阪ガス・三菱重工など大手企業も導入。それでも93%以上の企業がまだ活用できていない今、導入する価値があります。</p>
-
-      <h3 class="gallery-title gallery-title--spaced rv">導入事例</h3>
-      <p class="sec-subtitle-inline rv">Notion公式導入事例より</p>
-
-      <div class="grid-3">
-        <div class="case-card rv rv-d1">
-          <div class="company-name">OpenAI</div>
-          <div class="company-desc">AI業界のリーディングカンパニー</div>
-          <div class="case-num">数時間 → 数分</div>
-          <div class="case-detail">デバッグ時間を大幅短縮（Notion AI活用）</div>
-          <div class="case-quote">「Notionの効果は雪玉式に大きくなっていく」— John Allard</div>
-          <div class="case-source"><a href="https://notion.com/ja/customers/openai" target="_blank" rel="noopener">notion.com/ja/customers/openai</a></div>
-        </div>
-        <div class="case-card rv rv-d2">
-          <div class="company-name">大阪ガス</div>
-          <div class="company-desc">日本を代表するインフラ企業</div>
-          <div class="case-num">毎月2,000時間</div>
-          <div class="case-detail">情報共有の効率化で削減</div>
-          <div class="case-quote">「全ての機能を包括する"オールインワン"なツールは、今のところ"オンリーワン"」— 國政秀太郎</div>
-          <div class="case-source"><a href="https://notion.com/ja/customers/osaka-gas-jp" target="_blank" rel="noopener">notion.com/ja/customers/osaka-gas-jp</a></div>
-        </div>
-        <div class="case-card rv rv-d3">
-          <div class="company-name">トヨタ自動車</div>
-          <div class="company-desc">世界最大級の自動車メーカー</div>
-          <div class="case-num">Fortune 100</div>
-          <div class="case-detail">Fortune 100企業の62%がNotionを導入 — トヨタもその一社</div>
-          <div class="case-source">出典: Notion公式 / PreBell</div>
-        </div>
-      </div>
+      <p class="market-footnote">OpenAI・大阪ガス・トヨタ自動車など、世界の先進企業がNotionで業務を一元化しています。（Notion公式導入事例より）</p>
     </div>
   </section>
 
@@ -1549,7 +1561,7 @@
         <span class="sub-heading">AIエージェント搭載の経営基盤</span>
       </div>
 
-      <p class="bizbase-lead rv">個人事業主・小規模チーム向けに設計した、Notion × AIの業務基盤です。CRM・タスク管理・ナレッジベース・AIエージェントを統合し、自ら設計・構築・運用しております。</p>
+      <p class="bizbase-lead rv">CRM・タスク管理・ナレッジベース・AIエージェントが連携する業務基盤を、自ら設計・構築・運用しております。このレベルの設計を、御社の業務に合わせてゼロから構築いたします。</p>
 
       <!-- 主要機能4カード（4列×1行） -->
       <div class="grid-4">
@@ -1563,7 +1575,7 @@
             </svg>
           </div>
           <h3>CRM（顧客管理）</h3>
-          <p>企業DB × 名刺DB × 商談DB × 活動ログ × 企業サービスDBをリレーションで統合しております。顧客ページを開くだけで「誰に・いつ・何を提案したか」が一目瞭然です。</p>
+          <p>企業DB × 名刺DB × 商談DB × 活動ログ × 企業サービスDBをリレーションで統合しております。顧客ページを開くだけで「誰に・いつ・何を提案したか」が一目瞭然です。御社の顧客情報・対応履歴・次のアクションが1画面に集約されます。</p>
         </div>
 
         <div class="card rv rv-d2">
@@ -1577,7 +1589,7 @@
             </svg>
           </div>
           <h3>ゴール直結型タスク管理</h3>
-          <p>ゴールDB → プロジェクトDB → タスクDBの3層構造です。すべてのタスクがゴールに紐づきます。「忙しいのに成果が出ない」を根本から解消します。</p>
+          <p>ゴールDB → プロジェクトDB → タスクDBの3層構造です。すべてのタスクがゴールに紐づきます。「忙しいのに成果が出ない」を根本から解消します。御社のゴールに合わせた構造を設計いたします。</p>
         </div>
 
         <div class="card rv rv-d3">
@@ -1591,7 +1603,7 @@
             </svg>
           </div>
           <h3>ナレッジベース</h3>
-          <p>ナレッジDB × タグ検索DB × 日報DBで知見・ノウハウ・資料をタグで横断検索できます。使うほど価値が増す情報資産です。</p>
+          <p>ナレッジDB × タグ検索DB × 日報DBで知見・ノウハウ・資料をタグで横断検索できます。使うほど価値が増す情報資産です。御社のノウハウがAIの資産になります。</p>
         </div>
 
         <div class="card rv rv-d4">
@@ -1607,7 +1619,7 @@
             </svg>
           </div>
           <h3>AIエージェント</h3>
-          <p>マスターAIが全体を統括します。メンション一発で起動し、17のカスタムスキルから最適なものを自動選択・実行します。CRMプロパティ自動入力・日報自動生成・Googleカレンダー連携の3つの自動実行エージェントも搭載しております。</p>
+          <p>マスターAIが全体を統括します。メンション一発で起動し、14のカスタムスキルから最適なものを自動選択・実行します。CRMプロパティ自動入力・日報自動生成・Googleカレンダー連携の3つの自動実行エージェントも搭載しております。御社の業務に合わせたスキルを設計・搭載いたします。</p>
         </div>
       </div>
 
@@ -1864,6 +1876,8 @@
         <h2>ツール比較</h2>
       </div>
 
+      <p class="sec-subtitle-inline rv">個人事業主〜小規模チーム（1〜10名）での活用を想定した比較です。</p>
+
       <div class="table-wrapper rv">
         <table class="compare-table">
           <thead>
@@ -1885,7 +1899,7 @@
               <td>CRM</td>
               <td class="mark-excellent">◎</td>
               <td class="mark-fair">△（要カスタム）</td>
-              <td class="highlight mark-excellent">◎</td>
+              <td class="highlight mark-good">○</td>
             </tr>
             <tr>
               <td>タスク・PJ管理</td>
@@ -2020,7 +2034,7 @@
           <div class="step-num">5</div>
           <div class="step-body">
             <h3>運用サポート</h3>
-            <p>定着するまで伴走いたします。DB追加・エージェント構築・構造変更にも対応いたします。</p>
+            <p>定着するまで伴走いたします。DB追加・エージェント構築・構造変更にも対応いたします。御社の成長に合わせて基盤も進化させる — 構築して終わりではなく、長期的なパートナーシップをお約束いたします。</p>
           </div>
         </div>
       </div>
@@ -2109,15 +2123,11 @@
           <h3>上原千翔（うえはら かずと）</h3>
           <p class="title">Notion × AI 業務基盤設計｜Notion公式認定 全3種取得</p>
           <div class="bio">
-            <p>学習塾で数学と英語を教えておりました。「わからない」を「わかった」に変える仕事です。生徒が自力で解けるようになる瞬間が、何よりのやりがいでした。</p>
+            <p>学習塾で教える仕事を続ける中で、AIに出会いました。複雑なものを構造化して伝える力——教育者として磨いてきたスキルが、Notion × AIの業務基盤設計にそのまま活きると気づいたのが転機です。</p>
             <br>
-            <p>教える仕事を続ける中で、AIに出会いました。最初は便利な道具だと思っておりました。しかし、使い込むほどに気づきました——AIの力を引き出すには、「何をどう整理し、何をAIに任せるか」を設計できる人間が必要だということに。それは、複雑なものを構造化して伝える力。教育者として磨いてきた力と、同じものでした。</p>
+            <p>テンプレートの横流しはいたしません。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行います。</p>
             <br>
-            <p>Notionに出会い、確信に変わりました。DB設計・リレーション・AIエージェントを組み合わせれば、業務の基盤が作れます。情報を入力すればAIが横断参照して提案してくれます。蓄積するほど賢くなる仕組みです。</p>
-            <br>
-            <p>テンプレートを買ったけど使いこなせなかった、という声を何度も聞いてまいりました。だから、テンプレートの横流しはいたしません。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行います。</p>
-            <br>
-            <p>今のやり方は、教育者の頃と変わりません。「わかった」「できた」「自分で回せる」をゴールに設定します。納品して終わりではなく、自走できる状態をいっしょに作ります。</p>
+            <p>「わかった」「できた」「自分で回せる」をゴールに設定しております。納品して終わりではなく、自走できる状態をいっしょに作ります。</p>
           </div>
 
         </div>
