@@ -1116,47 +1116,55 @@
       margin-bottom: 3rem;
     }
 
-    .about-inner {
+    .about-header {
       display: flex;
-      align-items: flex-start;
-      gap: 3rem;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
     }
 
-    .about-photo {
+    .about-photo-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--c-gold);
+      background: var(--c-white);
+      object-fit: contain;
+      padding: 8px;
       flex-shrink: 0;
     }
 
-    .about-photo .placeholder-circle {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 3px solid var(--c-white);
-      background: rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--c-text-on-dark-mid);
-      font-size: 0.8rem;
+    .about-name-block {
+      flex: 1;
     }
 
-    .about-text h3 {
+    .about-name {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--c-white);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.4rem;
     }
 
-    .about-text .title {
+    .about-title {
       color: var(--c-gold);
       font-size: 0.95rem;
-      margin-bottom: 1.25rem;
     }
 
-    .about-text .bio {
+    .about-bio {
+      max-width: 720px;
+      margin: 0 auto 3rem;
       color: var(--c-text-on-dark);
       font-size: 0.9rem;
       line-height: 1.9;
-      margin-bottom: 2rem;
+    }
+
+    .about-bio p {
+      margin-bottom: 1.2rem;
+    }
+
+    .about-bio p:last-child {
+      margin-bottom: 0;
     }
 
     /* ========================================
@@ -1267,10 +1275,13 @@
       .ba-row:last-child .ba-before { border-radius: 0; }
       .ba-row:last-child .ba-after { border-radius: 0 0 var(--radius-md) var(--radius-md); }
 
-      .about-inner {
+      .about-header {
         flex-direction: column;
-        align-items: center;
         text-align: center;
+      }
+      .about-photo-img {
+        width: 100px;
+        height: 100px;
       }
 
       .gallery-content { flex-direction: column; }
@@ -1798,7 +1809,23 @@
         <h2>About</h2>
       </div>
 
-      <!-- Notion公式認定バッジ（ダーク背景用） -->
+      <!-- 写真 + 名前 -->
+      <div class="about-header rv">
+        <img src="images/profile.png" alt="上原千翔" class="about-photo-img">
+        <div class="about-name-block">
+          <h3 class="about-name">上原千翔（うえはら かずと）</h3>
+          <p class="about-title">Notion × AI 業務基盤設計</p>
+        </div>
+      </div>
+
+      <!-- 本文（自己紹介） -->
+      <div class="about-bio rv">
+        <p>学習塾で教える仕事を続ける中で、AIに出会いました。複雑なものを構造化して伝える力——教育者として磨いてきたスキルが、Notion × AIの業務基盤設計にそのまま活きると気づいたのが転機です。</p>
+        <p>テンプレートの横流しはいたしません。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行います。</p>
+        <p>「わかった」「できた」「自分で回せる」をゴールに設定しております。納品して終わりではなく、自走できる状態をいっしょに作ります。</p>
+      </div>
+
+      <!-- Notion公式認定バッジ -->
       <div class="grid-4 rv about-badges">
         <div class="badge-card badge-card--dark">
           <img src="images/badge-essentials.png" alt="Notion基礎バッジ" class="badge-icon">
@@ -1819,24 +1846,6 @@
           <img src="images/badge-admin.png" alt="Notion管理者認定" class="badge-icon">
           <div class="badge-name">Notion管理者認定</div>
           <div class="badge-status badge-status--challenging">挑戦中</div>
-        </div>
-      </div>
-
-      <div class="about-inner">
-        <div class="about-photo rv">
-          <div class="placeholder-circle">PHOTO</div>
-        </div>
-        <div class="about-text rv rv-d2">
-          <h3>上原千翔（うえはら かずと）</h3>
-          <p class="title">Notion × AI 業務基盤設計｜Notion公式認定 全3種取得</p>
-          <div class="bio">
-            <p>学習塾で教える仕事を続ける中で、AIに出会いました。複雑なものを構造化して伝える力——教育者として磨いてきたスキルが、Notion × AIの業務基盤設計にそのまま活きると気づいたのが転機です。</p>
-            <br>
-            <p>テンプレートの横流しはいたしません。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行います。</p>
-            <br>
-            <p>「わかった」「できた」「自分で回せる」をゴールに設定しております。納品して終わりではなく、自走できる状態をいっしょに作ります。</p>
-          </div>
-
         </div>
       </div>
     </div>
