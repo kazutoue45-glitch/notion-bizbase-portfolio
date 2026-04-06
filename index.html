@@ -640,7 +640,7 @@
     .gallery-content {
       display: flex;
       gap: 1.5rem;
-      align-items: flex-start;
+      align-items: stretch;
     }
 
     .gallery-main {
@@ -650,10 +650,18 @@
 
     .gallery-main img {
       width: 340px;
-      height: auto;
+      height: 213px;
+      aspect-ratio: 16/10;
+      object-fit: cover;
       border-radius: var(--radius-sm);
       box-shadow: var(--shadow-card);
       border: 2px solid var(--c-gold);
+    }
+
+    .gallery-main--icon img {
+      object-fit: contain;
+      background: var(--c-navy);
+      padding: 1.5rem;
     }
 
     .gallery-main-label {
@@ -1694,7 +1702,7 @@
 
         <div class="gallery-category rv">
           <div class="gallery-content">
-            <div class="gallery-main">
+            <div class="gallery-main gallery-main--icon">
               <span class="gallery-main-label">PICK UP</span>
               <img src="images/skill-4.png" alt="ゴール設定→プロジェクト化" loading="lazy">
               <p class="gallery-main-caption">ゴール設定→プロジェクト化 <span class="skill-category skill-category--planning">プランニング</span></p>
