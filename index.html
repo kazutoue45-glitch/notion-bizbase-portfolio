@@ -433,6 +433,14 @@
       margin-bottom: 1rem;
     }
 
+    .fv-catch {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--c-gold);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.75rem;
+    }
+
     .fv-sub {
       color: var(--c-text-on-dark-mid);
       font-size: 1.05rem;
@@ -535,47 +543,6 @@
       line-height: 1.8;
     }
 
-    /* ========================================
-       Data Cards (Market Data Section)
-       ======================================== */
-    .data-card {
-      background: var(--c-white);
-      border-radius: var(--radius-md);
-      padding: 2rem;
-      box-shadow: var(--shadow-card);
-      text-align: center;
-    }
-
-    .data-card .num {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      color: var(--c-gold);
-      display: block;
-      line-height: 1.2;
-    }
-
-    .data-card .data-label {
-      font-size: 0.95rem;
-      color: var(--c-navy);
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-
-    .data-card .data-source {
-      font-size: 0.75rem;
-      color: var(--c-text-mid);
-      margin-top: 0.3rem;
-    }
-
-    /* ========================================
-       Market Data Footnote
-       ======================================== */
-    .market-footnote {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--c-text-mid);
-      margin-top: 1.25rem;
-    }
 
     /* ========================================
        Badge Cards (Certification Section)
@@ -620,22 +587,6 @@
       margin-bottom: 0.75rem;
     }
 
-    .badge-section-title {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--c-gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .badge-section-desc {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--c-text-mid);
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
 
     /* ========================================
        Badge Cards (Dark variant for About)
@@ -814,89 +765,160 @@
     .skill-category--content { background: rgba(76,175,80,0.12); color: #2E7D32; }
 
     /* ========================================
-       Section 2: Design Philosophy
+       PICK UP + Scroll Layout
        ======================================== */
-    .philosophy-lead {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 3rem;
+    .pickup-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
 
-    .philosophy-lead-title {
-      font-size: 1.1rem;
+    .pickup-main {
+      position: relative;
+    }
+
+    .pickup-main img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-card);
+    }
+
+    .pickup-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--c-navy);
+      color: var(--c-gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .pickup-desc {
+      margin-top: 1rem;
+    }
+
+    .pickup-desc h4 {
+      font-size: 1rem;
       font-weight: 700;
       color: var(--c-navy);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
-    .philosophy-lead-desc {
-      font-size: 0.9rem;
+    .pickup-desc p {
+      font-size: 0.85rem;
       color: var(--c-text-mid);
-      line-height: 1.8;
+      line-height: 1.7;
     }
 
-    .philosophy-card {
-      position: relative;
-      background-size: cover;
-      background-position: center;
+    .pickup-scroll {
+      overflow-y: auto;
+      max-height: 400px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      padding-right: 0.5rem;
+    }
+
+    .pickup-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .pickup-scroll::-webkit-scrollbar-thumb {
+      background: var(--c-border);
+      border-radius: 2px;
+    }
+
+    .pickup-scroll img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pickup-scroll figcaption {
+      font-size: 0.75rem;
+      color: var(--c-text-mid);
+      text-align: center;
+      margin-top: 0.3rem;
+    }
+
+    /* ========================================
+       Skill Compact Card (for pickup-scroll)
+       ======================================== */
+    .skill-compact-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--radius-sm);
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      text-align: center;
+    }
+
+    .skill-compact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .skill-compact-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--c-navy);
+    }
+
+    /* ========================================
+       Advantage Block (93% framing)
+       ======================================== */
+    .advantage-block {
+      max-width: 700px;
+      margin: 3rem auto 0;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: var(--c-navy);
       border-radius: var(--radius-md);
-      overflow: hidden;
-      padding: 0;
+      color: var(--c-text-on-dark);
     }
 
-    .philosophy-card:nth-child(1) { background-image: url('images/principle-1.png'); }
-    .philosophy-card:nth-child(2) { background-image: url('images/principle-2.png'); }
-    .philosophy-card:nth-child(3) { background-image: url('images/principle-3.png'); }
-
-    .philosophy-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(27, 42, 74, 0.85);
-      z-index: 0;
-    }
-
-    .philosophy-card-inner {
-      position: relative;
-      z-index: 1;
-      padding: 2rem;
-    }
-
-    .philosophy-card h3 {
+    .advantage-title {
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--c-gold-light);
+      color: var(--c-gold);
       margin-bottom: 1rem;
     }
 
-    .philosophy-card p {
+    .advantage-text {
       font-size: 0.9rem;
+      line-height: 1.8;
       color: var(--c-text-on-dark);
-      line-height: 1.85;
     }
 
-    .philosophy-card .principle-num {
+    /* ========================================
+       About Data
+       ======================================== */
+    .about-data {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .about-data-item {
+      text-align: center;
+    }
+    .about-data-num {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: var(--c-gold);
     }
-
-    .philosophy-card .gold-underline {
-      border-bottom-color: var(--c-gold);
-    }
-
-    .principle-num {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--c-gold-dark);
-      background: rgba(200,169,96,0.15);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      margin-bottom: 0.75rem;
-    }
-
-    .gold-underline {
-      border-bottom: 2px solid var(--c-gold);
-      padding-bottom: 1px;
+    .about-data-label {
+      font-size: 0.8rem;
+      color: var(--c-text-on-dark-mid);
     }
 
     /* ========================================
@@ -1036,100 +1058,15 @@
       border-radius: 0 0 var(--radius-md) 0;
     }
 
-    /* ========================================
-       Section 4: Comparison Table
-       ======================================== */
-    .table-wrapper {
-      background: var(--c-white);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-card);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+    .ba-note {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--c-text-on-dark-mid);
     }
 
-    .compare-table {
-      width: 100%;
-      min-width: 600px;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-
-    .compare-table th,
-    .compare-table td {
-      padding: 1rem 1.25rem;
-      text-align: center;
-      border-bottom: 1px solid var(--c-border);
-    }
-
-    .compare-table thead th {
-      background: var(--c-navy);
-      color: var(--c-white);
-      font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .compare-table thead th:first-child {
-      border-radius: var(--radius-md) 0 0 0;
-    }
-
-    .compare-table thead th:last-child {
-      border-radius: 0 var(--radius-md) 0 0;
-    }
-
-    .compare-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .compare-table td:first-child {
-      text-align: left;
-      font-weight: 500;
-      color: var(--c-navy);
-    }
-
-    .compare-table .highlight-head {
-      background: var(--c-gold);
-      color: var(--c-navy-deep);
-    }
-
-    .compare-table .highlight {
-      background: rgba(200, 169, 96, 0.08);
-      font-weight: 700;
-      color: var(--c-navy);
-    }
-
-    .mark-excellent {
-      color: var(--c-gold);
-      font-weight: 700;
-    }
-
-    .mark-good {
-      color: var(--c-navy);
-    }
-
-    .mark-fair {
-      color: #999;
-    }
-
-    .mark-poor {
-      color: #CCC;
-    }
 
     /* ========================================
-       Section 5: Services
-       ======================================== */
-    .service-card .card-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(27, 42, 74, 0.05);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-
-    /* ========================================
-       Section 6: Flow
+       Section: Flow
        ======================================== */
     .flow-list {
       max-width: 720px;
@@ -1274,13 +1211,6 @@
     }
 
     /* ========================================
-       Gold Text Utility
-       ======================================== */
-    .gold-text {
-      color: var(--c-gold);
-    }
-
-    /* ========================================
        Footer
        ======================================== */
     .site-footer {
@@ -1343,6 +1273,18 @@
         text-align: center;
       }
 
+      .pickup-layout {
+        grid-template-columns: 1fr;
+      }
+      .pickup-scroll {
+        max-height: none;
+        overflow-y: visible;
+      }
+
+      .about-data {
+        justify-content: center;
+      }
+
       .sec {
         padding: clamp(2.5rem, 6vw, 4rem) 0;
       }
@@ -1397,9 +1339,8 @@
         <span class="header-brand-text">Notion BizBase</span>
       </a>
       <nav class="header-nav">
-        <a href="#philosophy">設計思想</a>
-        <a href="#bizbase">BizBase</a>
-        <a href="#before-after">Before/After</a>
+        <a href="#bizbase">Notion BizBase</a>
+        <a href="#before-after">導入効果</a>
         <a href="#flow">ご依頼の流れ</a>
         <a href="#faq">FAQ</a>
         <a href="#about">About</a>
@@ -1414,9 +1355,10 @@
     <div class="container">
       <div class="fv-inner">
         <div class="fv-text rv">
-          <h1>バラバラの業務を、Notionひとつに。</h1>
-          <p class="fv-sub">顧客管理・タスク・ナレッジ・経理 — すべてが連携する業務基盤を、御社専用に設計いたします。</p>
-          <p class="fv-credential">Notion公式認定 全3種取得｜構築実績: 18 DB連携 / 4 AIエージェント / 14 カスタムスキル</p>
+          <p class="fv-catch">既製品からオーダーメイドへ</p>
+          <h1>AI時代の業務基盤<br>Notion BizBase</h1>
+          <p class="fv-sub">Notionを軸にCRM・タスク・ナレッジ・AIエージェントを統合。AIが御社を知るほど賢くなる、オーダーメイドの業務基盤。</p>
+          <p class="fv-credential">Notion公式認定 全3種取得｜構築実績: 18 DB連携 / 4 AIエージェント / 17 カスタムスキル（継続追加中）</p>
         </div>
         <div class="fv-visual rv rv-d2">
           <img src="images/home.png" alt="Notion BizBase ホーム画面" class="fv-screenshot">
@@ -1434,7 +1376,7 @@
   <section id="problems" class="sec">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>こんな課題ありませんか？</h2>
+        <h2>こんな状態 続いていませんか？</h2>
       </div>
 
       <div class="grid-3">
@@ -1447,7 +1389,7 @@
               <path d="M12 20v8M36 20v8M24 28v-8"/>
             </svg>
           </div>
-          <h3>情報がバラバラ</h3>
+          <h3>顧客情報がLINE・スプシ・メモ帳にバラバラ</h3>
           <p>顧客情報はLINE、スプレッドシート、メモ帳に分散。誰に何を提案したか、すぐに出てきません。</p>
         </div>
 
@@ -1459,8 +1401,8 @@
               <path d="M10 6l-4-4M38 6l4-4"/>
             </svg>
           </div>
-          <h3>毎朝「今日何やる？」から始まる</h3>
-          <p>タスクはあるのに優先順位がわかりません。ゴールとタスクがつながっていないから、忙しいのに成果が出ません。</p>
+          <h3>ノウハウが溜まるだけで活用できない</h3>
+          <p>せっかく蓄積した知識やマニュアルが、検索できず・共有できず・AIにも活用されない状態のままになっていませんか。</p>
         </div>
 
         <div class="problem-card rv rv-d3">
@@ -1472,86 +1414,74 @@
               <path d="M36 32v4l3 2"/>
             </svg>
           </div>
-          <h3>知識が資産にならない</h3>
-          <p>ノウハウや資料は溜めているけど、検索も振り返りもできません。毎回ゼロから作業してしまいます。</p>
+          <h3>AIを導入したいけど何から始めればいいかわからない</h3>
+          <p>ChatGPTは使ってみたけど業務に定着しない。データと連携できない。何をAIに任せるべきか整理できていない状態ではありませんか。</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========================================
-       Section 2: Design Philosophy (課題の解決策)
+       Section: Services (サービス内容)
        ======================================== -->
-  <section id="philosophy" class="sec sec--alt">
+  <section id="services" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>設計思想</h2>
+        <h2>Notion BizBaseがまるごと解決します</h2>
       </div>
 
-      <!-- リード文 -->
-      <div class="philosophy-lead rv">
-        <p class="philosophy-lead-title">既製品では業務が変わらない理由</p>
-        <p class="philosophy-lead-desc">テンプレートもSaaSも汎用設計です。御社の業務にぴったり合うことはありません。「使いにくい」「結果につながらない」の正体は、ここにあります。</p>
-      </div>
-
-      <!-- 3原則カード -->
       <div class="grid-3">
-        <div class="card philosophy-card rv rv-d1">
-          <div class="philosophy-card-inner">
-            <span class="principle-num">01</span>
-            <h3>ゴールからの逆算設計</h3>
-            <p>既製品のタスク管理は「タスクを並べる箱」でしかありません。BizBaseは「ゴール → プロジェクト → タスク」の一本線で接続します。すべてのタスクがゴールに紐づきます。<span class="gold-underline">「今日やるべきこと」がゴールから逆算で決まる</span>構造です。</p>
+        <div class="card rv rv-d1">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="18" r="7"/>
+              <path d="M6 38c0-6.627 5.373-12 12-12"/>
+              <circle cx="34" cy="18" r="5"/>
+              <path d="M42 38c0-5.523-4.477-10-10-10"/>
+            </svg>
           </div>
+          <h3>CRM設計・構築</h3>
+          <p>散らばった顧客情報をNotionに一元化いたします。1画面で全履歴が見える顧客管理基盤を設計いたします。</p>
         </div>
-        <div class="card philosophy-card rv rv-d2">
-          <div class="philosophy-card-inner">
-            <span class="principle-num">02</span>
-            <h3>入力の手間を最小限に</h3>
-            <p>商談ページでタスクを追加すると、そのタスクは商談情報・プロジェクト・ゴールまで自動でリレーションされます。手動で紐づける必要はありません。<span class="gold-underline">入力の手間が大幅に減り、どこからでも関連情報にたどり着ける設計</span>です。</p>
+        <div class="card rv rv-d2">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 6h20l8 8v28a2 2 0 01-2 2H10a2 2 0 01-2-2V8a2 2 0 012-2z"/>
+              <path d="M30 6v8h8"/>
+              <path d="M16 22h16"/>
+              <path d="M16 28h16"/>
+              <path d="M16 34h10"/>
+            </svg>
           </div>
+          <h3>ナレッジベース設計・構築</h3>
+          <p>溜まったノウハウをAIが参照できる形で構造化いたします。検索・活用が自然にできる基盤を設計いたします。</p>
         </div>
-        <div class="card philosophy-card rv rv-d3">
-          <div class="philosophy-card-inner">
-            <span class="principle-num">03</span>
-            <h3>AIが参照できる構造にする</h3>
-            <p>既製品のデータ構造は、AIが参照できる状態になっていません。だからAIを導入しても成果が出ません。BizBaseは全DBをAIエージェントが横断参照できる設計です。<span class="gold-underline">蓄積するほどAIが賢くなります</span>。</p>
+        <div class="card rv rv-d3">
+          <div class="card-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="12" y="8" width="24" height="28" rx="4"/>
+              <circle cx="20" cy="20" r="2"/>
+              <circle cx="28" cy="20" r="2"/>
+              <path d="M18 28c1 2 3 3 6 3s5-1 6-3"/>
+              <path d="M16 4h16"/>
+              <path d="M18 40h12"/>
+              <path d="M24 36v4"/>
+            </svg>
           </div>
+          <h3>AIエージェント設計・構築</h3>
+          <p>業務データを活用したAIエージェントを構築いたします。蓄積されるほど提案・自動化の精度が上がる設計です。</p>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ========================================
-       Section 1: Notion BizBase (実際のプロダクト)
+       Section: Notion BizBase (実際のプロダクト)
        ======================================== -->
   <section id="bizbase" class="sec">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>Notionが選ばれる理由</h2>
-        <span class="sub-heading">世界1億人が利用するプラットフォーム</span>
-      </div>
-
-      <!-- データカード 2つ -->
-      <div class="grid-2 rv">
-        <div class="data-card">
-          <span class="num">1億人+</span>
-          <div class="data-label">Notion 全世界ユーザー数</div>
-          <div class="data-source">出典: Notion公式プレスリリース, 2024年</div>
-        </div>
-        <div class="data-card">
-          <span class="num">No.1</span>
-          <div class="data-label">法人向け生成AI 利用者満足度</div>
-          <div class="data-source">ChatGPTを抑えトップ — ICT総研調べ, 2025年7月</div>
-        </div>
-      </div>
-      <p class="market-footnote">OpenAI・大阪ガス・トヨタ自動車など、世界の先進企業がNotionで業務を一元化しています。（Notion公式導入事例より）</p>
-    </div>
-  </section>
-    <div class="container">
-      <div class="sec-heading rv">
-        <h2>Notion BizBase</h2>
-        <span class="sub-heading">AIエージェント搭載の経営基盤</span>
+        <h2>Notion BizBaseの中身を見る</h2>
       </div>
 
       <p class="bizbase-lead rv">CRM・タスク管理・ナレッジベース・AIエージェントが連携する業務基盤を、自ら設計・構築・運用しております。このレベルの設計を、御社の業務に合わせてゼロから構築いたします。</p>
@@ -1616,245 +1546,193 @@
         </div>
       </div>
 
-      <!-- 各モジュールのスクリーンショット -->
+      <!-- 各モジュールの画面 -->
       <h3 class="gallery-title rv">各モジュールの画面</h3>
-      <div class="gallery-scroll rv">
-        <div class="gallery-track">
-          <figure class="gallery-item">
-            <img src="images/dashboard.png" alt="デイリーダッシュボード" class="gallery-img">
-            <figcaption>デイリーダッシュボード</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="images/crm.png" alt="企業情報・名刺情報一覧" class="gallery-img">
+      <div class="pickup-layout rv">
+        <div class="pickup-main">
+          <span class="pickup-badge">PICK UP</span>
+          <img src="images/dashboard.png" alt="デイリーダッシュボード">
+          <div class="pickup-desc">
+            <h4>デイリーダッシュボード</h4>
+            <p>Notionを開いた瞬間、今日やるべきことが一目でわかるダッシュボードです。タスク・スケジュール・通知が集約されています。</p>
+          </div>
+        </div>
+        <div class="pickup-scroll">
+          <figure>
+            <img src="images/crm.png" alt="企業情報・名刺情報一覧">
             <figcaption>企業情報・名刺情報一覧</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/pj-deal.png" alt="PJ・商談情報・活動ログ・MTG一覧" class="gallery-img">
+          <figure>
+            <img src="images/pj-deal.png" alt="PJ・商談情報・活動ログ・MTG一覧">
             <figcaption>PJ・商談・活動ログ・MTG</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/task.png" alt="ゴール直結型タスク管理" class="gallery-img">
+          <figure>
+            <img src="images/task.png" alt="ゴール直結型タスク管理">
             <figcaption>ゴール直結型タスク管理</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/knowledge.png" alt="ナレッジベース一覧" class="gallery-img">
+          <figure>
+            <img src="images/knowledge.png" alt="ナレッジベース一覧">
             <figcaption>ナレッジベース一覧</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/ai-agent.png" alt="マニュアル・AIエージェント管理" class="gallery-img">
+          <figure>
+            <img src="images/ai-agent.png" alt="マニュアル・AIエージェント管理">
             <figcaption>マニュアル・AIエージェント管理</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/accounting.png" alt="経理ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/accounting.png" alt="経理ダッシュボード">
             <figcaption>経理ダッシュボード</figcaption>
           </figure>
         </div>
       </div>
 
-      <!-- AIスキル紹介 -->
+      <!-- スキル紹介 -->
       <div class="ai-skill-section">
         <h3 class="ai-skill-section-title rv">スキル紹介（増設中）</h3>
         <p class="ai-skill-section-desc rv">マスターAIが呼び出すカスタムスキルの一覧です。業務に合わせて追加・カスタマイズが可能です。</p>
 
-        <div class="gallery-scroll rv">
-          <div class="gallery-track">
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-1.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">ドキュメントデザイン</span>
-              </div>
-              <span class="skill-category skill-category--system">システム</span>
-              <p class="skill-scroll-desc">Notionページの見出し構造・色設計を統一フォーマットで自動整形いたします。</p>
+        <div class="pickup-layout rv">
+          <div class="pickup-main">
+            <span class="pickup-badge">PICK UP</span>
+            <img src="images/skill-1.png" alt="ドキュメントデザイン">
+            <div class="pickup-desc">
+              <h4>ドキュメントデザイン</h4>
+              <p>Notionページの見出し構造・ナンバリング・色設計を統一フォーマットで自動整形いたします。ページを渡すだけで、読みやすいドキュメントに仕上がります。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-2.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">スキル作成</span>
-              </div>
+          </div>
+          <div class="pickup-scroll">
+            <div class="skill-compact-card">
+              <img src="images/skill-2.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">スキル作成</span>
               <span class="skill-category skill-category--system">システム</span>
-              <p class="skill-scroll-desc">新しいAIスキルを構造化・作成いたします。スキルがスキルを生む自己拡張構造です。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-3.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">自社商品まとめ</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-3.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">自社商品まとめ</span>
               <span class="skill-category skill-category--system">システム</span>
-              <p class="skill-scroll-desc">自社の商品・サービス情報を構造化し、提案や発信に即活用できる形で整理いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-8.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">AI作業ログ記録</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-8.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">AI作業ログ記録</span>
               <span class="skill-category skill-category--system">システム</span>
-              <p class="skill-scroll-desc">会話中の意思決定・実行内容をAI作業ログDBへ自動記録し、業務プロセスを資産化いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-3.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">チャット引き継ぎ</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-3.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">チャット引き継ぎ</span>
               <span class="skill-category skill-category--system">システム</span>
-              <p class="skill-scroll-desc">前回の会話コンテキストを引き継ぎ、途切れのないAI対話を実現いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-3.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">名刺取り込み</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-3.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">名刺取り込み</span>
               <span class="skill-category skill-category--system">システム</span>
-              <p class="skill-scroll-desc">名刺画像から人物・企業情報をAIが抽出し、CRMへ自動登録いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-7.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">提案書作成</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-7.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">提案書作成</span>
               <span class="skill-category skill-category--writing">ライティング</span>
-              <p class="skill-scroll-desc">CRMの企業・商談情報から構造化された営業提案書を自動作成いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-6.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">メール作成</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-6.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">メール作成</span>
               <span class="skill-category skill-category--writing">ライティング</span>
-              <p class="skill-scroll-desc">お礼・依頼・報告など、ユーザーの文体に合わせてビジネスメールを即生成いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-1.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">Xポストクリエイター</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-1.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">Xポストクリエイター</span>
               <span class="skill-category skill-category--content">コンテンツ作成</span>
-              <p class="skill-scroll-desc">ナレッジやトピックからX（旧Twitter）向けの投稿を自動生成いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-4.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">ゴール設定→PJ化</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-4.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">ゴール設定→PJ化</span>
               <span class="skill-category skill-category--planning">プランニング</span>
-              <p class="skill-scroll-desc">曖昧な目標をKPI・完了定義・プロジェクト分解まで一気通貫で設計いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-5.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">タスク提案</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-5.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">タスク提案</span>
               <span class="skill-category skill-category--planning">プランニング</span>
-              <p class="skill-scroll-desc">ゴールから逆算した「今日やるべきタスク」を選定・最小アクションに分解いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-5.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">MTG事前準備</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-5.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">MTG事前準備</span>
               <span class="skill-category skill-category--planning">プランニング</span>
-              <p class="skill-scroll-desc">CRM・商談情報から会議のアジェンダ・論点・事前資料を自動生成いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-5.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">タスク整理</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-5.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">タスク整理</span>
               <span class="skill-category skill-category--planning">プランニング</span>
-              <p class="skill-scroll-desc">散在するタスクを優先度・ゴール紐づけで再構成し、実行可能な状態に整理いたします。</p>
             </div>
-            <div class="skill-scroll-card">
-              <div class="skill-scroll-header">
-                <img src="images/skill-4.png" alt="" class="skill-scroll-icon">
-                <span class="skill-scroll-name">タグ整理</span>
-              </div>
+            <div class="skill-compact-card">
+              <img src="images/skill-4.png" alt="" class="skill-compact-icon">
+              <span class="skill-compact-name">タグ整理</span>
               <span class="skill-category skill-category--planning">プランニング</span>
-              <p class="skill-scroll-desc">ナレッジベースのタグ体系を最適化し、検索性と分類精度を向上させます。</p>
             </div>
           </div>
         </div>
 
-        <p class="ai-skill-section-note rv">スキルは業務に合わせて追加・カスタマイズが可能です。現在14スキル稼働中、継続的に増設しております。</p>
+        <p class="ai-skill-section-note rv">スキルは業務に合わせて追加・カスタマイズが可能です。現在17スキル稼働中、継続的に増設しております。</p>
       </div>
 
-      <!-- ダッシュボード一覧（横スクロールギャラリー） -->
-      <h3 class="gallery-title rv">各種ダッシュボード</h3>
-      <div class="gallery-scroll rv">
-        <div class="gallery-track">
-          <figure class="gallery-item">
-            <img src="images/tab-01.png" alt="企業情報ダッシュボード" class="gallery-img">
-            <figcaption>企業情報</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-02.png" alt="名刺情報ダッシュボード" class="gallery-img">
+      <!-- 各種ダッシュボード -->
+      <h3 class="gallery-title gallery-title--spaced rv">各種ダッシュボード</h3>
+      <div class="pickup-layout rv">
+        <div class="pickup-main">
+          <span class="pickup-badge">PICK UP</span>
+          <img src="images/tab-01.png" alt="企業情報ダッシュボード">
+          <div class="pickup-desc">
+            <h4>企業情報</h4>
+            <p>業種別・従業員数別の登録件数をチャートで可視化。保存済み企業の一覧テーブルも同一画面で確認できます。</p>
+          </div>
+        </div>
+        <div class="pickup-scroll">
+          <figure>
+            <img src="images/tab-02.png" alt="名刺情報ダッシュボード">
             <figcaption>名刺情報</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-03.png" alt="PJ関連情報ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-03.png" alt="PJ関連情報ダッシュボード">
             <figcaption>PJ関連情報</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-04.png" alt="MTG・活動ログ情報ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-04.png" alt="MTG・活動ログ情報ダッシュボード">
             <figcaption>MTG・活動ログ情報</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-05.png" alt="ナレッジベースダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-05.png" alt="ナレッジベースダッシュボード">
             <figcaption>ナレッジベース</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-06.png" alt="AI活用状況ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-06.png" alt="AI活用状況ダッシュボード">
             <figcaption>AI活用状況</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-07.png" alt="請求・売上管理ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-07.png" alt="請求・売上管理ダッシュボード">
             <figcaption>請求・売上管理</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-08.png" alt="支出明細管理ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-08.png" alt="支出明細管理ダッシュボード">
             <figcaption>支出明細管理</figcaption>
           </figure>
-          <figure class="gallery-item">
-            <img src="images/tab-09.png" alt="収支集計ダッシュボード" class="gallery-img">
+          <figure>
+            <img src="images/tab-09.png" alt="収支集計ダッシュボード">
             <figcaption>収支集計</figcaption>
           </figure>
         </div>
       </div>
+
+      <!-- 93%フレーミング -->
+      <div class="advantage-block rv">
+        <h3 class="advantage-title">まだ誰も気づいていないアドバンテージ</h3>
+        <p class="advantage-text">生成AIを業務に活用している企業は、わずか7.7%（総務省調査）。その中でNotion AIは法人向け満足度No.1。ほとんどの企業がまだ触れていないこの武器を、御社は今日から使えます。</p>
+      </div>
     </div>
   </section>
 
   <!-- ========================================
-       Market Data & Notion Certification (補強)
-       ======================================== -->
-  <section id="market-data" class="sec sec--alt">
-    <div class="container">
-      <div class="sec-heading rv">
-        <h2>Notionが選ばれる理由</h2>
-        <span class="sub-heading">世界1億人が利用するプラットフォーム</span>
-      </div>
-
-      <div class="grid-2 rv">
-        <div class="data-card">
-          <span class="num">1億人+</span>
-          <div class="data-label">Notion 全世界ユーザー数</div>
-          <div class="data-source">出典: Notion公式プレスリリース, 2024年</div>
-        </div>
-        <div class="data-card">
-          <span class="num">No.1</span>
-          <div class="data-label">法人向け生成AI 利用者満足度</div>
-          <div class="data-source">ChatGPTを抑えトップ — ICT総研調べ, 2025年7月</div>
-        </div>
-      </div>
-      <p class="market-footnote">OpenAI・大阪ガス・トヨタ自動車など、世界の先進企業がNotionで業務を一元化しています。（Notion公式導入事例より）</p>
-    </div>
-  </section>
-
-  <!-- ========================================
-       Section 3: Before / After
+       Section: Before / After
        ======================================== -->
   <section id="before-after" class="sec">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>Before / After</h2>
-        <span class="sub-heading">Notion BizBase 導入でどう変わるか</span>
+        <h2>導入でこう変わる</h2>
       </div>
 
       <div class="ba-list">
@@ -1880,135 +1758,7 @@
         </div>
         <div class="ba-row rv rv-d5">
           <div class="ba-before">管理ツール5つを行き来、月額数万円</div>
-          <div class="ba-after">Notion 1つに統合。月額$20/ユーザーで全部入り</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       Section 4: Comparison Table
-       ======================================== -->
-  <section class="sec sec--alt">
-    <div class="container">
-      <div class="sec-heading rv">
-        <h2>ツール比較</h2>
-      </div>
-
-      <p class="sec-subtitle-inline rv">個人事業主〜小規模チーム（1〜10名）での活用を想定した比較です。</p>
-
-      <div class="table-wrapper rv">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th>機能</th>
-              <th>Salesforce</th>
-              <th>kintone</th>
-              <th class="highlight-head">Notion BizBase</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>月額（目安）</td>
-              <td>3万〜15万/人</td>
-              <td>1,500〜3,000/人</td>
-              <td class="highlight">1,500〜3,000/人</td>
-            </tr>
-            <tr>
-              <td>CRM</td>
-              <td class="mark-excellent">◎</td>
-              <td class="mark-fair">△（要カスタム）</td>
-              <td class="highlight mark-good">○</td>
-            </tr>
-            <tr>
-              <td>タスク・PJ管理</td>
-              <td class="mark-fair">△</td>
-              <td class="mark-good">○</td>
-              <td class="highlight mark-excellent">◎</td>
-            </tr>
-            <tr>
-              <td>ナレッジベース</td>
-              <td class="mark-fair">△</td>
-              <td class="mark-fair">△</td>
-              <td class="highlight mark-excellent">◎</td>
-            </tr>
-            <tr>
-              <td>経理管理</td>
-              <td class="mark-poor">✕</td>
-              <td class="mark-fair">△</td>
-              <td class="highlight mark-excellent">◎</td>
-            </tr>
-            <tr>
-              <td>AI連携</td>
-              <td class="mark-good">○（追加費用）</td>
-              <td class="mark-fair">△</td>
-              <td class="highlight mark-excellent">◎（標準搭載）</td>
-            </tr>
-            <tr>
-              <td>カスタマイズ性</td>
-              <td class="mark-good">○（開発者必要）</td>
-              <td class="mark-good">○</td>
-              <td class="highlight mark-excellent">◎（自由設計）</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================
-       Section 5: Services + Section 6: Flow（隣接配置）
-       ======================================== -->
-  <section id="services" class="sec">
-    <div class="container">
-      <div class="sec-heading rv">
-        <h2>サービス内容</h2>
-      </div>
-
-      <div class="grid-3">
-        <div class="card service-card rv rv-d1">
-          <div class="card-icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="24" cy="14" rx="12" ry="6"/>
-              <path d="M12 14v8c0 3.314 5.373 6 12 6s12-2.686 12-6v-8"/>
-              <path d="M12 22v8c0 3.314 5.373 6 12 6s12-2.686 12-6v-8"/>
-            </svg>
-          </div>
-          <h3>Notion業務基盤の設計・構築</h3>
-          <p>業務フローのヒアリングから、DB設計・リレーション・ビュー・ダッシュボード構築まで一貫して対応いたします。テンプレートの横流しではなく、業務に合わせたオーダーメイド設計です。</p>
-        </div>
-
-        <div class="card service-card rv rv-d2">
-          <div class="card-icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="24" cy="20" r="10"/>
-              <path d="M18 16l3 4 3-2 3 2 3-4"/>
-              <path d="M16 32c2-4 5-6 8-6s6 2 8 6"/>
-              <path d="M32 20h6l2 4-2 4"/>
-              <path d="M10 20H4l-2 4 2 4"/>
-              <circle cx="24" cy="20" r="3" fill="none"/>
-              <path d="M20 38h8"/>
-              <path d="M22 38v4"/>
-              <path d="M26 38v4"/>
-            </svg>
-          </div>
-          <h3>AIエージェントの設計・構築</h3>
-          <p>NotionのカスタムAIエージェント・プロンプト設計・スキル体系設計を行います。AIが業務データを参照して提案・レポート生成・自動化を行う仕組みを構築いたします。</p>
-        </div>
-
-        <div class="card service-card rv rv-d3">
-          <div class="card-icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14 28c-2-1-4-1-6 0s-2 4 0 5l10 7"/>
-              <path d="M34 28c2-1 4-1 6 0s2 4 0 5l-10 7"/>
-              <path d="M18 40l6-5 6 5"/>
-              <circle cx="16" cy="18" r="6"/>
-              <circle cx="32" cy="18" r="6"/>
-              <path d="M22 18h4"/>
-            </svg>
-          </div>
-          <h3>運用支援・伴走サポート</h3>
-          <p>構築して終わりではなく、実際の運用に合わせた調整・改善を継続支援いたします。「自走できる状態」をゴールに、定着するまで伴走いたします。</p>
+          <div class="ba-after">Notion 1つに統合。月額3,800円/人（ビジネスプラン推奨）<br><span class="ba-note">※ゲスト招待で費用を抑えることも可能ですが、その場合Notion AIは利用できません</span></div>
         </div>
       </div>
     </div>
@@ -2092,12 +1842,27 @@
 
         <details class="faq-item">
           <summary>チームでの利用にも対応していますか？</summary>
-          <div class="faq-answer">はい、個人から10名規模のチームまで対応しております。メンバーの権限設計やオンボーディングの仕組みも含めて構築いたします。</div>
+          <div class="faq-answer">個人から100名規模のチームまで対応しております。権限設計やオンボーディングの仕組みも含めて構築いたします。</div>
         </details>
 
         <details class="faq-item">
           <summary>納品後のサポートはありますか？</summary>
           <div class="faq-answer">はい、定着するまでの運用サポートを提供しております。DB追加・エージェント構築・構造変更など、納品後の調整にも対応いたします。</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>他のツール（Salesforce / kintone / スプレッドシート等）から移行できますか？</summary>
+          <div class="faq-answer">はい、可能です。既存ツールのデータ構造を分析し、Notionへの移行プランを設計いたします。CSV取り込みやAPI連携など、データの特性に合わせた移行方法をご提案いたします。</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>AIエージェントって具体的に何をしてくれますか？</summary>
+          <div class="faq-answer">業務データを参照しながら、提案書作成・タスク整理・メール下書き・日報生成などを自動で行います。メンション一つで起動し、御社のナレッジを学習しながら精度が上がっていく仕組みです。</div>
+        </details>
+
+        <details class="faq-item">
+          <summary>自分でカスタマイズできるようになりますか？</summary>
+          <div class="faq-answer">はい、それがゴールです。操作レクチャーと設計意図の共有を行い、「なぜこの構造なのか」を理解した上で自走できる状態を目指します。納品後も必要に応じてサポートいたします。</div>
         </details>
       </div>
     </div>
@@ -2131,6 +1896,17 @@
           <div class="badge-name">Notion Advanced Badge</div>
           <div class="badge-level">上級認定</div>
           <div class="badge-status">取得済み &#10003;</div>
+        </div>
+      </div>
+
+      <div class="about-data rv">
+        <div class="about-data-item">
+          <span class="about-data-num">1億人+</span>
+          <span class="about-data-label">Notion 全世界ユーザー</span>
+        </div>
+        <div class="about-data-item">
+          <span class="about-data-num">No.1</span>
+          <span class="about-data-label">法人向け生成AI 満足度</span>
         </div>
       </div>
 
