@@ -223,9 +223,7 @@
       margin-bottom: 2rem;
     }
 
-    .gallery-title--spaced {
-      margin-top: 3rem;
-    }
+    /* (gallery-title--spaced removed) */
 
     /* ========================================
        Case Study Cards
@@ -616,67 +614,142 @@
       line-height: 1.85;
     }
 
-    /* Gallery (horizontal scroll) */
-    .gallery-title {
-      font-size: 1.1rem;
+    /* ========================================
+       Gallery Layout (PICK UP + Scroll)
+       ======================================== */
+    .gallery-category {
+      margin-bottom: 3rem;
+    }
+
+    .gallery-category:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .gallery-category-title {
       font-weight: 700;
+      font-size: 1.05rem;
       color: var(--c-navy);
-      text-align: center;
-      margin: 3rem 0 1.5rem;
+      margin-bottom: 1.2rem;
+      padding-left: 0.8rem;
+      border-left: 3px solid var(--c-gold);
+    }
+
+    .gallery-layout {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .gallery-main {
+      flex: 0 0 340px;
+      position: relative;
+    }
+
+    .gallery-main img {
+      width: 340px;
+      height: auto;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-card);
+      border: 2px solid var(--c-gold);
+    }
+
+    .gallery-main-label {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--c-navy);
+      color: var(--c-gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      z-index: 2;
+    }
+
+    .gallery-main-caption {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--c-navy);
+      margin-top: 0.6rem;
+    }
+
+    .gallery-main-subdesc {
+      font-size: 0.8rem;
+      color: var(--c-text-mid);
+      line-height: 1.6;
+      margin-top: 0.3rem;
+    }
+
+    .gallery-scroll-wrap {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-scroll-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50px;
+      height: 100%;
+      background: linear-gradient(to right, transparent, var(--c-bg));
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .sec--alt .gallery-scroll-wrap::after {
+      background: linear-gradient(to right, transparent, var(--c-bg-alt));
+    }
+
+    .gallery-scroll-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: var(--c-navy);
+      color: var(--c-gold-light);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .gallery-scroll {
+      display: grid;
+      grid-template-rows: 160px 160px;
+      grid-auto-flow: column;
+      grid-auto-columns: 220px;
+      gap: 0.75rem;
       overflow-x: auto;
+      overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 1rem;
-      margin: 0 -4vw;
-      padding-left: 4vw;
-      padding-right: 4vw;
+      scrollbar-width: none;
     }
 
     .gallery-scroll::-webkit-scrollbar {
-      height: 6px;
+      display: none;
     }
 
-    .gallery-scroll::-webkit-scrollbar-track {
-      background: var(--c-bg-alt);
-      border-radius: 3px;
-    }
-
-    .gallery-scroll::-webkit-scrollbar-thumb {
-      background: var(--c-border);
-      border-radius: 3px;
-    }
-
-    .gallery-track {
-      display: flex;
-      gap: 1.25rem;
-      width: max-content;
-    }
-
-    .gallery-item {
-      flex-shrink: 0;
-      width: 420px;
-    }
-
-    .gallery-img {
+    .gallery-scroll img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-card);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: var(--shadow-sm);
+      opacity: 0.85;
+      transition: transform 0.2s, opacity 0.2s;
     }
 
-    .gallery-img:hover {
-      transform: translateY(-4px);
+    .gallery-scroll img:hover {
+      transform: scale(1.03);
       box-shadow: var(--shadow-md);
-    }
-
-    .gallery-item figcaption {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--c-text-mid);
-      margin-top: 0.6rem;
-      font-weight: 500;
+      opacity: 1;
     }
 
     /* ========================================
@@ -764,114 +837,9 @@
     .skill-category--writing { background: rgba(0,0,0,0.06); color: #555; }
     .skill-category--content { background: rgba(76,175,80,0.12); color: #2E7D32; }
 
-    /* ========================================
-       PICK UP + Scroll Layout
-       ======================================== */
-    .pickup-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
+    /* (pickup-layout removed — replaced by gallery-layout) */
 
-    .pickup-main {
-      position: relative;
-    }
-
-    .pickup-main img {
-      width: 100%;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-card);
-    }
-
-    .pickup-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--c-navy);
-      color: var(--c-gold);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 0.3rem 0.8rem;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-    }
-
-    .pickup-desc {
-      margin-top: 1rem;
-    }
-
-    .pickup-desc h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .pickup-desc p {
-      font-size: 0.85rem;
-      color: var(--c-text-mid);
-      line-height: 1.7;
-    }
-
-    .pickup-scroll {
-      overflow-y: auto;
-      max-height: 400px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-      padding-right: 0.5rem;
-    }
-
-    .pickup-scroll::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    .pickup-scroll::-webkit-scrollbar-thumb {
-      background: var(--c-border);
-      border-radius: 2px;
-    }
-
-    .pickup-scroll img {
-      width: 100%;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .pickup-scroll figcaption {
-      font-size: 0.75rem;
-      color: var(--c-text-mid);
-      text-align: center;
-      margin-top: 0.3rem;
-    }
-
-    /* ========================================
-       Skill Compact Card (for pickup-scroll)
-       ======================================== */
-    .skill-compact-card {
-      background: var(--c-white);
-      border: 1px solid var(--c-border);
-      border-radius: var(--radius-sm);
-      padding: 0.75rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      text-align: center;
-    }
-
-    .skill-compact-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    .skill-compact-name {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--c-navy);
-    }
+    /* (pickup-desc, pickup-scroll, skill-compact-card removed) */
 
     /* ========================================
        Advantage Block (93% framing)
@@ -1273,12 +1241,20 @@
         text-align: center;
       }
 
-      .pickup-layout {
-        grid-template-columns: 1fr;
+      .gallery-layout { flex-direction: column; }
+      .gallery-main { flex: none; }
+      .gallery-main img { width: 100%; height: auto; }
+      .gallery-scroll {
+        display: flex;
+        flex-wrap: nowrap;
+        height: auto;
+        grid-template-rows: none;
       }
-      .pickup-scroll {
-        max-height: none;
-        overflow-y: visible;
+      .gallery-scroll img {
+        width: 150px;
+        height: 150px;
+        min-width: 150px;
+        min-height: 150px;
       }
 
       .about-data {
@@ -1546,41 +1522,28 @@
       </div>
 
       <!-- 各モジュールの画面 -->
-      <h3 class="gallery-title rv">各モジュールの画面</h3>
-      <div class="pickup-layout rv">
-        <div class="pickup-main">
-          <span class="pickup-badge">PICK UP</span>
-          <img src="images/dashboard.png" alt="デイリーダッシュボード">
-          <div class="pickup-desc">
-            <h4>デイリーダッシュボード</h4>
-            <p>Notionを開いた瞬間、今日やるべきことが一目でわかるダッシュボードです。タスク・スケジュール・通知が集約されています。</p>
+      <div class="gallery-category rv">
+        <h3 class="gallery-category-title">各モジュールの画面</h3>
+        <div class="gallery-layout">
+          <div class="gallery-main">
+            <span class="gallery-main-label">PICK UP</span>
+            <img src="images/dashboard.png" alt="デイリーダッシュボード" loading="lazy">
+            <p class="gallery-main-caption">デイリーダッシュボード</p>
           </div>
-        </div>
-        <div class="pickup-scroll">
-          <figure>
-            <img src="images/crm.png" alt="企業情報・名刺情報一覧">
-            <figcaption>企業情報・名刺情報一覧</figcaption>
-          </figure>
-          <figure>
-            <img src="images/pj-deal.png" alt="PJ・商談情報・活動ログ・MTG一覧">
-            <figcaption>PJ・商談・活動ログ・MTG</figcaption>
-          </figure>
-          <figure>
-            <img src="images/task.png" alt="ゴール直結型タスク管理">
-            <figcaption>ゴール直結型タスク管理</figcaption>
-          </figure>
-          <figure>
-            <img src="images/knowledge.png" alt="ナレッジベース一覧">
-            <figcaption>ナレッジベース一覧</figcaption>
-          </figure>
-          <figure>
-            <img src="images/ai-agent.png" alt="マニュアル・AIエージェント管理">
-            <figcaption>マニュアル・AIエージェント管理</figcaption>
-          </figure>
-          <figure>
-            <img src="images/accounting.png" alt="経理ダッシュボード">
-            <figcaption>経理ダッシュボード</figcaption>
-          </figure>
+          <div class="gallery-scroll-wrap">
+            <div class="gallery-scroll-hint">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" fill="currentColor"/></svg>
+              スワイプ
+            </div>
+            <div class="gallery-scroll">
+              <img src="images/crm.png" alt="CRM" loading="lazy">
+              <img src="images/pj-deal.png" alt="PJ・商談" loading="lazy">
+              <img src="images/task.png" alt="タスク管理" loading="lazy">
+              <img src="images/knowledge.png" alt="ナレッジベース" loading="lazy">
+              <img src="images/ai-agent.png" alt="AIエージェント" loading="lazy">
+              <img src="images/accounting.png" alt="経理" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1589,80 +1552,28 @@
         <h3 class="ai-skill-section-title rv">スキル紹介（増設中）</h3>
         <p class="ai-skill-section-desc rv">マスターAIが呼び出すカスタムスキルの一覧です。業務に合わせて追加・カスタマイズが可能です。</p>
 
-        <div class="pickup-layout rv">
-          <div class="pickup-main">
-            <span class="pickup-badge">PICK UP</span>
-            <img src="images/skill-1.png" alt="ドキュメントデザイン">
-            <div class="pickup-desc">
-              <h4>ドキュメントデザイン</h4>
-              <p>Notionページの見出し構造・ナンバリング・色設計を統一フォーマットで自動整形いたします。ページを渡すだけで、読みやすいドキュメントに仕上がります。</p>
+        <div class="gallery-category rv">
+          <div class="gallery-layout">
+            <div class="gallery-main">
+              <span class="gallery-main-label">PICK UP</span>
+              <img src="images/skill-1.png" alt="ドキュメントデザイン" loading="lazy">
+              <p class="gallery-main-caption">ドキュメントデザイン <span class="skill-category skill-category--system">システム</span></p>
+              <p class="gallery-main-subdesc">Notionページの見出し構造・色設計を統一フォーマットで自動整形いたします。</p>
             </div>
-          </div>
-          <div class="pickup-scroll">
-            <div class="skill-compact-card">
-              <img src="images/skill-2.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">スキル作成</span>
-              <span class="skill-category skill-category--system">システム</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-3.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">自社商品まとめ</span>
-              <span class="skill-category skill-category--system">システム</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-8.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">AI作業ログ記録</span>
-              <span class="skill-category skill-category--system">システム</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-3.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">チャット引き継ぎ</span>
-              <span class="skill-category skill-category--system">システム</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-3.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">名刺取り込み</span>
-              <span class="skill-category skill-category--system">システム</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-7.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">提案書作成</span>
-              <span class="skill-category skill-category--writing">ライティング</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-6.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">メール作成</span>
-              <span class="skill-category skill-category--writing">ライティング</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-1.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">Xポストクリエイター</span>
-              <span class="skill-category skill-category--content">コンテンツ作成</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-4.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">ゴール設定→PJ化</span>
-              <span class="skill-category skill-category--planning">プランニング</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-5.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">タスク提案</span>
-              <span class="skill-category skill-category--planning">プランニング</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-5.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">MTG事前準備</span>
-              <span class="skill-category skill-category--planning">プランニング</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-5.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">タスク整理</span>
-              <span class="skill-category skill-category--planning">プランニング</span>
-            </div>
-            <div class="skill-compact-card">
-              <img src="images/skill-4.png" alt="" class="skill-compact-icon">
-              <span class="skill-compact-name">タグ整理</span>
-              <span class="skill-category skill-category--planning">プランニング</span>
+            <div class="gallery-scroll-wrap">
+              <div class="gallery-scroll-hint">
+                <svg viewBox="0 0 24 24" width="14" height="14"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" fill="currentColor"/></svg>
+                スワイプ
+              </div>
+              <div class="gallery-scroll">
+                <img src="images/skill-2.png" alt="スキル作成" loading="lazy">
+                <img src="images/skill-3.png" alt="自社商品まとめ" loading="lazy">
+                <img src="images/skill-4.png" alt="ゴール設定→PJ化" loading="lazy">
+                <img src="images/skill-5.png" alt="タスク提案" loading="lazy">
+                <img src="images/skill-6.png" alt="メール作成" loading="lazy">
+                <img src="images/skill-7.png" alt="提案書作成" loading="lazy">
+                <img src="images/skill-8.png" alt="AI作業ログ記録" loading="lazy">
+              </div>
             </div>
           </div>
         </div>
@@ -1671,49 +1582,31 @@
       </div>
 
       <!-- 各種ダッシュボード -->
-      <h3 class="gallery-title gallery-title--spaced rv">各種ダッシュボード</h3>
-      <div class="pickup-layout rv">
-        <div class="pickup-main">
-          <span class="pickup-badge">PICK UP</span>
-          <img src="images/tab-01.png" alt="企業情報ダッシュボード">
-          <div class="pickup-desc">
-            <h4>企業情報</h4>
-            <p>業種別・従業員数別の登録件数をチャートで可視化。保存済み企業の一覧テーブルも同一画面で確認できます。</p>
+      <div class="gallery-category rv">
+        <h3 class="gallery-category-title">各種ダッシュボード</h3>
+        <div class="gallery-layout">
+          <div class="gallery-main">
+            <span class="gallery-main-label">PICK UP</span>
+            <img src="images/tab-01.png" alt="企業情報ダッシュボード" loading="lazy">
+            <p class="gallery-main-caption">企業情報ダッシュボード</p>
+            <p class="gallery-main-subdesc">業種別・従業員数別の登録件数をチャートで可視化。保存済み企業の一覧も同一画面で確認できます。</p>
           </div>
-        </div>
-        <div class="pickup-scroll">
-          <figure>
-            <img src="images/tab-02.png" alt="名刺情報ダッシュボード">
-            <figcaption>名刺情報</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-03.png" alt="PJ関連情報ダッシュボード">
-            <figcaption>PJ関連情報</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-04.png" alt="MTG・活動ログ情報ダッシュボード">
-            <figcaption>MTG・活動ログ情報</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-05.png" alt="ナレッジベースダッシュボード">
-            <figcaption>ナレッジベース</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-06.png" alt="AI活用状況ダッシュボード">
-            <figcaption>AI活用状況</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-07.png" alt="請求・売上管理ダッシュボード">
-            <figcaption>請求・売上管理</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-08.png" alt="支出明細管理ダッシュボード">
-            <figcaption>支出明細管理</figcaption>
-          </figure>
-          <figure>
-            <img src="images/tab-09.png" alt="収支集計ダッシュボード">
-            <figcaption>収支集計</figcaption>
-          </figure>
+          <div class="gallery-scroll-wrap">
+            <div class="gallery-scroll-hint">
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" fill="currentColor"/></svg>
+              スワイプ
+            </div>
+            <div class="gallery-scroll">
+              <img src="images/tab-02.png" alt="名刺情報" loading="lazy">
+              <img src="images/tab-03.png" alt="PJ関連情報" loading="lazy">
+              <img src="images/tab-04.png" alt="MTG・活動ログ" loading="lazy">
+              <img src="images/tab-05.png" alt="ナレッジベース" loading="lazy">
+              <img src="images/tab-06.png" alt="AI活用状況" loading="lazy">
+              <img src="images/tab-07.png" alt="請求・売上管理" loading="lazy">
+              <img src="images/tab-08.png" alt="支出明細管理" loading="lazy">
+              <img src="images/tab-09.png" alt="収支集計" loading="lazy">
+            </div>
+          </div>
         </div>
       </div>
 
