@@ -622,7 +622,7 @@
        Gallery Layout (PICK UP + Scroll)
        ======================================== */
     .gallery-category {
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
     }
 
     .gallery-category:last-of-type {
@@ -631,9 +631,18 @@
 
     .gallery-category-title {
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--c-navy);
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+
+    .gallery-category-desc {
+      font-size: 0.9rem;
+      color: var(--c-text-mid);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
       text-align: center;
     }
 
@@ -800,33 +809,6 @@
     /* ========================================
        AI Skill Cards (Section 1)
        ======================================== */
-    .ai-skill-section {
-      margin-top: 3.5rem;
-    }
-
-    .ai-skill-section-title {
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.75rem;
-    }
-
-    .ai-skill-section-desc {
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--c-text-mid);
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      line-height: 1.7;
-    }
-
-    .ai-skill-section-note {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--c-text-mid);
-      margin-top: 1.25rem;
-    }
 
     .skill-scroll-card {
       flex-shrink: 0;
@@ -891,7 +873,7 @@
        ======================================== */
     .modules-block {
       max-width: 900px;
-      margin: 0 auto 4rem;
+      margin: 0 auto 5rem;
       padding: 2.5rem;
       background: var(--c-white);
       border: 1px solid var(--c-border);
@@ -1695,11 +1677,9 @@
       </div>
 
       <!-- スキル紹介 -->
-      <div class="ai-skill-section">
-        <h3 class="ai-skill-section-title rv">スキル紹介（増設中）</h3>
-        <p class="ai-skill-section-desc rv">マスターAIが呼び出すカスタムスキルの一覧です。業務に合わせて追加・カスタマイズが可能です。現在17スキル稼働中、継続的に増設しております。</p>
-
-        <div class="gallery-category rv">
+      <div class="gallery-category rv">
+        <h3 class="gallery-category-title">スキル紹介（増設中）</h3>
+        <p class="gallery-category-desc">マスターAIが呼び出すカスタムスキルの一覧です。業務に合わせて追加・カスタマイズが可能です。現在17スキル稼働中、継続的に増設しております。</p>
           <div class="gallery-content">
             <div class="gallery-main gallery-main--icon">
               <span class="gallery-main-label">PICK UP</span>
@@ -1723,8 +1703,6 @@
               </div>
             </div>
           </div>
-        </div>
-
       </div>
 
       <!-- 各種ダッシュボード -->
