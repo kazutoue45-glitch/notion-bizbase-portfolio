@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBFAF5"/>
+      <stop offset="1" stop-color="#F4F0E0"/>
+    </linearGradient>
+    <radialGradient id="glow3" cx="0.5" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#bg3)"/>
+  <ellipse cx="400" cy="280" rx="320" ry="200" fill="url(#glow3)"/>
+
+  <!-- 左上：脳のシルエット（簡略） -->
+  <g transform="translate(40,40)" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.2">
+    <path d="M30 10 q-20 0 -22 18 q-12 4 -10 18 q-8 6 -2 18 q-4 12 8 16 q4 12 18 12 q6 8 16 6 q14 4 22 -8 q12 -2 14 -14 q10 -6 6 -18 q6 -12 -4 -20 q0 -14 -14 -16 q-6 -10 -16 -10 q-8 -4 -16 -2 z"/>
+    <path d="M30 30 q6 8 14 4"/>
+    <path d="M50 40 q4 6 -2 12"/>
+  </g>
+
+  <!-- 右上：上昇グラフ -->
+  <g transform="translate(680,50)" fill="none" stroke="#C8A84E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+    <line x1="0" y1="60" x2="80" y2="60"/>
+    <line x1="0" y1="60" x2="0" y2="0"/>
+    <polyline points="8,50 22,38 36,42 50,22 66,8"/>
+    <circle cx="66" cy="8" r="3" fill="#C8A84E"/>
+    <path d="M58 14 l8 -6 l4 8" stroke-opacity="0"/>
+    <path d="M64 0 l4 6 l-8 0 z" fill="#C8A84E" stroke="none"/>
+  </g>
+
+  <!-- 左下：データベース → AI -->
+  <g transform="translate(40,450)" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.2">
+    <ellipse cx="18" cy="8" rx="18" ry="6"/>
+    <path d="M0 8 v30 a18 6 0 0 0 36 0 v-30"/>
+    <path d="M0 22 a18 6 0 0 0 36 0"/>
+    <path d="M44 24 q12 0 22 0" stroke-dasharray="2 4"/>
+    <path d="M64 18 l8 6 l-8 6"/>
+  </g>
+
+  <!-- 右下：チェック付き電球（学習・気づき） -->
+  <g transform="translate(690,440)" fill="none" stroke="#C8A84E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+    <path d="M30 10 q-20 0 -20 22 q0 14 14 22 v8 h12 v-8 q14 -8 14 -22 q0 -22 -20 -22 z"/>
+    <line x1="22" y1="68" x2="38" y2="68"/>
+    <line x1="24" y1="74" x2="36" y2="74"/>
+    <g stroke-width="2">
+      <line x1="30" y1="0" x2="30" y2="-6"/>
+      <line x1="10" y1="20" x2="4" y2="18"/>
+      <line x1="50" y1="20" x2="56" y2="18"/>
+    </g>
+  </g>
+
+  <!-- スパークル -->
+  <g fill="#C8A84E" opacity="0.45">
+    <path d="M170 90 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z"/>
+    <path d="M620 130 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 z"/>
+    <path d="M170 460 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 z"/>
+    <path d="M610 470 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 z"/>
+  </g>
+
+  <!-- 接続ライン -->
+  <g stroke="#1B2A4A" stroke-width="1" stroke-dasharray="2 5" fill="none" opacity="0.15">
+    <path d="M130 110 q140 0 230 60"/>
+    <path d="M460 460 q120 -30 220 -20"/>
+  </g>
+</svg>

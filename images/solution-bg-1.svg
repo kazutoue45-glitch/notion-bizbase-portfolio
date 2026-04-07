@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBFAF5"/>
+      <stop offset="1" stop-color="#F4F1E6"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="560" fill="url(#bg1)"/>
+  <ellipse cx="400" cy="280" rx="320" ry="200" fill="url(#glow1)"/>
+
+  <!-- 左上：書類アイコン -->
+  <g transform="translate(40,40)" fill="none" stroke="#1B2A4A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.18">
+    <rect x="0" y="0" width="60" height="76" rx="6"/>
+    <line x1="12" y1="22" x2="48" y2="22"/>
+    <line x1="12" y1="36" x2="48" y2="36"/>
+    <line x1="12" y1="50" x2="36" y2="50"/>
+  </g>
+
+  <!-- 左下：データベース -->
+  <g transform="translate(50,440)" fill="none" stroke="#C8A84E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.32">
+    <ellipse cx="32" cy="10" rx="32" ry="10"/>
+    <path d="M0 10 v40 a32 10 0 0 0 64 0 v-40"/>
+    <path d="M0 30 a32 10 0 0 0 64 0"/>
+  </g>
+
+  <!-- 右上：虫眼鏡 -->
+  <g transform="translate(680,50)" fill="none" stroke="#1B2A4A" stroke-width="3" stroke-linecap="round" opacity="0.2">
+    <circle cx="30" cy="30" r="26"/>
+    <line x1="50" y1="50" x2="74" y2="74"/>
+  </g>
+
+  <!-- 右下：タグ・ノード -->
+  <g transform="translate(660,440)" fill="none" stroke="#C8A84E" stroke-width="2.5" opacity="0.35">
+    <circle cx="20" cy="20" r="8" fill="#C8A84E" fill-opacity="0.25"/>
+    <circle cx="80" cy="20" r="8" fill="#C8A84E" fill-opacity="0.25"/>
+    <circle cx="50" cy="70" r="8" fill="#C8A84E" fill-opacity="0.25"/>
+    <line x1="20" y1="20" x2="50" y2="70"/>
+    <line x1="80" y1="20" x2="50" y2="70"/>
+    <line x1="20" y1="20" x2="80" y2="20"/>
+  </g>
+
+  <!-- ふんわりドット -->
+  <g fill="#1B2A4A" opacity="0.08">
+    <circle cx="160" cy="120" r="3"/>
+    <circle cx="200" cy="80" r="2"/>
+    <circle cx="630" cy="170" r="3"/>
+    <circle cx="700" cy="220" r="2"/>
+    <circle cx="140" cy="380" r="2"/>
+    <circle cx="650" cy="380" r="3"/>
+  </g>
+</svg>

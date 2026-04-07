@@ -363,7 +363,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.62) 60%, rgba(255, 255, 255, 0.72) 100%);
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 65%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
       z-index: -1;
     }
 
@@ -378,9 +379,9 @@
       z-index: 1;
     }
 
-    .solution-card--1 { background-image: url('images/solution-bg-1.png'); }
-    .solution-card--2 { background-image: url('images/solution-bg-2.png'); }
-    .solution-card--3 { background-image: url('images/solution-bg-3.png'); }
+    .solution-card--1 { background-image: url('images/solution-bg-1.svg'); }
+    .solution-card--2 { background-image: url('images/solution-bg-2.svg'); }
+    .solution-card--3 { background-image: url('images/solution-bg-3.svg'); }
 
     .solution-card .card-icon {
       width: 56px;
