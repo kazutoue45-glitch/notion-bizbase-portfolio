@@ -878,13 +878,28 @@
       border-radius: var(--radius-sm);
       box-shadow: var(--shadow-sm);
       opacity: 0.85;
-      transition: transform 0.2s, opacity 0.2s;
+      transition: transform 0.2s, opacity 0.2s, box-shadow 0.2s;
     }
 
     .gallery-scroll img:hover {
       transform: scale(1.03);
       box-shadow: var(--shadow-md);
       opacity: 1;
+    }
+
+    /* スクリーンショットをカード風の枠で囲む（ラベル付きスキルには適用しない） */
+    .gallery-scroll:not(.gallery-scroll--labeled) img {
+      background: #ffffff;
+      padding: 8px;
+      border: 1px solid rgba(27, 42, 74, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(27, 42, 74, 0.14), 0 2px 6px rgba(27, 42, 74, 0.08);
+      opacity: 1;
+    }
+
+    .gallery-scroll:not(.gallery-scroll--labeled) img:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(27, 42, 74, 0.2), 0 4px 10px rgba(27, 42, 74, 0.1);
     }
 
     .gallery-scroll--labeled {
