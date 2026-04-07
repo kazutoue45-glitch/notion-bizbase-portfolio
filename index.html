@@ -1509,6 +1509,97 @@
     }
 
     /* ========================================
+       Contact Form
+       ======================================== */
+    .contact-form-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 16px 40px rgba(27, 42, 74, 0.14), 0 4px 10px rgba(27, 42, 74, 0.08);
+      padding: 2.75rem 2.25rem;
+      border: 1px solid rgba(27, 42, 74, 0.08);
+    }
+
+    .contact-form .form-row {
+      margin-bottom: 1.35rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-form .required {
+      display: inline-block;
+      color: #c0392b;
+      font-size: 0.7rem;
+      margin-left: 0.4rem;
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 0.95rem;
+      border: 1.5px solid rgba(27, 42, 74, 0.18);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--c-navy);
+      background: #fdfcf8;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--c-gold);
+      box-shadow: 0 0 0 3px rgba(200, 168, 78, 0.18);
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.7;
+    }
+
+    .contact-form-submit {
+      display: block;
+      width: 100%;
+      padding: 1.05rem;
+      background: var(--c-navy);
+      color: var(--c-gold);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .contact-form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(27, 42, 74, 0.22);
+    }
+
+    .contact-form-note {
+      font-size: 0.75rem;
+      color: var(--c-text-mid);
+      text-align: center;
+      margin-top: 1.25rem;
+      line-height: 1.7;
+    }
+
+    /* ========================================
        Footer
        ======================================== */
     .site-footer {
@@ -1990,6 +2081,57 @@
   </section>
 
   <!-- ========================================
+       Section: About
+       ======================================== -->
+  <section id="about" class="sec sec--dark">
+    <div class="container">
+      <div class="sec-heading rv">
+        <h2>御社の業務基盤を、&ldquo;導入&rdquo;ではなく&ldquo;設計&rdquo;から本気で作ります</h2>
+      </div>
+
+      <!-- 写真 + 名前 -->
+      <div class="about-header rv">
+        <img src="images/profile.png" alt="上原千翔" class="about-photo-img">
+        <div class="about-name-block">
+          <h3 class="about-name">上原千翔（うえはら かずと）</h3>
+          <p class="about-title">Notion × AI 業務基盤設計</p>
+        </div>
+      </div>
+
+      <!-- 本文（自己紹介） -->
+      <div class="about-bio rv">
+        <p>学習塾で教える仕事を続ける中で、AIに出会いました。複雑なものを構造化して伝える力——教育者として磨いてきたスキルが、Notion × AIの業務基盤設計にそのまま活きると気づいたのが転機です。</p>
+        <p>テンプレートの横流しはいたしません。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行います。</p>
+        <p>「わかった」「できた」「自分で回せる」をゴールに設定しております。納品して終わりではなく、自走できる状態をいっしょに作ります。</p>
+      </div>
+
+      <!-- Notion公式認定バッジ -->
+      <div class="grid-4 rv about-badges">
+        <div class="badge-card badge-card--dark">
+          <img src="images/badge-essentials.png" alt="Notion基礎バッジ" class="badge-icon">
+          <div class="badge-name">Notion基礎バッジ</div>
+          <div class="badge-status">取得済み &#10003;</div>
+        </div>
+        <div class="badge-card badge-card--dark">
+          <img src="images/badge-settings.png" alt="Notionワークフローバッジ" class="badge-icon">
+          <div class="badge-name">Notionワークフローバッジ</div>
+          <div class="badge-status">取得済み &#10003;</div>
+        </div>
+        <div class="badge-card badge-card--dark">
+          <img src="images/badge-advanced.png" alt="Notion上級バッジ" class="badge-icon">
+          <div class="badge-name">Notion上級バッジ</div>
+          <div class="badge-status">取得済み &#10003;</div>
+        </div>
+        <div class="badge-card badge-card--dark">
+          <img src="images/badge-admin.png" alt="Notion管理者認定" class="badge-icon">
+          <div class="badge-name">Notion管理者認定</div>
+          <div class="badge-status badge-status--challenging">挑戦中</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
        FAQ
        ======================================== -->
   <section id="faq" class="sec">
@@ -2048,52 +2190,43 @@
   </section>
 
   <!-- ========================================
-       Section 7: About
+       Contact Form
        ======================================== -->
-  <section id="about" class="sec sec--dark">
+  <section id="contact" class="sec sec--alt">
     <div class="container">
       <div class="sec-heading rv">
-        <h2>About</h2>
+        <h2>お問い合わせ</h2>
       </div>
 
-      <!-- 写真 + 名前 -->
-      <div class="about-header rv">
-        <img src="images/profile.png" alt="上原千翔" class="about-photo-img">
-        <div class="about-name-block">
-          <h3 class="about-name">上原千翔（うえはら かずと）</h3>
-          <p class="about-title">Notion × AI 業務基盤設計</p>
-        </div>
-      </div>
+      <div class="contact-form-card rv">
+        <form class="contact-form" action="#" method="post" onsubmit="event.preventDefault();">
+          <div class="form-row">
+            <label for="cf-name">お名前<span class="required">必須</span></label>
+            <input type="text" id="cf-name" name="name" placeholder="山田 太郎" required>
+          </div>
 
-      <!-- 本文（自己紹介） -->
-      <div class="about-bio rv">
-        <p>学習塾で教える仕事を続ける中で、AIに出会いました。複雑なものを構造化して伝える力——教育者として磨いてきたスキルが、Notion × AIの業務基盤設計にそのまま活きると気づいたのが転機です。</p>
-        <p>テンプレートの横流しはいたしません。業務をヒアリングし、課題に合わせたオーダーメイドの設計を行います。</p>
-        <p>「わかった」「できた」「自分で回せる」をゴールに設定しております。納品して終わりではなく、自走できる状態をいっしょに作ります。</p>
-      </div>
+          <div class="form-row">
+            <label for="cf-company">会社名・屋号</label>
+            <input type="text" id="cf-company" name="company" placeholder="株式会社○○">
+          </div>
 
-      <!-- Notion公式認定バッジ -->
-      <div class="grid-4 rv about-badges">
-        <div class="badge-card badge-card--dark">
-          <img src="images/badge-essentials.png" alt="Notion基礎バッジ" class="badge-icon">
-          <div class="badge-name">Notion基礎バッジ</div>
-          <div class="badge-status">取得済み &#10003;</div>
-        </div>
-        <div class="badge-card badge-card--dark">
-          <img src="images/badge-settings.png" alt="Notionワークフローバッジ" class="badge-icon">
-          <div class="badge-name">Notionワークフローバッジ</div>
-          <div class="badge-status">取得済み &#10003;</div>
-        </div>
-        <div class="badge-card badge-card--dark">
-          <img src="images/badge-advanced.png" alt="Notion上級バッジ" class="badge-icon">
-          <div class="badge-name">Notion上級バッジ</div>
-          <div class="badge-status">取得済み &#10003;</div>
-        </div>
-        <div class="badge-card badge-card--dark">
-          <img src="images/badge-admin.png" alt="Notion管理者認定" class="badge-icon">
-          <div class="badge-name">Notion管理者認定</div>
-          <div class="badge-status badge-status--challenging">挑戦中</div>
-        </div>
+          <div class="form-row">
+            <label for="cf-email">メールアドレス<span class="required">必須</span></label>
+            <input type="email" id="cf-email" name="email" placeholder="example@example.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="cf-message">ご相談内容<span class="required">必須</span></label>
+            <textarea id="cf-message" name="message" placeholder="現在の業務でお困りの点や、ご相談したい内容をお聞かせください。" required></textarea>
+          </div>
+
+          <button type="submit" class="contact-form-submit">送信する</button>
+
+          <p class="contact-form-note">
+            ご入力いただいた情報は、お問い合わせへの返信のためだけに利用いたします。<br>
+            無理な勧誘は一切行いません。
+          </p>
+        </form>
       </div>
     </div>
   </section>
