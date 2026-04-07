@@ -903,7 +903,7 @@
     }
 
     .gallery-scroll--labeled {
-      grid-template-rows: 180px 180px;
+      grid-template-rows: 200px 200px;
     }
 
     .gallery-scroll--labeled figure {
@@ -912,29 +912,49 @@
       flex-direction: column;
       height: 100%;
       margin: 0;
+      background: #ffffff;
+      border: 1px solid rgba(27, 42, 74, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(27, 42, 74, 0.14), 0 2px 6px rgba(27, 42, 74, 0.08);
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-scroll--labeled figure:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(27, 42, 74, 0.22), 0 4px 10px rgba(27, 42, 74, 0.1);
     }
 
     .gallery-scroll--labeled figure img {
       width: 100%;
       height: 140px;
-      object-fit: cover;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-sm);
-      opacity: 0.85;
-      transition: transform 0.2s, opacity 0.2s;
+      object-fit: contain;
+      background: #0F1B33;
+      padding: 14px;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
       flex-shrink: 0;
+      border-bottom: 2px solid var(--c-gold);
+      transition: none;
     }
 
     .gallery-scroll--labeled figure img:hover {
-      transform: scale(1.03);
-      opacity: 1;
+      transform: none;
     }
 
     .gallery-scroll--labeled figcaption {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--c-navy);
-      font-weight: 600;
-      margin-top: 0.4rem;
+      font-weight: 700;
+      margin-top: 0;
+      padding: 0.7rem 0.5rem;
+      background: #ffffff;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.4;
     }
 
     /* ========================================

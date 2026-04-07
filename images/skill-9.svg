@@ -1,82 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#F4F2EC"/>
-      <stop offset="1" stop-color="#E8E4D8"/>
-    </linearGradient>
-    <linearGradient id="slideBg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF"/>
-      <stop offset="1" stop-color="#F8F6F0"/>
-    </linearGradient>
-    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#C8A84E"/>
-      <stop offset="1" stop-color="#E6C97A"/>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6C97A"/>
+      <stop offset="1" stop-color="#B8923C"/>
     </linearGradient>
   </defs>
 
-  <!-- 背景 -->
-  <rect width="400" height="400" fill="url(#bg)"/>
+  <!-- ネイビー背景 -->
+  <rect width="256" height="256" fill="#0F1B33"/>
 
-  <!-- 後ろのスライド（影） -->
-  <rect x="58" y="78" width="280" height="190" rx="8" fill="#1B2A4A" opacity="0.08"/>
-  <rect x="68" y="88" width="280" height="190" rx="8" fill="#1B2A4A" opacity="0.12"/>
+  <!-- 背面スライド（影） -->
+  <rect x="50" y="58" width="156" height="100" rx="6"
+        fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.35"/>
+  <rect x="42" y="66" width="156" height="100" rx="6"
+        fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.55"/>
 
-  <!-- メインスライド -->
-  <rect x="50" y="70" width="300" height="200" rx="10" fill="url(#slideBg)" stroke="#1B2A4A" stroke-width="2.5"/>
+  <!-- メインスライド枠 -->
+  <rect x="34" y="74" width="156" height="104" rx="6"
+        fill="none" stroke="url(#goldGrad)" stroke-width="3"/>
 
-  <!-- ヘッダーバー -->
-  <rect x="50" y="70" width="300" height="32" rx="10" fill="#1B2A4A"/>
-  <rect x="50" y="92" width="300" height="10" fill="#1B2A4A"/>
-  <circle cx="68" cy="86" r="3.5" fill="#E6C97A"/>
-  <circle cx="80" cy="86" r="3.5" fill="#FFFFFF" opacity="0.6"/>
-  <circle cx="92" cy="86" r="3.5" fill="#FFFFFF" opacity="0.6"/>
+  <!-- スライドヘッダーバー -->
+  <line x1="34" y1="92" x2="190" y2="92" stroke="url(#goldGrad)" stroke-width="2"/>
+  <circle cx="44" cy="83" r="2" fill="url(#goldGrad)"/>
+  <circle cx="52" cy="83" r="2" fill="url(#goldGrad)"/>
+  <circle cx="60" cy="83" r="2" fill="url(#goldGrad)"/>
 
-  <!-- タイトル -->
-  <rect x="68" y="118" width="160" height="14" rx="3" fill="#1B2A4A"/>
-  <rect x="68" y="138" width="100" height="6" rx="2" fill="#C8A84E"/>
+  <!-- タイトルライン -->
+  <line x1="46" y1="106" x2="120" y2="106" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="46" y1="115" x2="92" y2="115" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
 
   <!-- 棒グラフ -->
-  <g transform="translate(72,160)">
-    <rect x="0" y="55" width="18" height="35" rx="2" fill="url(#bar)" opacity="0.85"/>
-    <rect x="26" y="35" width="18" height="55" rx="2" fill="url(#bar)" opacity="0.9"/>
-    <rect x="52" y="20" width="18" height="70" rx="2" fill="url(#bar)"/>
-    <rect x="78" y="5" width="18" height="85" rx="2" fill="#1B2A4A"/>
-    <line x1="-4" y1="92" x2="104" y2="92" stroke="#1B2A4A" stroke-width="1.5" stroke-linecap="round"/>
+  <g stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round">
+    <line x1="48" y1="165" x2="48" y2="148"/>
+    <line x1="58" y1="165" x2="58" y2="138"/>
+    <line x1="68" y1="165" x2="68" y2="128"/>
+    <line x1="78" y1="165" x2="78" y2="120"/>
+    <line x1="44" y1="167" x2="86" y2="167"/>
   </g>
 
-  <!-- 右側の箇条書き -->
-  <g transform="translate(195,162)">
-    <circle cx="4" cy="4" r="3.5" fill="#C8A84E"/>
-    <rect x="14" y="1" width="110" height="6" rx="2" fill="#1B2A4A" opacity="0.75"/>
-    <circle cx="4" cy="22" r="3.5" fill="#C8A84E"/>
-    <rect x="14" y="19" width="95" height="6" rx="2" fill="#1B2A4A" opacity="0.6"/>
-    <circle cx="4" cy="40" r="3.5" fill="#C8A84E"/>
-    <rect x="14" y="37" width="120" height="6" rx="2" fill="#1B2A4A" opacity="0.6"/>
-    <circle cx="4" cy="58" r="3.5" fill="#C8A84E"/>
-    <rect x="14" y="55" width="80" height="6" rx="2" fill="#1B2A4A" opacity="0.45"/>
-    <circle cx="4" cy="76" r="3.5" fill="#C8A84E"/>
-    <rect x="14" y="73" width="105" height="6" rx="2" fill="#1B2A4A" opacity="0.45"/>
+  <!-- 折れ線（右側） -->
+  <polyline points="100,160 118,148 134,152 150,134 168,124 180,128"
+            fill="none" stroke="url(#goldGrad)" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="100" cy="160" r="2.5" fill="url(#goldGrad)"/>
+  <circle cx="118" cy="148" r="2.5" fill="url(#goldGrad)"/>
+  <circle cx="134" cy="152" r="2.5" fill="url(#goldGrad)"/>
+  <circle cx="150" cy="134" r="2.5" fill="url(#goldGrad)"/>
+  <circle cx="168" cy="124" r="2.5" fill="url(#goldGrad)"/>
+  <circle cx="180" cy="128" r="2.5" fill="url(#goldGrad)"/>
+
+  <!-- ページインジケーター -->
+  <g fill="url(#goldGrad)">
+    <rect x="96" y="194" width="14" height="3" rx="1.5"/>
+    <rect x="114" y="194" width="14" height="3" rx="1.5" opacity="0.4"/>
+    <rect x="132" y="194" width="14" height="3" rx="1.5" opacity="0.4"/>
+    <rect x="150" y="194" width="14" height="3" rx="1.5" opacity="0.4"/>
   </g>
 
-  <!-- ページインジケータ -->
-  <g transform="translate(150,288)">
-    <rect x="0" y="0" width="18" height="4" rx="2" fill="#C8A84E"/>
-    <rect x="24" y="0" width="18" height="4" rx="2" fill="#1B2A4A" opacity="0.25"/>
-    <rect x="48" y="0" width="18" height="4" rx="2" fill="#1B2A4A" opacity="0.25"/>
-    <rect x="72" y="0" width="18" height="4" rx="2" fill="#1B2A4A" opacity="0.25"/>
-    <rect x="96" y="0" width="18" height="4" rx="2" fill="#1B2A4A" opacity="0.25"/>
+  <!-- 装飾ライン（角） -->
+  <g stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round" opacity="0.55">
+    <path d="M16 30 l0 -10 l10 0"/>
+    <path d="M240 30 l0 -10 l-10 0"/>
+    <path d="M16 226 l0 10 l10 0"/>
+    <path d="M240 226 l0 10 l-10 0"/>
   </g>
 
   <!-- スパークル -->
-  <g fill="#C8A84E">
-    <path d="M340 50 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" opacity="0.8"/>
-    <path d="M58 308 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 z" opacity="0.7"/>
-    <path d="M348 295 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 z" opacity="0.7"/>
-  </g>
-
-  <!-- 「PRESENTATION」ラベル -->
-  <g transform="translate(200,340)" text-anchor="middle">
-    <text font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#1B2A4A" letter-spacing="2">PRESENTATION</text>
-    <text y="20" font-family="Helvetica,Arial,sans-serif" font-size="10" font-weight="600" fill="#C8A84E" letter-spacing="3">SLIDE BUILDER</text>
+  <g fill="url(#goldGrad)" opacity="0.85">
+    <path d="M210 56 l2 6 l6 2 l-6 2 l-2 6 l-2 -6 l-6 -2 l6 -2 z"/>
+    <path d="M30 200 l1.5 4 l4 1.5 l-4 1.5 l-1.5 4 l-1.5 -4 l-4 -1.5 l4 -1.5 z"/>
   </g>
 </svg>
