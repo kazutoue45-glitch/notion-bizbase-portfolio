@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="goldGrad6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6C97A"/>
+      <stop offset="1" stop-color="#B8923C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ネイビー背景 -->
+  <rect width="256" height="256" fill="#0F1B33"/>
+
+  <!-- 装飾ライン（角） -->
+  <g stroke="url(#goldGrad6)" stroke-width="2" stroke-linecap="round" opacity="0.55">
+    <path d="M16 30 l0 -10 l10 0"/>
+    <path d="M240 30 l0 -10 l-10 0"/>
+    <path d="M16 226 l0 10 l10 0"/>
+    <path d="M240 226 l0 10 l-10 0"/>
+  </g>
+
+  <!-- 封筒の本体 -->
+  <rect x="48" y="86" width="160" height="104" rx="6"
+        fill="none" stroke="url(#goldGrad6)" stroke-width="3"/>
+
+  <!-- 封筒のフラップ（開いた状態） -->
+  <path d="M48 92 L128 148 L208 92"
+        fill="none" stroke="url(#goldGrad6)" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 封筒の下側の折り線 -->
+  <path d="M48 188 L108 142"
+        fill="none" stroke="url(#goldGrad6)" stroke-width="2"
+        stroke-linecap="round" opacity="0.7"/>
+  <path d="M208 188 L148 142"
+        fill="none" stroke="url(#goldGrad6)" stroke-width="2"
+        stroke-linecap="round" opacity="0.7"/>
+
+  <!-- 内側の手紙（線） -->
+  <line x1="78" y1="124" x2="148" y2="124"
+        stroke="url(#goldGrad6)" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+  <line x1="78" y1="134" x2="138" y2="134"
+        stroke="url(#goldGrad6)" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+
+  <!-- ペン先（右上、書いている演出） -->
+  <g stroke="url(#goldGrad6)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <line x1="170" y1="58" x2="206" y2="94"/>
+    <path d="M168 60 l-6 14 l14 -6 z" fill="url(#goldGrad6)"/>
+    <line x1="200" y1="88" x2="212" y2="76"/>
+  </g>
+
+  <!-- スパークル -->
+  <g fill="url(#goldGrad6)" opacity="0.85">
+    <path d="M40 60 l2 6 l6 2 l-6 2 l-2 6 l-2 -6 l-6 -2 l6 -2 z"/>
+    <path d="M218 200 l1.5 4 l4 1.5 l-4 1.5 l-1.5 4 l-1.5 -4 l-4 -1.5 l4 -1.5 z"/>
+  </g>
+</svg>
