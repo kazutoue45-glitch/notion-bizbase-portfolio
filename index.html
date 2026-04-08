@@ -1511,94 +1511,59 @@
     }
 
     /* ========================================
-       Contact Form
+       Contact CTA
        ======================================== */
-    .contact-form-card {
+    .contact-cta-card {
       max-width: 640px;
       margin: 0 auto;
       background: #ffffff;
       border-radius: 14px;
       box-shadow: 0 16px 40px rgba(27, 42, 74, 0.14), 0 4px 10px rgba(27, 42, 74, 0.08);
-      padding: 2.75rem 2.25rem;
+      padding: 3rem 2.25rem;
       border: 1px solid rgba(27, 42, 74, 0.08);
+      text-align: center;
     }
 
-    .contact-form .form-row {
-      margin-bottom: 1.35rem;
-    }
-
-    .contact-form label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--c-navy);
-      margin-bottom: 0.45rem;
-      letter-spacing: 0.02em;
-    }
-
-    .contact-form .required {
-      display: inline-block;
-      color: #c0392b;
-      font-size: 0.7rem;
-      margin-left: 0.4rem;
-      font-weight: 600;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem 0.95rem;
-      border: 1.5px solid rgba(27, 42, 74, 0.18);
-      border-radius: 8px;
+    .contact-cta-lead {
       font-size: 0.95rem;
-      font-family: inherit;
-      color: var(--c-navy);
-      background: #fdfcf8;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      box-sizing: border-box;
+      color: var(--c-text-mid);
+      line-height: 1.85;
+      margin: 0 0 1.75rem;
     }
 
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--c-gold);
-      box-shadow: 0 0 0 3px rgba(200, 168, 78, 0.18);
-    }
-
-    .contact-form textarea {
-      min-height: 150px;
-      resize: vertical;
-      line-height: 1.7;
-    }
-
-    .contact-form-submit {
-      display: block;
-      width: 100%;
-      padding: 1.05rem;
+    .contact-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1.1rem 2.4rem;
       background: var(--c-navy);
       color: var(--c-gold);
       border: none;
-      border-radius: 10px;
+      border-radius: 999px;
       font-size: 1rem;
       font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
+      text-decoration: none;
       transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-      margin-top: 0.5rem;
+      box-shadow: 0 8px 24px rgba(27, 42, 74, 0.18);
     }
 
-    .contact-form-submit:hover {
+    .contact-cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(27, 42, 74, 0.22);
+      box-shadow: 0 14px 32px rgba(27, 42, 74, 0.28);
+      background: #14233f;
     }
 
-    .contact-form-note {
+    .contact-cta-button svg {
+      flex-shrink: 0;
+    }
+
+    .contact-cta-note {
       font-size: 0.75rem;
       color: var(--c-text-mid);
-      text-align: center;
-      margin-top: 1.25rem;
-      line-height: 1.7;
+      margin: 1.75rem 0 0;
+      line-height: 1.75;
     }
 
     /* ========================================
@@ -2196,35 +2161,24 @@
         <h2>お問い合わせ</h2>
       </div>
 
-      <div class="contact-form-card rv">
-        <form class="contact-form" action="#" method="post" onsubmit="event.preventDefault();">
-          <div class="form-row">
-            <label for="cf-name">お名前<span class="required">必須</span></label>
-            <input type="text" id="cf-name" name="name" placeholder="山田 太郎" required>
-          </div>
+      <div class="contact-cta-card rv">
+        <p class="contact-cta-lead">
+          ご相談・お見積りは、Notion上の専用フォームから承っております。<br>
+          所要時間は約3分です。お気軽にお問い合わせください。
+        </p>
 
-          <div class="form-row">
-            <label for="cf-company">会社名・屋号</label>
-            <input type="text" id="cf-company" name="company" placeholder="株式会社○○">
-          </div>
+        <a class="contact-cta-button" href="https://www.notion.so/304556a198c7801cb5c9c6d8a97c80a5?pvs=106" target="_blank" rel="noopener noreferrer">
+          お問い合わせフォームを開く
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7"/>
+            <path d="M8 7h9v9"/>
+          </svg>
+        </a>
 
-          <div class="form-row">
-            <label for="cf-email">メールアドレス<span class="required">必須</span></label>
-            <input type="email" id="cf-email" name="email" placeholder="example@example.com" required>
-          </div>
-
-          <div class="form-row">
-            <label for="cf-message">ご相談内容<span class="required">必須</span></label>
-            <textarea id="cf-message" name="message" placeholder="現在の業務でお困りの点や、ご相談したい内容をお聞かせください。" required></textarea>
-          </div>
-
-          <button type="submit" class="contact-form-submit">送信する</button>
-
-          <p class="contact-form-note">
-            ご入力いただいた情報は、お問い合わせへの返信のためだけに利用いたします。<br>
-            無理な勧誘は一切行いません。
-          </p>
-        </form>
+        <p class="contact-cta-note">
+          ご入力いただいた情報は、お問い合わせへの返信のためだけに利用いたします。<br>
+          無理な勧誘は一切行いません。
+        </p>
       </div>
     </div>
   </section>
