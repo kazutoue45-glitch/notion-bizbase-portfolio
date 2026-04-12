@@ -130,6 +130,23 @@
       color: var(--c-gold);
     }
 
+    .header-cta {
+      background: var(--c-navy);
+      color: var(--c-gold) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .header-cta:hover {
+      background: #14233f;
+      color: var(--c-gold) !important;
+      transform: translateY(-1px);
+    }
+
     /* ========================================
        Layout Utilities
        ======================================== */
@@ -524,8 +541,33 @@
     .fv-sub {
       color: var(--c-text-on-dark-mid);
       font-size: 1.05rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       line-height: 1.7;
+    }
+
+    .fv-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--c-gold);
+      color: var(--c-navy);
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 20px rgba(196, 167, 110, 0.35);
+    }
+
+    .fv-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(196, 167, 110, 0.5);
+    }
+
+    .fv-cta svg {
+      flex-shrink: 0;
     }
 
     .fv-credential {
@@ -1566,6 +1608,20 @@
       line-height: 1.75;
     }
 
+    .sec-inline-cta {
+      padding: 2.5rem 0;
+    }
+
+    .inline-cta {
+      text-align: center;
+    }
+
+    .inline-cta-text {
+      font-size: 0.95rem;
+      color: var(--c-text-mid);
+      margin-bottom: 1.25rem;
+    }
+
     /* ========================================
        Footer
        ======================================== */
@@ -1713,6 +1769,7 @@
         <a href="#flow">ご依頼の流れ</a>
         <a href="#faq">FAQ</a>
         <a href="#about">About</a>
+        <a href="https://lin.ee/SuryxiJ" class="header-cta" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
       </nav>
     </div>
   </header>
@@ -1727,6 +1784,10 @@
           <p class="fv-catch">既製品からオーダーメイドへ</p>
           <h1>AI時代の業務基盤<br>Notion BizBase</h1>
           <p class="fv-sub">Notionを軸にCRM・タスク・ナレッジ・AIエージェントを統合。AIが御社を知るほど賢くなる、オーダーメイドの業務基盤。</p>
+          <a class="fv-cta" href="https://lin.ee/SuryxiJ" target="_blank" rel="noopener noreferrer">
+            まずはLINEで相談する
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+          </a>
         </div>
         <div class="fv-visual rv rv-d2">
           <img src="images/home.png" alt="Notion BizBase ホーム画面" class="fv-screenshot">
@@ -1963,6 +2024,19 @@
     </div>
   </section>
 
+  <!-- Inline CTA after BizBase section -->
+  <section class="sec sec-inline-cta">
+    <div class="container">
+      <div class="inline-cta rv">
+        <p class="inline-cta-text">御社の業務に合わせた構築について、お気軽にご相談ください。</p>
+        <a class="contact-cta-button" href="https://lin.ee/SuryxiJ" target="_blank" rel="noopener noreferrer">
+          公式LINEで相談する
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ========================================
        Section: Before / After
        ======================================== -->
@@ -2163,12 +2237,12 @@
 
       <div class="contact-cta-card rv">
         <p class="contact-cta-lead">
-          ご相談・お見積りは、Notion上の専用フォームから承っております。<br>
-          所要時間は約3分です。お気軽にお問い合わせください。
+          まずは公式LINEにご登録ください。<br>
+          登録後、問い合わせフォームをお送りいたします。
         </p>
 
-        <a class="contact-cta-button" href="https://www.notion.so/304556a198c7801cb5c9c6d8a97c80a5?pvs=106" target="_blank" rel="noopener noreferrer">
-          お問い合わせフォームを開く
+        <a class="contact-cta-button" href="https://lin.ee/SuryxiJ" target="_blank" rel="noopener noreferrer">
+          公式LINEで相談する
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M7 17L17 7"/>
             <path d="M8 7h9v9"/>
@@ -2176,7 +2250,7 @@
         </a>
 
         <p class="contact-cta-note">
-          ご入力いただいた情報は、お問い合わせへの返信のためだけに利用いたします。
+          LINEでお気軽にご相談ください。ご入力いただいた情報は、お問い合わせへの返信のためだけに利用いたします。
         </p>
       </div>
     </div>
